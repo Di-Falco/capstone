@@ -28,7 +28,7 @@ h2, h3, h4, h5, h6 {
 h1 {
   font-family: HangerNine;
   font-size: 108px;
-  margin-bottom: -20px;
+  margin: -15px 0 -30px 0;
 }
 h2 {
   font-size: 48px;
@@ -44,4 +44,37 @@ h5 {
 }
 h6 {
   font-size: 28px;
+}
+
+/* Styles for controlling the nav bar dropdowns*/
+nav a, input {
+  padding: 10px;
+  display: inline-block;
+  font-weight: 100;
+}
+nav ul {
+  display: inline;
+  margin: 0;
+  padding: 0;
+}
+nav ul li { display: inline-block; }
+nav ul li:hover { background: #ddd; }
+nav ul li:hover > ul { display: block; }
+nav ul li ul {
+  position: absolute;
+  min-width: 240px;
+  width: auto;
+  display: none;
+}
+nav ul li ul li {
+  background: #ddd;
+  display: block;
+  padding: 8px;
+}
+nav ul li ul li a { display: block; }
+nav ul li ul li:hover { background: #ccc; }
+nav ul ul ul li {
+  position: relative;
+  top: -70px;
+  left: 231px;
 }
