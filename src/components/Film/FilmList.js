@@ -6,7 +6,7 @@ function FilmList(props) {
     <React.Fragment>
     {Object.values(props.filmList).map((film) => 
       <Film
-        // whenFilmClicked = {props.onFilmSelection}
+        whenFilmClicked = {props.onFilmSelection}
         title = {film.title}
         year = {film.year}
         poster = {film.poster}

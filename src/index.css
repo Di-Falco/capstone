@@ -27,7 +27,7 @@ h2, h3, h4, h5, h6 {
 }
 h1 {
   font-family: HangerNine;
-  font-size: 108px;
+  font-size: 84px;
   margin: -15px 0 -30px 0;
 }
 h2 {
@@ -47,7 +47,7 @@ h6 {
 }
 
 /* Styles for controlling the nav bar dropdowns*/
-nav a, input {
+nav p, input {
   padding: 10px;
   display: inline-block;
   font-weight: 100;
@@ -57,8 +57,12 @@ nav ul {
   margin: 0;
   padding: 0;
 }
-nav ul li { display: inline-block; }
-nav ul li:hover { background: #ddd; }
+nav ul li { 
+  display: inline-block;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: center; }
+nav ul li:hover { background: #777; }
 nav ul li:hover > ul { display: block; }
 nav ul li ul {
   position: absolute;
@@ -69,12 +73,16 @@ nav ul li ul {
 nav ul li ul li {
   background: #ddd;
   display: block;
-  padding: 8px;
+  padding: 0px;
 }
-nav ul li ul li a { display: block; }
+nav ul li ul li:first-child { border-top-right-radius: 10px; }
+nav ul li ul li:last-child { 
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px; 
+}
+nav ul li ul li p { display: block; }
 nav ul li ul li:hover { background: #ccc; }
-nav ul ul ul li {
+nav ul li ul li {
   position: relative;
-  top: -70px;
-  left: 231px;
+  left: -10px;
 }
