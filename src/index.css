@@ -15,12 +15,20 @@ code {
     monospace;
 }
 
-h1, h2, h3, h4, h5, h6 {
+@font-face {
+  font-family: HangerNine;
+  src: url(~/assets/fonts/HangarNine-eW1e.ttf);
+}
+
+
+h2, h3, h4, h5, h6 {
   font-family: "MBPictureHouseTwoW01-Bold", sans-serif;
   font-weight: bold;
 }
 h1 {
-  font-size: 56px;
+  font-family: HangerNine;
+  font-size: 108px;
+  margin-bottom: -20px;
 }
 h2 {
   font-size: 48px;
