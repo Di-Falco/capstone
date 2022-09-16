@@ -4,7 +4,7 @@
 
 ### A website inspired by moviemadness.org and dedicated to the lost era of the video rental store.
 
-### Minimum Viable Product:
+## Minimum Viable Product:
 
 * Landing page with header, Display new additions or employee recommendations etc.
 * Database of movies in stock
@@ -14,7 +14,7 @@
 * Some slick styling with an as-of-yet-undertermined library
 * User login to register for screenings or reserve titles for rent
 
-### Technologies
+## Technologies
 
 * React / Redux
 * Firebase
@@ -22,7 +22,7 @@
 * IMDB or TMDB API
 * More TBD
 
-### Stretch Goals
+## Stretch Goals
 
 * Add extra features to user accounts, possible profile personalization, history of rented titles, display page for favorite movies, etc.
 * Similarly, add user data to movie details pages, including user ratings/review, comments, etc.
@@ -39,4 +39,5 @@
 * Write first draft of project proposal
 * Look into API fetch with React
 * Install Tailwind, then second guess my decision and look into alternatives
-* Test out tailwind components and fonts. trying to settle on a general style before completing any components to save myself the headache later 
+* Test out tailwind components and fonts. trying to settle on a general style before completing any components to save myself the headache later
+* Since upcoming lessons cover some topics I need to use to meet my MVP, day one is mostly about setting the groundwork for my styles / layout. I might opt to use SASS instead of Tailwind so I can have greater control over the appearance of the site.
