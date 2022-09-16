@@ -30,3 +30,11 @@
 * Add a page where users can watch the 1963 movie _Charade_, which was famously entered into the public domain immediately upon its release owing to a loophole in the copyright laws at the time and is viewable in its entirety on its own wikipedia article.
 * Incorporate functionality from letterboxd.com to connect users with their pre-exisiting movie logs and profile personalization.
 * more TBD
+
+# Project History
+
+### 9/16/2022
+
+* Set up create-react-app with placeholder components for displaying the movie list and movie detail pages
+* Write first draft of project proposal
+* Look into API fetch with React
