@@ -18,7 +18,7 @@
 
 * React / Redux
 * Firebase
-* (CSS Framework TBD)
+* Tailwind CSS
 * IMDB or TMDB API
 * More TBD
 
@@ -38,3 +38,5 @@
 * Set up create-react-app with placeholder components for displaying the movie list and movie detail pages
 * Write first draft of project proposal
 * Look into API fetch with React
+* Install Tailwind, then second guess my decision and look into alternatives
+* Test out tailwind components and fonts. trying to settle on a general style before completing any components to save myself the headache later 
