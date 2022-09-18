@@ -8,7 +8,7 @@
 
 * Landing page with header, Display new additions or employee recommendations etc.
 * Database of movies in stock
-* List of all in-stock movies where each item links to its detail page. Movie details might include title, year, poster image, director, cast/crew, description, in/out of stock, format(DVD/BluRay/VHS/LaserDisc/BetaMax/Capacitance Electronic Disc/16, 35, 70mm Film/ etc)
+* List of all in-stock movies where each item links to its detail page. Movie details might include title, year, poster image, director, cast/crew, country of origin/ language, description, in/out of stock, format(DVD/BluRay/VHS/LaserDisc/BetaMax/Capacitance Electronic Disc/16, 35, 70mm Film/ etc)
 * Page for upcoming screenings
 * Uses either IMDB or TMDB database to get movie info
 * Some slick styling with an as-of-yet-undertermined library
@@ -39,5 +39,4 @@
 * Write first draft of project proposal
 * Look into API fetch with React
 * Install Tailwind, then second guess my decision and look into alternatives
-* Test out tailwind components and fonts. trying to settle on a general style before completing any components to save myself the headache later
 * Since upcoming lessons cover some topics I need to use to meet my MVP, day one is mostly about setting the groundwork for my styles / layout. I might opt to use SASS instead of Tailwind so I can have greater control over the appearance of the site.
