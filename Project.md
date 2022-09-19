@@ -18,7 +18,7 @@
 
 * React / Redux
 * Firebase
-* Tailwind CSS
+* SASS
 * IMDB or TMDB API
 * More TBD
 
