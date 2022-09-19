@@ -1,6 +1,33 @@
-# Getting Started with Create React App
+# Movie Rental Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### by Anthony DiFalco
+
+## Project Overview
+
+A website inspired by moviemadness.org and dedicated to the lost era of the video rental store.
+
+The landing page will be styled using bootstrap and custom styles. Landing page display is tbd, but will use some universal components such as a header with a nav bar and a footer with mock store information. The site will have a database of movies in the inventory, including a details page for each movie with in-depth information and a poster image. Additional pages will include a list of upcoming screenings based on TMDB's trending movie data and a user login with some features included in the stretch goals
+
+### Technologies:
+
+* React
+* Firebase (FireStore)
+* TMDB API
+* Bootstrap
+
+## Stretch Goals
+
+* Add extra features to user accounts, possible profile personalization, history of rented titles, display page for favorite movies, etc.
+* Similarly, add user data to movie details pages, including user ratings/review, comments, etc.
+* Add custom displays for film based on the film's format, i.e. movies on VHS would appear differently from films on DVD
+* Add a page where users can watch the 1963 movie _Charade_, which was entered into the public domain immediately upon its release owing to a loophole in the copyright laws at the time and is viewable in its entirety on its own wikipedia article
+* Incorporate functionality from letterboxd.com to connect users with their pre-exisiting movie logs and profile personalization
+* more TBD
+
+### Additional Technologies:
+
+* Letterboxd API
+* SASS / SCSS
 
 ## Available Scripts
 
@@ -39,32 +66,16 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+## Project History
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 9/16/2022
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* 10:00 - 11:30 Set up create-react-app with placeholder components for displaying the movie list and movie detail pages
+* 11:30 - 12:00 Write first draft of project proposal
+* 12:30 - 13:00 Look into API fetch with React
+* 13:00 - 13:30 Install Tailwind, then second guess my decision and look into alternatives
+* 13:30 - 14:00 Start setting up routes with React router dom
+* 14:00 - 14:30 Set up basic nav bar to incorporate routes
+* 14:45 - 15:30 Clean up navbar styles
+* 15:30 - 16:30 Take pen & paper inventory of my movie collection to gather database seed data
+* Continually updated styles to get an idea for layout.
