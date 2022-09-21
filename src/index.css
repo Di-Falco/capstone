@@ -62,7 +62,7 @@ nav ul li {
   padding-left: 10px;
   padding-right: 10px;
   text-align: center; }
-nav ul li:hover { background: #777; }
+nav ul li:hover { background: #ccc; }
 nav ul li:hover > ul { display: block; }
 nav ul li ul {
   position: absolute;
