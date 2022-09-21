@@ -1,22 +1,23 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import { Nav, Navbar, NavDropdown, Container } from 'react-bootstrap';
 
 function Header() {
   return(
     <React.Fragment>
-      <nav className="navbar sticky-top navbar-expand-lg justify-content-start">
-        <h1>H1 MOVIE RENTAL</h1>
-        <ul><li>
-          <Link to="/" className="header"><h5>Home</h5></Link>
-        </li></ul>
-        <ul><li>
-          <h5 className="header">Movies</h5>
-          <ul>
-            <li><p>Placeholder</p></li>
-            <li><Link to="/movies"><p>Browse All Movies</p></Link></li>
-          </ul>
-        </li></ul>
-      </nav>
+      <Navbar bg="dark" variant="dark">
+        <Container>
+        <Navbar.Brand href="/"><h1>H1 MOVIE RENTAL</h1></Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+        <Nav className="me-auto">
+          <NavDropdown title="Movies" id="basic-nav-dropdown">
+            <NavDropdown.Item href="/">Home (Placeholder)</NavDropdown.Item>
+            <NavDropdown.Item href="/movies">Browse Movies</NavDropdown.Item>
+          </NavDropdown>
+        </Nav>
+        </Navbar.Collapse>
+        </Container>
+        </Navbar>
     </React.Fragment>
   );
 }

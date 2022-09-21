@@ -80,7 +80,8 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 * 15:30 - 16:30 Take pen & paper inventory of my movie collection to gather database seed data
 * Continually updated styles to get an idea for layout.
 
-### 9/21/2022 12:30
+### 9/21/2022 12:00 - 12:30
 
-* Spend 4 hours after class 9/20 researching database hosting options (azure with c# api backend, mongodb with node api backend)
+* Spend close to 4 hours after class 9/20 researching database hosting options (azure with c# api backend, mongodb with node api backend)
 * Revert commit after deciding to stick with firebase for simplicity...
+* 12:00 - 12:30 update navbar to use react bootstrap
