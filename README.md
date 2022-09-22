@@ -80,7 +80,7 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 * 15:30 - 16:30 Take pen & paper inventory of my movie collection to gather database seed data
 * Continually updated styles to get an idea for layout.
 
-### 9/21/2022 12:00 - 12:30, 18:00 - 19:00, 19:30 - 
+### 9/21/2022 12:00 - 12:30, 18:00 - 19:00, 19:30 - 20:45 (3:15)
 
 * Spend close to 4 hours after class 9/20 researching database hosting options (azure with c# api backend, mongodb with node api backend)
 * Revert commit after deciding to stick with firebase for simplicity...
@@ -88,3 +88,4 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 * 18:00 - 19:00 WIP: configure firebase/firestore
 * 19:30 - 20:00 add firestore
 * 20:00 - 20:45 do some light styling, as a treat
+* Ongoing: Check movie db seed data spreadsheet for accuracy
