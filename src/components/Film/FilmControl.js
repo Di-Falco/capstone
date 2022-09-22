@@ -3,12 +3,12 @@ import FilmList from './FilmList';
 import FilmDetail from './FilmDetail';
 import { collection, addDoc, doc, updateDoc, deleteDoc, onSnapshot } from 'firebase/firestore';
 import { Button } from 'react-bootstrap';
-import db from './../firebase.js';
+import db from './../../firebase.js';
 
 function FilmControl() {
 
   const [filmList, setFilmList] = useState([]);
-  const [selectedFilm, setSelectedFilm] = useState([]);
+  const [selectedFilm, setSelectedFilm] = useState(null);
   const [error, setError] = useState(null);
 
   useEffect(() => {
