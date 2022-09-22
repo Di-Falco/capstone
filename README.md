@@ -87,3 +87,4 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 * 12:00 - 12:30 update navbar to use react bootstrap
 * 18:00 - 19:00 WIP: configure firebase/firestore
 * 19:30 - 20:00 add firestore
+* 20:00 - 20:45 do some light styling, as a treat

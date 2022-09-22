@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import FilmList from './FilmList';
 import FilmDetail from './FilmDetail';
 import { collection, addDoc, doc, updateDoc, deleteDoc, onSnapshot } from 'firebase/firestore';
-import { Button } from 'react-bootstrap';
+import { Button, Container } from 'react-bootstrap';
 import db from './../../firebase.js';
 
 function FilmControl() {
@@ -58,8 +58,10 @@ function FilmControl() {
 
   return (
     <React.Fragment>
+      <Container className="main">
       {currentlyVisibleState}
-      {error ? null : <Button onClick={handleClick}>{buttonText}</Button>}
+      {error ? null : <Button className="main-button" onClick={handleClick}>{buttonText}</Button>}
+      </Container>
     </React.Fragment>
   )
 }

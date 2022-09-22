@@ -1,5 +1,6 @@
 body {
-  margin: 0;
+  background-color: #550000;
+  margin: 0 0 0 0;
   font-family: sans-serif, "MBPictureHouseOneW01";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -16,16 +17,18 @@ code {
 }
 
 
-h2, h3, h4, h5, h6 {
+h2, h3, h4, h5, h6, p {
   font-family: "MBPictureHouseTwoW01-Bold", sans-serif;
   font-weight: bold;
   margin: 0px;
   padding: 8px;
+  color: #ddd;
 }
 h1 {
   font-family: HangerNine;
   font-size: 84px;
   margin: 0 !important;
+  color: #ddd;
 }
 h2 {
   font-size: 48px;
@@ -42,63 +45,33 @@ h5 {
 h6 {
   font-size: 28px;
 }
-
-/* Styles for controlling the nav bar dropdowns*/
-nav p, input {
-  padding: 10px;
-  display: inline-block;
-  font-weight: 100;
-}
-nav ul {
-  display: inline;
-  margin: 0;
-  padding: 0;
-}
-nav ul li { 
-  display: inline-block;
-  margin: 0px;
-  padding: 0px;
-  text-align: center; 
-}
-nav ul li h5 { 
-  padding-left: 10px;
-  padding-right: 10px; 
-}
-nav ul li:hover { background: #ccc; }
-nav ul li:hover > ul { display: block; }
-nav ul li ul {
-  position: absolute;
-  min-width: 240px;
-  width: auto;
-  display: none;
-  margin: 0px;
-  padding: 0px;
-}
-nav ul li ul li {
-  background: #ddd;
-  display: block;
-  padding: 0px;
-  margin: 0px;
-}
-nav ul li ul li:first-child { border-top-right-radius: 10px; }
-nav ul li ul li:last-child { 
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px; 
-}
-nav ul li ul li p { 
-  display: block; 
-  margin: 0px; 
-}
-nav ul li ul li:hover { background: #ccc; }
-nav ul li ul li { position: relative; }
-
 .container {
-  margin-left: 5% !important;
-  margin-right: 5% !important;
+  min-width: 90%;
+  min-height: 100%;
+  margin-left: 5%;
+  margin-right: 5%;
 }
+.container .main {
+  height: 100vh;
+  background-color: #313539;
+}
+
 .nav-link {
-  font-size: 32px !important;
+  font-size: 32px;
 }
+
 .dropdown-toggle::after {
-  display: none !important;
+  display: none;
+}
+.btn {
+  background-color: #007090;
+  border: 10px double #bbb;
+  border-radius: 5px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+.btn:hover {
+  background-color: #007090 !important;
+  border: 10px double goldenrod !important;
+  color: #ffcb47 !important;
 }

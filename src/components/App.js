@@ -1,8 +1,8 @@
 import React from 'react';
-import './../App.css';
 import Header from './Header';
 import Home from './Home/Home';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './../App.css';
 import FilmControl from './Film/FilmControl';
 import { BrowserRouter as Router, Routes, Route,  } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
