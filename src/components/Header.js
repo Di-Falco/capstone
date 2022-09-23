@@ -11,9 +11,13 @@ function Header() {
         <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="me-auto">
           <NavDropdown title="Movies" id="basic-nav-dropdown">
-            <NavDropdown.Item href="/">Home (Placeholder)</NavDropdown.Item>
+            <NavDropdown.Item href="/movies/search">Search Movies</NavDropdown.Item>
             <NavDropdown.Item href="/movies">Browse Movies</NavDropdown.Item>
+            <NavDropdown.Item href="/screenings">Upcoming Screenings</NavDropdown.Item>
           </NavDropdown>
+          <Nav.Item>
+            <Nav.Link href="/events">Events</Nav.Link>
+          </Nav.Item>
         </Nav>
         </Navbar.Collapse>
         </Container>

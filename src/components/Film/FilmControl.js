@@ -47,7 +47,9 @@ function FilmControl() {
   let currentlyVisibleState = null;
   let buttonText = null;
 
-  if (selectedFilm != null) {
+  if (error) {
+    currentlyVisibleState = <p>There was an error: {error}</p>
+  } else if (selectedFilm != null) {
     currentlyVisibleState = <FilmDetail film = { selectedFilm } />
     buttonText = "Return to Movie List";
   } else {

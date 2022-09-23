@@ -1,5 +1,16 @@
+html {
+  min-height: 100vh;
+}
+
 body {
-  background-color: #550000;
+  min-height: 100%;
+  background-image: linear-gradient( 
+    #dd0000,
+    #770000,
+    #550000
+  );
+  background-size: cover;
+  background-repeat: no-repeat;
   margin: 0 0 0 0;
   font-family: sans-serif, "MBPictureHouseOneW01";
   -webkit-font-smoothing: antialiased;
@@ -16,7 +27,6 @@ code {
   src: url(~/assets/fonts/HangarNine-eW1e.ttf);
 }
 
-
 h2, h3, h4, h5, h6, p {
   font-family: "MBPictureHouseTwoW01-Bold", sans-serif;
   font-weight: bold;
@@ -26,7 +36,7 @@ h2, h3, h4, h5, h6, p {
 }
 h1 {
   font-family: HangerNine;
-  font-size: 84px;
+  font-size: 64px;
   margin: 0 !important;
   color: #ddd;
 }
@@ -45,6 +55,7 @@ h5 {
 h6 {
   font-size: 28px;
 }
+
 .container {
   min-width: 90%;
   min-height: 100%;
@@ -63,15 +74,16 @@ h6 {
 .dropdown-toggle::after {
   display: none;
 }
+
 .btn {
-  background-color: #007090;
+  background-color: #660000;
   border: 10px double #bbb;
   border-radius: 5px;
   padding-top: 3px;
   padding-bottom: 3px;
 }
+
 .btn:hover {
-  background-color: #007090 !important;
-  border: 10px double goldenrod !important;
-  color: #ffcb47 !important;
+  background-color: #660000 !important;
+  border: 10px double #ce9403 !important;
 }

@@ -89,3 +89,8 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 * 19:30 - 20:00 add firestore
 * 20:00 - 20:45 do some light styling, as a treat
 * Ongoing: Check movie db seed data spreadsheet for accuracy
+
+### 9/22/2022 21:00 - 22:00 (1:00)
+
+* 21:00 - 22:00 Manual data entry
+
