@@ -8,10 +8,9 @@ function FilmList(props) {
       <Film
         whenFilmClicked = {props.onFilmSelection}
         title = {film.title}
-        year = {film.year}
-        poster = {film.poster}
-        director = {film.director}
-        decription = {film.description}
+        releaseDate = {film.releaseDate}
+        posterUrl = {film.posterUrl}
+        overview = {film.overview}
         id = {film.id}
         key = {film.id}
       />

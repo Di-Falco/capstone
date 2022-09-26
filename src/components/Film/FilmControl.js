@@ -44,13 +44,46 @@ function FilmControl() {
     setSelectedFilm(selection);
   }
 
+  const searchTmdb = async (tmdbId) => {
+    try {
+      const response = await fetch(`https://api.themoviedb.org/3/movie/${tmdbId}?api_key=&language=en-US`);
+      if(!response.ok) {
+        console.log(response);
+        throw Error(response.statusText);
+      }
+      const jsonResponse = await response.json();
+      console.log(jsonResponse);
+      return jsonResponse;
+    } catch(error) {
+      return error.message;
+    }
+  }
+
+  const handleSeedingMovieData = async (movieToEdit) => {
+    const movieRef = doc(db, "movies", movieToEdit.id);
+    const response = await searchTmdb(movieToEdit.tmdbId);
+    movieToEdit.genres = response.genres;
+    movieToEdit.language = response.original_language;
+    movieToEdit.overview = response.overview;
+    movieToEdit.posterUrl = movieToEdit.posterUrl + response.poster_path;
+    movieToEdit.rating = response.vote_average;
+    movieToEdit.releaseDate = response.release_date;
+    movieToEdit.runtime = response.runtime;
+    if(response.language === "en") {
+    movieToEdit.tagline = response.tagline;
+    } else {
+      movieToEdit.tagline = response.original_title;
+    }
+    await updateDoc(movieRef, movieToEdit);
+  }
+
   let currentlyVisibleState = null;
   let buttonText = null;
 
   if (error) {
     currentlyVisibleState = <p>There was an error: {error}</p>
   } else if (selectedFilm != null) {
-    currentlyVisibleState = <FilmDetail film = { selectedFilm } />
+    currentlyVisibleState = <FilmDetail film = { selectedFilm } handleSeedingMovieData = { handleSeedingMovieData }/>
     buttonText = "Return to Movie List";
   } else {
     currentlyVisibleState = <FilmList filmList = { filmList }
