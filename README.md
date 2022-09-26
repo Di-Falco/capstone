@@ -102,3 +102,4 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 * 19:30 - 20:30 Organize film list layout
 * 20:30 - 21:00 Try out alternate styles for film list page
 * 21:00 - 22:00 Figured out how to add unique urls for movie details pages
+* 22:15 - 22:45 Clean up link styles and plan out future components

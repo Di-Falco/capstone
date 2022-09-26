@@ -80,12 +80,17 @@ h6 {
   display: none;
 }
 
+a {
+  text-decoration: none;
+}
+
 .btn {
   background-color: #660000;
   border: 10px double #bbb;
   border-radius: 5px;
   padding-top: 3px;
   padding-bottom: 3px;
+  max-width: fit-content;
 }
 
 .btn:hover {
