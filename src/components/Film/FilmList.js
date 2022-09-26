@@ -1,17 +1,15 @@
 import React from 'react';
 import Film from'./Film';
-import { Button, Row, Col } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 
 function FilmList(props) {
-  let amt = 0;
-  let count = 0;
   let row = 3;
 
-  const seedAll = (filmList) => {
-    filmList.forEach(film => {
-      props.handleSeedingMovieData(film);
-    });
-  }
+  // const seedAll = (filmList) => {
+  //   filmList.forEach(film => {
+  //     props.handleSeedingMovieData(film);
+  //   });
+  // }
 
   const arrayBlock = (filmList, index) => {
     const array = filmList.slice();
@@ -20,21 +18,19 @@ function FilmList(props) {
     return blocks;
   }
 
-  const tally = () => {
-    count = amt++;
-  }
+
 
   return(
-    arrayBlock(Object.values(props.filmList.slice(0,9)), row).map((row, index) => (
+    arrayBlock(Object.values(props.filmList.slice(0,12)), row).map((row, index) => (
     <React.Fragment>
-    <Row>
+    <Row key={index}>
     {(row).map((film) => 
       <React.Fragment>
-        {tally()}
-      <Col>
+      <Col key={film.id}>
       <Film
         whenFilmClicked = {props.onFilmSelection}
         title = {film.title}
+        tagline = {film.tagline}
         releaseDate = {film.releaseDate}
         posterUrl = {film.posterUrl}
         backdrop={film.backdrop}

@@ -86,7 +86,7 @@ function FilmControl() {
   if (error) {
     currentlyVisibleState = <p>There was an error: {error}</p>
   } else if (selectedFilm != null) {
-    currentlyVisibleState = <FilmDetail film = { selectedFilm } handleSeedingMovieData = { handleSeedingMovieData }/>
+    currentlyVisibleState = <FilmDetail film = { selectedFilm } filmList = { filmList } handleSeedingMovieData = { handleSeedingMovieData }/>
     buttonText = "Return to Movie List";
   } else {
     currentlyVisibleState = <FilmList filmList = { filmList }
