@@ -94,10 +94,11 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 
 * 21:00 - 22:00 Manual data entry
 
-### 9/25/2022 16:30 - 
+### 9/25/2022 16:30 - 22:00 (5:30)
 
 * 16:30 - 17:15 Set up node app to import movie list data to firebase (458 movies)
 * 17:15 - 18:30 Set up first draft of a function for automatically retrieving data for any new movie entries from tmdb. Fill all remaining fields for each movie.
 * 18:30 - 19:30 Try out some bootstrap formatting and reducing the number of movies that display in the list.
 * 19:30 - 20:30 Organize film list layout
+* 20:30 - 21:00 Try out alternate styles for film list page
 * 21:00 - 22:00 Figured out how to add unique urls for movie details pages
