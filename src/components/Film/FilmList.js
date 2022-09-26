@@ -3,6 +3,9 @@ import Film from'./Film';
 import { Button, Row, Col } from "react-bootstrap";
 
 function FilmList(props) {
+  let amt = 0;
+  let count = 0;
+  let row = 3;
 
   const seedAll = (filmList) => {
     filmList.forEach(film => {
@@ -10,11 +13,24 @@ function FilmList(props) {
     });
   }
 
+  const arrayBlock = (filmList, index) => {
+    const array = filmList.slice();
+    const blocks = [];
+    while (array.length) blocks.push(array.splice(0, index));
+    return blocks;
+  }
+
+  const tally = () => {
+    count = amt++;
+  }
+
   return(
+    arrayBlock(Object.values(props.filmList.slice(0,9)), row).map((row, index) => (
     <React.Fragment>
-    {Object.values(props.filmList.slice(0,9)).map((film) => 
+    <Row>
+    {(row).map((film) => 
       <React.Fragment>
-      <Row> 
+        {tally()}
       <Col>
       <Film
         whenFilmClicked = {props.onFilmSelection}
@@ -27,12 +43,12 @@ function FilmList(props) {
         key = {film.id}
       />
       </Col>
-      </Row>
       </React.Fragment>
     )}
-    <Button onClick={()=> seedAll(props.filmList)}>Update All</Button>
+    </Row>
+    <br />
     </React.Fragment>
-  );
+  )))
 }
 
 export default FilmList;
