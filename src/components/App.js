@@ -17,8 +17,8 @@ function App() {
         <Container>
         <Routes>
           <Route exact path="/" element={<Home/>} />
-          <Route exact path="/movies" element={<FilmControl />} />
-          <Route path="/movies?id=:id" element={<FilmDetail />} />
+          <Route exact path="/movies/:currentPage" element={<FilmControl />} />
+          <Route exact path="/movies/?id=:id" element={<FilmDetail />} />
         </Routes>
         </Container>
       </Router>

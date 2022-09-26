@@ -5,9 +5,9 @@ html {
 body {
   min-height: 100%;
   background-image: linear-gradient( 
-    #dd0000,
-    #770000,
-    #550000
+    #6e0000,
+    #4b0000,
+    #1d0000
   );
   background-size: cover;
   background-position: bottom;
@@ -69,7 +69,7 @@ h6 {
 .container .main {
   width: 100%;
   padding: 2%;
-  background-color: #313539;
+  background-color: #000;
 }
 
 .nav-link {
@@ -92,6 +92,21 @@ a {
   padding-bottom: 3px;
   max-width: fit-content;
 }
+.btn-group {
+  border-radius: 0px;
+}
+.start {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+.end {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+.btn.active {
+  background-color: #660000;
+  border-color: #ce9403;
+}
 
 .btn:hover {
   background-color: #660000 !important;
@@ -99,15 +114,21 @@ a {
 }
 
 .card {
-  min-height: 100%;
   background-color: #212529;
   color: black;
-  border: 10px double #ce9403;
+  border: 2px solid #ce9403;
+  border-radius: 0px;
+  transition: 0.25s;
 }
 .card:hover {
   box-shadow: 10px 10px 10px;
   transform: scale(1.05);
-  transition: transform 0.25s;
+}
+.card:hover > .hidden {
+  display: inline;
+}
+.card:hover > .card-img {
+  filter: brightness(10%);
 }
 .card-title, .card-subtitle, .card-text { color: #ddd; }
 .card-title {
@@ -115,8 +136,16 @@ a {
   font-size: 38px;
   text-align: center;
 }
+.card-subtitle {
+  text-align: center;
+  font-size: 30px;
+}
 .card:hover {
   cursor:pointer;
+}
+.card-img {
+  border-radius: 0px;
+  transition: 0.25s;
 }
 
 .filmBox {
@@ -125,6 +154,25 @@ a {
 }
 .filmCard {
   width: 100%;
+  height: auto;
+}
+.jumbotron {
+  width: 90%;
+  margin: auto;
+  display: block;
+  position: relative;
+  background-color: #000;
+}
+
+.backdrop {
+  width: 100%;
+  mask-image: linear-gradient(rgb(0,0,0,1), transparent);
+}
+
+.bottom-left {
+  position: absolute;
+  bottom: 8px;
+  left: 16px;
 }
 
 .poster {
@@ -135,4 +183,11 @@ a {
 .thumbnail {
   height: 180px;
   width: auto;
+}
+
+.hidden {
+  display: none;
+}
+.hidden:hover {
+  display:inline
 }

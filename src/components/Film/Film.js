@@ -18,16 +18,21 @@ function Film(props) {
   return(
     <React.Fragment>
     <Link to={{
-      pathname: "/movies", 
-      search: `?id=${props.id}`
+      pathname: `/movies/id=${props.id}`
     }}>
     <Card className="filmCard" onClick = {() => props.whenFilmClicked(props.id)}>
-      <Card.Body>
+      {/* <Card.Body>
       <Card.Title>{props.title}</Card.Title>
+      <hr />
       <Card.Subtitle>({props.releaseDate.split("-")[0]})</Card.Subtitle>
       <Card.Text>{props.tagline}</Card.Text>
-      </Card.Body>
-      <Card.Img variant="bottom" src={props.backdrop}/>
+      </Card.Body> */}
+      <Card.Img src={props.posterUrl}/>
+      <Card.ImgOverlay className="hidden">
+        <Card.Title >{props.title}</Card.Title>
+        <Card.Subtitle>({props.releaseDate.split("-")[0]})</Card.Subtitle>
+        <Card.Text>{props.overview.length > 460 ? props.overview.slice(0, 460).concat("...") : props.overview}</Card.Text>
+      </Card.ImgOverlay>
     </Card>
     </Link>
     </React.Fragment>

@@ -12,7 +12,7 @@ function Header() {
         <Nav className="me-auto">
           <NavDropdown title="Movies" id="basic-nav-dropdown">
             <NavDropdown.Item href="/movies/search">Search Movies</NavDropdown.Item>
-            <NavDropdown.Item href="/movies">Browse Movies</NavDropdown.Item>
+            <NavDropdown.Item href="/movies/1">Browse Movies</NavDropdown.Item>
             <NavDropdown.Item href="/screenings">Upcoming Screenings</NavDropdown.Item>
           </NavDropdown>
           <Nav.Item>

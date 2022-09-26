@@ -2,14 +2,20 @@ import React, { useEffect, useState } from 'react';
 import FilmList from './FilmList';
 import FilmDetail from './FilmDetail';
 import { collection, addDoc, doc, updateDoc, deleteDoc, onSnapshot } from 'firebase/firestore';
-import { Button, Container } from 'react-bootstrap';
+import { Button, Container, Form } from 'react-bootstrap';
 import db from './../../firebase.js';
+import { useNavigate, useParams } from "react-router-dom";
+
+let redirectPage;
 
 function FilmControl() {
 
   const [filmList, setFilmList] = useState([]);
   const [selectedFilm, setSelectedFilm] = useState(null);
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
+  let { currentPage } = useParams();
+  (currentPage).includes("id") ? (redirectPage === undefined ? redirectPage = 1 : redirectPage = redirectPage) : (redirectPage = currentPage);
 
   useEffect(() => {
     const unSubscribe = onSnapshot(
@@ -32,9 +38,11 @@ function FilmControl() {
     return () => unSubscribe();
   }, []);
 
-  const handleClick = () => {
+  const handleClick = (event) => {
+    console.log("CURRENT PAGE: " + currentPage);
     if (selectedFilm != null) {
-      setSelectedFilm(null);
+      console.log("REDIRECT PAGE: " + redirectPage);
+      navigate(`/movies/${redirectPage}`);
     }
   }
 
@@ -78,6 +86,7 @@ function FilmControl() {
       movieToEdit.tagline = response.original_title;
     }
     await updateDoc(movieRef, movieToEdit);
+    console.log("UPDATE REACHED");
   }
 
   let currentlyVisibleState = null;
@@ -86,20 +95,30 @@ function FilmControl() {
   if (error) {
     currentlyVisibleState = <p>There was an error: {error}</p>
   } else if (selectedFilm != null) {
-    currentlyVisibleState = <FilmDetail film = { selectedFilm } filmList = { filmList } handleSeedingMovieData = { handleSeedingMovieData }/>
+    currentlyVisibleState = 
+    <FilmDetail 
+      film = { selectedFilm } 
+      filmList = { filmList } 
+      handleSeedingMovieData = { handleSeedingMovieData } />
     buttonText = "Return to Movie List";
   } else {
-    currentlyVisibleState = <FilmList filmList = { filmList }
-    onFilmSelection = { handleChangingSelectedFilm }
-    handleSeedingMovieData = { handleSeedingMovieData } />
+    currentlyVisibleState = 
+    <FilmList 
+      filmList = { filmList }
+      onFilmSelection = { handleChangingSelectedFilm }
+      handleSeedingMovieData = { handleSeedingMovieData } />
     buttonText = "Placeholder";
   }
 
   return (
     <React.Fragment>
-      <Container className="main">
       {currentlyVisibleState}
-      {error ? null : <Button className="main-button" onClick={handleClick}>{buttonText}</Button>}
+      <Container className="main">
+      {error ? null : 
+        <Form onSubmit={handleClick}>
+          <Button className="main-button" type="submit">{buttonText}</Button>
+        </Form>
+      }
       </Container>
     </React.Fragment>
   )

@@ -1,9 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Button, Image, Row, Col } from "react-bootstrap";
+import { Button, Image, Row, Col, Container } from "react-bootstrap";
 import { useSearchParams } from "react-router-dom";
 
 function FilmDetail(props) {
+  console.log(props.film.tmdbId);
   const [searchParams] = useSearchParams();
   const id = searchParams.get("id");
   let film;
@@ -17,17 +18,19 @@ function FilmDetail(props) {
 
   return (
     <React.Fragment>
+      <div className="jumbotron">
+        <Image className="backdrop" src={`${film.backdrop}`}/>
+      </div>
+        <Container className="main">
       <h2>{film.title} ({film.releaseDate.split("-")[0]})</h2>
       <h4>{film.tagline}</h4>
       <Row>
-      <Col sm={4}>
-      <Image className="poster mb-5" rounded="true" src={`${film.posterUrl}`}/>
-      </Col>
       <Col sm={8}>
       <p>{film.overview}</p>
       </Col>
       </Row>
       <Button onClick = { () => handleSeedingMovieData(film) }>Update Movie Info</Button>
+      </Container>
     </React.Fragment>
   );
 }

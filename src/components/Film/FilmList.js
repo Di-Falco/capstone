@@ -1,15 +1,49 @@
 import React from 'react';
 import Film from'./Film';
-import { Row, Col } from "react-bootstrap";
+import { Row, Col, Container, Button } from "react-bootstrap";
+import { useParams, Link } from "react-router-dom";
+import { getMouseEventOptions } from '@testing-library/user-event/dist/utils';
 
 function FilmList(props) {
+  let { currentPage } = useParams();
+  currentPage = Number(currentPage);
+
   let row = 3;
+  let pages = 0;
 
   // const seedAll = (filmList) => {
   //   filmList.forEach(film => {
   //     props.handleSeedingMovieData(film);
   //   });
   // }
+
+  pages = Math.floor(props.filmList.length/12) + 1 
+  const page = [];
+  page.push(
+    <Link to={{
+      pathname: `/movies/${ currentPage > 1 ? currentPage - 1: 1 }`
+    }}>
+      <Button className="start">Prev</Button>
+    </Link>
+  );
+  if (currentPage > pages - 2) page.push(<Link><Button className="btn-group">...</Button></Link>);
+  for (let i = (currentPage > 2 ? currentPage-2 : 1); i <= (currentPage <= pages-2 ? currentPage+2 : pages); i++) {
+    page.push(
+      <Link to={{
+        pathname: `/movies/${i}`
+      }}>
+      <Button key={i} className="btn-group" active={i === currentPage}> {i} </Button>
+      </Link>
+    );
+  }
+  if (currentPage < 2) page.push(<Link><Button className="btn-group">...</Button></Link>);
+  page.push(
+    <Link to={{
+      pathname: `/movies/${ currentPage > 1 ? currentPage - 1: 1 }`
+    }}>
+      <Button className="end">Next</Button>
+    </Link>
+  );
 
   const arrayBlock = (filmList, index) => {
     const array = filmList.slice();
@@ -18,12 +52,20 @@ function FilmList(props) {
     return blocks;
   }
 
+  // function splitList(filmList) {
+  //   for (let i=page*12; i< page*12+12; i++) {
 
+  //   }
+  // }
 
+  const x = currentPage*12-12;
+  const y = currentPage*12;
   return(
-    arrayBlock(Object.values(props.filmList.slice(0,12)), row).map((row, index) => (
     <React.Fragment>
-    <Row key={index}>
+            <Container className="main">
+    { arrayBlock(Object.values(props.filmList.slice(x,y)), row).map((row, index) => (
+    <React.Fragment>
+    <Row>
     {(row).map((film) => 
       <React.Fragment>
       <Col key={film.id}>
@@ -44,7 +86,11 @@ function FilmList(props) {
     </Row>
     <br />
     </React.Fragment>
-  )))
+  ))}
+  {page}
+  </Container>
+  </React.Fragment>
+  );
 }
 
 export default FilmList;
