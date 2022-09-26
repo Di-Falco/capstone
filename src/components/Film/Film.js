@@ -1,14 +1,16 @@
-import React from 'react';
+import React from "react";
+import { Card } from "react-bootstrap";
 
 function Film(props) {
   return(
     <React.Fragment>
-    <div onClick = {() => props.whenFilmClicked(props.id)}>
-      <h3>{props.title} ({props.releaseDate})</h3>
-      <h1>{props.poster}</h1>
-      <h5>{props.overview}</h5>
-    </div>
-    <hr />
+    <Card className="filmCard" onClick = {() => props.whenFilmClicked(props.id)}>
+      <Card.Img variant="top" src={props.backdrop}/>
+      <Card.Body>
+      <Card.Title>{props.title} ({props.releaseDate.split("-")[0]})</Card.Title>
+      <Card.Text>{props.overview}</Card.Text>
+      </Card.Body>
+    </Card>
     </React.Fragment>
   );
 }

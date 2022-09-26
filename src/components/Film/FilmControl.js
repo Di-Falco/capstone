@@ -48,11 +48,9 @@ function FilmControl() {
     try {
       const response = await fetch(`https://api.themoviedb.org/3/movie/${tmdbId}?api_key=7549b759940c60c10f1c789e68a231e9&language=en-US`);
       if(!response.ok) {
-        console.log(response);
         throw Error(response.statusText);
       }
       const jsonResponse = await response.json();
-      console.log(jsonResponse);
       return jsonResponse;
     } catch(error) {
       return error.message;
@@ -65,11 +63,16 @@ function FilmControl() {
     movieToEdit.genres = response.genres;
     movieToEdit.language = response.original_language;
     movieToEdit.overview = response.overview;
-    movieToEdit.posterUrl = movieToEdit.posterUrl + response.poster_path;
+    movieToEdit.posterUrl = "https://image.tmdb.org/t/p/original" + response.poster_path;
+    if (response.backdrop_path === null) {
+      movieToEdit.backdrop = "https://image.tmdb.org/t/p/original" + response.backdrop_path;
+    } else {
+      movieToEdit.backdrop = "https://image.tmdb.org/t/p/original" + response.poster_path;
+    }
     movieToEdit.rating = response.vote_average;
     movieToEdit.releaseDate = response.release_date;
     movieToEdit.runtime = response.runtime;
-    if(response.language === "en") {
+    if(response.original_language === "en") {
     movieToEdit.tagline = response.tagline;
     } else {
       movieToEdit.tagline = response.original_title;
