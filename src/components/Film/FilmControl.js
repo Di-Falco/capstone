@@ -64,7 +64,7 @@ function FilmControl() {
     movieToEdit.language = response.original_language;
     movieToEdit.overview = response.overview;
     movieToEdit.posterUrl = "https://image.tmdb.org/t/p/original" + response.poster_path;
-    if (response.backdrop_path === null) {
+    if (response.backdrop_path !== null) {
       movieToEdit.backdrop = "https://image.tmdb.org/t/p/original" + response.backdrop_path;
     } else {
       movieToEdit.backdrop = "https://image.tmdb.org/t/p/original" + response.poster_path;
