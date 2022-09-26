@@ -1,6 +1,6 @@
 import React from 'react';
 import Film from'./Film';
-import { Button } from "react-bootstrap";
+import { Button, Row, Col } from "react-bootstrap";
 
 function FilmList(props) {
 
@@ -12,7 +12,10 @@ function FilmList(props) {
 
   return(
     <React.Fragment>
-    {Object.values(props.filmList).map((film) =>  
+    {Object.values(props.filmList.slice(0,9)).map((film) => 
+      <React.Fragment>
+      <Row> 
+      <Col>
       <Film
         whenFilmClicked = {props.onFilmSelection}
         title = {film.title}
@@ -23,6 +26,9 @@ function FilmList(props) {
         id = {film.id}
         key = {film.id}
       />
+      </Col>
+      </Row>
+      </React.Fragment>
     )}
     <Button onClick={()=> seedAll(props.filmList)}>Update All</Button>
     </React.Fragment>
