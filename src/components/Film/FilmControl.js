@@ -46,7 +46,7 @@ function FilmControl() {
 
   const searchTmdb = async (tmdbId) => {
     try {
-      const response = await fetch(`https://api.themoviedb.org/3/movie/${tmdbId}?api_key=&language=en-US`);
+      const response = await fetch(`https://api.themoviedb.org/3/movie/${tmdbId}?api_key=7549b759940c60c10f1c789e68a231e9&language=en-US`);
       if(!response.ok) {
         console.log(response);
         throw Error(response.statusText);
@@ -87,7 +87,8 @@ function FilmControl() {
     buttonText = "Return to Movie List";
   } else {
     currentlyVisibleState = <FilmList filmList = { filmList }
-    onFilmSelection = { handleChangingSelectedFilm } />
+    onFilmSelection = { handleChangingSelectedFilm }
+    handleSeedingMovieData = { handleSeedingMovieData } />
     buttonText = "Placeholder";
   }
 
