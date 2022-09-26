@@ -94,3 +94,6 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 
 * 21:00 - 22:00 Manual data entry
 
+### 9/25/2022 16:30 - 
+
+* 16:30 - 17:15 Set up node app to import movie list data to firebase
