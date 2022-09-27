@@ -31,6 +31,7 @@ code {
 
 img {
   filter: grayscale(90%);
+  transition: filter 150ms;
 }
 
 h2, h3, h4, h5, h6, p {
@@ -99,14 +100,16 @@ nav {
 a {
   text-decoration: none;
 }
-
-.btn {
-  background-color: #333;
-  border: 10px double #bbb;
-  border-radius: 5px;
-  padding-top: 3px;
-  padding-bottom: 3px;
-  max-width: fit-content;
+input {
+  border-radius: 0px !important;
+}
+.btn, .btn-primary, button {
+  background-color: #333 !important;
+  border: 10px double #bbb !important;
+  border-radius: 5px !important;
+  padding-top: 3px !important;
+  padding-bottom: 3px !important;
+  max-width: fit-content !important;
 }
 .btn-group {
   border-radius: 0px;
@@ -184,6 +187,7 @@ a {
   background-color: #000;
   border-left: 5px solid #ce9403;
   border-right: 5px solid #ce9403;
+  transition: filter 2000ms linear;
 }
 
 .backdrop {
@@ -195,7 +199,7 @@ a {
 
 .bottom-left {
   position: absolute;
-  bottom: 16px;
+  bottom: -20px;
   left: 24px;
   font-size: 108px;
 }
@@ -216,29 +220,22 @@ a {
   opacity: 0%;
 }
 
-.jumbotron:hover > img {
-  transition: filter 750ms linear;
-  filter: grayscale(0%);
-}
-.detail a:focus {
-  transition: filter 750ms linear;
+.detail img {
   filter: grayscale(0%);
 }
 .img-btn {
   border: none;
   background-color: #000;
-  max-width:fit-content;
+  max-width:90%;
   max-height:fit-content;
   padding: 0;
   margin: auto;
   display: block;
-  margin-top: -100px;
+}
+.img-btn img {
+  max-width: 100%;
 }
 .img-btn:hover {
   border: none !important;
-  background-color: #ddd;
-}
-.img-btn:hover > img {
-  filter: grayscale(0%);
-  transition: filter 750ms;
+  background-color: #000;
 }

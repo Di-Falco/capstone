@@ -1,10 +1,10 @@
 import React from 'react';
-import Film from'./Film';
+import Film from './Film';
 import { Row, Col, Container, Button } from "react-bootstrap";
 import { useParams, Link } from "react-router-dom";
-import { getMouseEventOptions } from '@testing-library/user-event/dist/utils';
 
 function FilmList(props) {
+
   let { currentPage } = useParams();
   currentPage = Number(currentPage);
 
@@ -56,7 +56,7 @@ function FilmList(props) {
   const y = currentPage*12;
   return (
     <React.Fragment>
-            <Container className="main">
+    <Container className="main">
     { arrayBlock(Object.values(props.filmList.slice(x,y)), row).map((row, index) => (
     <React.Fragment>
     <Row>

@@ -27,6 +27,9 @@ function FilmDetail(props) {
       <h2>({film.releaseDate.split("-")[0]})</h2>
       <h4>{film.tagline}</h4>
       <p>{film.overview}</p>
+      <div>
+        
+      </div>
       </Col>
       <Col sm={4} className="justify-content-center">
         <Button className="img-btn"><Image className="detailPoster" src={film.posterUrl}></Image></Button>
