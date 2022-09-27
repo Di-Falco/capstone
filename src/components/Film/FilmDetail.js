@@ -4,7 +4,6 @@ import { Button, Image, Row, Col, Container } from "react-bootstrap";
 import { useSearchParams } from "react-router-dom";
 
 function FilmDetail(props) {
-  console.log(props.film.tmdbId);
   const [searchParams] = useSearchParams();
   const id = searchParams.get("id");
   let film;
@@ -18,15 +17,19 @@ function FilmDetail(props) {
 
   return (
     <React.Fragment>
-      <div className="jumbotron">
-        <Image className="backdrop" src={`${film.backdrop}`}/>
+      <div className="jumbotron detail">
+        <Image className="backdrop" src={`${film.backdrop}`} />
+        <h1 className="bottom-left">{film.title}</h1>
       </div>
-        <Container className="main">
-      <h2>{film.title} ({film.releaseDate.split("-")[0]})</h2>
-      <h4>{film.tagline}</h4>
+      <Container className="main detail">  
       <Row>
       <Col sm={8}>
+      <h2>({film.releaseDate.split("-")[0]})</h2>
+      <h4>{film.tagline}</h4>
       <p>{film.overview}</p>
+      </Col>
+      <Col sm={4} className="justify-content-center">
+        <Button className="img-btn"><Image className="detailPoster" src={film.posterUrl}></Image></Button>
       </Col>
       </Row>
       <Button onClick = { () => handleSeedingMovieData(film) }>Update Movie Info</Button>

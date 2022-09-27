@@ -4,7 +4,7 @@ import { Nav, Navbar, NavDropdown, Container } from 'react-bootstrap';
 function Header() {
   return(
     <React.Fragment>
-      <Navbar bg="dark" variant="dark">
+      <Navbar>
         <Container>
         <Navbar.Brand href="/"><h1>H1 MOVIE RENTAL</h1></Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />

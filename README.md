@@ -107,3 +107,4 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 ### 9/26/2022 12:00 - 13:00 (1:00)
 
 * 12:00 - 13:00 update styles and add custom pagination
+* 17:30 - 19:00 format details page component and clean up extra styles

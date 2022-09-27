@@ -11,11 +11,11 @@ function FilmList(props) {
   let row = 3;
   let pages = 0;
 
-  // const seedAll = (filmList) => {
-  //   filmList.forEach(film => {
-  //     props.handleSeedingMovieData(film);
-  //   });
-  // }
+  const seedAll = (filmList) => {
+    filmList.forEach(film => {
+      props.handleSeedingMovieData(film);
+    });
+  }
 
   pages = Math.floor(props.filmList.length/12) + 1 
   const page = [];
@@ -27,7 +27,7 @@ function FilmList(props) {
     </Link>
   );
   if (currentPage > pages - 2) page.push(<Link><Button className="btn-group">...</Button></Link>);
-  for (let i = (currentPage > 2 ? currentPage-2 : 1); i <= (currentPage <= pages-2 ? currentPage+2 : pages); i++) {
+  for (let i = (currentPage > 3 ? currentPage-3 : 1); i <= (currentPage <= pages-3 ? currentPage+3 : pages); i++) {
     page.push(
       <Link to={{
         pathname: `/movies/${i}`
@@ -39,7 +39,7 @@ function FilmList(props) {
   if (currentPage < 2) page.push(<Link><Button className="btn-group">...</Button></Link>);
   page.push(
     <Link to={{
-      pathname: `/movies/${ currentPage > 1 ? currentPage - 1: 1 }`
+      pathname: `/movies/${ currentPage > 1 ? currentPage + 1 : 1 }`
     }}>
       <Button className="end">Next</Button>
     </Link>
@@ -52,15 +52,9 @@ function FilmList(props) {
     return blocks;
   }
 
-  // function splitList(filmList) {
-  //   for (let i=page*12; i< page*12+12; i++) {
-
-  //   }
-  // }
-
   const x = currentPage*12-12;
   const y = currentPage*12;
-  return(
+  return (
     <React.Fragment>
             <Container className="main">
     { arrayBlock(Object.values(props.filmList.slice(x,y)), row).map((row, index) => (
@@ -88,6 +82,7 @@ function FilmList(props) {
     </React.Fragment>
   ))}
   {page}
+  <Button onClick={() => seedAll(props.filmList)}>Seed ALL!</Button>
   </Container>
   </React.Fragment>
   );

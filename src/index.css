@@ -29,6 +29,10 @@ code {
   src: url(~/assets/fonts/HangarNine-eW1e.ttf);
 }
 
+img {
+  filter: grayscale(90%);
+}
+
 h2, h3, h4, h5, h6, p {
   font-family: "MBPictureHouseTwoW01-Bold", sans-serif;
   font-weight: bold;
@@ -69,11 +73,23 @@ h6 {
 .container .main {
   width: 100%;
   padding: 2%;
+  padding-top: 0;
   background-color: #000;
+  border-left: 5px solid #ce9403;
+  border-right: 5px solid #ce9403;
 }
-
+nav {
+  background-color: #000;
+  color: #ddd;
+}
 .nav-link {
+  color: #ddd;
   font-size: 32px;
+}
+.nav-link:hover,
+.nav-link::selection,
+.nav-link:focus {
+  color: #aaa !important;
 }
 
 .dropdown-toggle::after {
@@ -85,7 +101,7 @@ a {
 }
 
 .btn {
-  background-color: #660000;
+  background-color: #333;
   border: 10px double #bbb;
   border-radius: 5px;
   padding-top: 3px;
@@ -104,12 +120,12 @@ a {
   border-bottom-left-radius: 0px;
 }
 .btn.active {
-  background-color: #660000;
+  background-color: #333;
   border-color: #ce9403;
 }
 
 .btn:hover {
-  background-color: #660000 !important;
+  background-color: #333 !important;
   border: 10px double #ce9403 !important;
 }
 
@@ -118,17 +134,21 @@ a {
   color: black;
   border: 2px solid #ce9403;
   border-radius: 0px;
-  transition: 0.25s;
+  -webkit-transition: transform 500ms linear;
+  transition: transform 500ms linear;
 }
 .card:hover {
+  filter: grayscale(90%);
   box-shadow: 10px 10px 10px;
   transform: scale(1.05);
+  border: 2px solid #ce9403 !important;
 }
 .card:hover > .hidden {
-  display: inline;
+  transition: opacity 750ms;
+  opacity: 100%;
 }
 .card:hover > .card-img {
-  filter: brightness(10%);
+  filter: brightness(15%);
 }
 .card-title, .card-subtitle, .card-text { color: #ddd; }
 .card-title {
@@ -145,7 +165,7 @@ a {
 }
 .card-img {
   border-radius: 0px;
-  transition: 0.25s;
+  will-change: filter;
 }
 
 .filmBox {
@@ -162,17 +182,22 @@ a {
   display: block;
   position: relative;
   background-color: #000;
+  border-left: 5px solid #ce9403;
+  border-right: 5px solid #ce9403;
 }
 
 .backdrop {
   width: 100%;
   mask-image: linear-gradient(rgb(0,0,0,1), transparent);
+  margin: auto;
+  display: block;
 }
 
 .bottom-left {
   position: absolute;
-  bottom: 8px;
-  left: 16px;
+  bottom: 16px;
+  left: 24px;
+  font-size: 108px;
 }
 
 .poster {
@@ -186,8 +211,34 @@ a {
 }
 
 .hidden {
-  display: none;
+  will-change: opacity;
+  transition: opacity 750ms;
+  opacity: 0%;
 }
-.hidden:hover {
-  display:inline
+
+.jumbotron:hover > img {
+  transition: filter 750ms linear;
+  filter: grayscale(0%);
+}
+.detail a:focus {
+  transition: filter 750ms linear;
+  filter: grayscale(0%);
+}
+.img-btn {
+  border: none;
+  background-color: #000;
+  max-width:fit-content;
+  max-height:fit-content;
+  padding: 0;
+  margin: auto;
+  display: block;
+  margin-top: -100px;
+}
+.img-btn:hover {
+  border: none !important;
+  background-color: #ddd;
+}
+.img-btn:hover > img {
+  filter: grayscale(0%);
+  transition: filter 750ms;
 }

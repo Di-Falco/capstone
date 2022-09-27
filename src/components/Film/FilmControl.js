@@ -38,10 +38,23 @@ function FilmControl() {
     return () => unSubscribe();
   }, []);
 
+ 
+  const compare = (a, b) => {
+    if (Number(a.id) < Number(b.id)) {
+      return -1;
+    }
+    if (Number(a.id) > Number(b.id)) {
+      return 1;
+    }
+    return 0;
+  }
+
+  const sortList = () => {
+    setFilmList(filmList.sort( compare ));
+  }
+
   const handleClick = (event) => {
-    console.log("CURRENT PAGE: " + currentPage);
     if (selectedFilm != null) {
-      console.log("REDIRECT PAGE: " + redirectPage);
       navigate(`/movies/${redirectPage}`);
     }
   }
@@ -71,11 +84,11 @@ function FilmControl() {
     movieToEdit.genres = response.genres;
     movieToEdit.language = response.original_language;
     movieToEdit.overview = response.overview;
-    movieToEdit.posterUrl = "https://image.tmdb.org/t/p/original" + response.poster_path;
+    movieToEdit.posterUrl = "https://image.tmdb.org/t/p/w500" + response.poster_path;
     if (response.backdrop_path !== null) {
-      movieToEdit.backdrop = "https://image.tmdb.org/t/p/original" + response.backdrop_path;
+      movieToEdit.backdrop = "https://image.tmdb.org/t/p/w780" + response.backdrop_path;
     } else {
-      movieToEdit.backdrop = "https://image.tmdb.org/t/p/original" + response.poster_path;
+      movieToEdit.backdrop = "https://image.tmdb.org/t/p/w780" + response.poster_path;
     }
     movieToEdit.rating = response.vote_average;
     movieToEdit.releaseDate = response.release_date;
@@ -86,7 +99,6 @@ function FilmControl() {
       movieToEdit.tagline = response.original_title;
     }
     await updateDoc(movieRef, movieToEdit);
-    console.log("UPDATE REACHED");
   }
 
   let currentlyVisibleState = null;
