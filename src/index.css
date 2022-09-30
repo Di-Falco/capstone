@@ -137,8 +137,8 @@ input {
   color: black;
   border: 2px solid #ce9403;
   border-radius: 0px;
-  -webkit-transition: transform 500ms linear;
-  transition: transform 500ms linear;
+  -webkit-transition: transform 350ms linear;
+  transition: transform 350ms linear;
 }
 .card:hover {
   filter: grayscale(90%);

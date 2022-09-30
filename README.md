@@ -66,7 +66,7 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Project History
+## Project History (21h 15min)
 
 ### 9/16/2022 10:00 - 16:30 (6:30)
 
@@ -113,3 +113,7 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 ### 9/27/2022 6:30 - 7:30 (1:00)
 
 * 6:30 - 7:30 standardize search page styles and start testing search function
+
+### 9/29/2022 22:30 — 23:30 (1:00)
+
+* 22:30 - 23:30 troubleshoot form submit issues? (unsuccessful)

@@ -1,14 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
+import { useForm, FormProvider, useFormContext } from "react-hook-form";
 import Film from "./Film";
 import { Container, Form, InputGroup, Button, Row, Col } from "react-bootstrap";
+import { registerVersion } from "firebase/app";
 
 function FilmSearch (props) {
 
-  function search (event) {
-    const form = document.getElementById("searchForm");
-    let data = new FormData(form);
+  const methods = useForm();
+  const { register } = useFormContext(); 
+
+  const search = (data) => {
     console.log(data);
   }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById("searchForm");
+    console.log(form);
+    form.addEventListener('submit', search(), false);
+  }, false);
 
   return(
     <React.Fragment>
@@ -16,15 +25,16 @@ function FilmSearch (props) {
         <Row>
           <Col sm={4}>
             <h1>Search Movies</h1>
-            <Form id="searchForm" className="mt-2 mb-2" onSubmit={() => search()}>
+            <FormProvider {...methods}>
+            <Form id="searchForm" className="mt-2 mb-2" onSubmit={() => methods.handleSubmit(search)}>
               <InputGroup className="mb-2">
                 <Form.Control
                   placeholder="search by title"
                   id="title"
+                  {...register("title")}
                 />
-                <Button className="end" type="submit">Search</Button>
               </InputGroup>
-              <InputGroup className="mb-2">
+              {/* <InputGroup className="mb-2">
                 <Form.Control 
                   placeholder="from: 1980"
                   id="startYear" 
@@ -33,8 +43,10 @@ function FilmSearch (props) {
                   placeholder="to:&ensp;2000"
                   id="endYear"
                 />
-              </InputGroup>
+              </InputGroup> */}
+              <Button className="end" type="submit">Search</Button>
             </Form>
+            </FormProvider> 
           </Col>
           <Col sm={8}>
             <h1></h1>
