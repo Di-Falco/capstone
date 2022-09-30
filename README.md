@@ -121,3 +121,4 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 ### 9/30/2022 11:00 —
 
 * 11:00 — 12:00 read documentation, fix search form values error
+* 12:30 - 13:30 Work on search function with multiple variables

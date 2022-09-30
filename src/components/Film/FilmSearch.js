@@ -1,8 +1,35 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { collection, onSnapshot } from 'firebase/firestore';
+import db from './../../firebase.js';
 import Film from "./Film";
 import { Container, Form, InputGroup, Button, Row, Col } from "react-bootstrap";
 
 function FilmSearch (props) {
+
+  const [filmList, setFilmList] = useState([]);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const unSubscribe = onSnapshot(
+      collection(db, "movies"),
+      (collectionSnapshot) => {
+        const films = [];
+        collectionSnapshot.forEach((doc) => {
+          films.push({
+            ...doc.data(),
+            id: doc.id
+          });
+        });
+        setFilmList(films);
+      },
+      (error) => {
+        setError(error.message);
+      }
+    );
+
+    return () => unSubscribe();
+  }, []);
+
   const [values, setValues] = useState({
     title: "",
     startYear: 0,
@@ -14,6 +41,7 @@ function FilmSearch (props) {
     event.preventDefault();
     console.log(values);
     setSubmitted(true);
+    search(values);
   }
 
   const handleTitleInput = (event) => {
@@ -26,6 +54,16 @@ function FilmSearch (props) {
 
   const handleEndYearInput = (event) => {
     setValues({...values, endYear: event.target.value});
+  }
+
+  const search = (values) => {
+    let searchResults = [];
+
+    // if (values.title !== "") { searchResults = filmList.filter(film => film.title.toString().includes(values.title) ); }
+    // if (values.startYear) { searchResults = filmList.filter(film => film.releaseDate.split("-")[0] >= values.startYear); }
+    // if (values.endYear) { searchResults = filmList.filter(film => film.releaseDate.split("-")[0] <= values.endYear); }
+    console.log("RESULTS ", searchResults[0]);
+  
   }
 
   return(
@@ -60,7 +98,7 @@ function FilmSearch (props) {
           </Col>
           <Col sm={8}>
             <div className="searchResults">
-              <h1></h1>
+              <h1>Results</h1>
 
             </div>
           </Col>
