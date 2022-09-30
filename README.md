@@ -122,3 +122,4 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 
 * 11:00 — 12:00 read documentation, fix search form values error
 * 12:30 - 13:30 Work on search function with multiple variables
+* 13:30 — 14:15 Set up search function with parameters for title, start year, and end year

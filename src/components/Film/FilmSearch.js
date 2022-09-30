@@ -8,6 +8,7 @@ function FilmSearch (props) {
 
   const [filmList, setFilmList] = useState([]);
   const [error, setError] = useState(null);
+  // const [searchResults, setSearchResults] = useState([]);
 
   useEffect(() => {
     const unSubscribe = onSnapshot(
@@ -58,12 +59,21 @@ function FilmSearch (props) {
 
   const search = (values) => {
     let searchResults = [];
-
-    // if (values.title !== "") { searchResults = filmList.filter(film => film.title.toString().includes(values.title) ); }
-    // if (values.startYear) { searchResults = filmList.filter(film => film.releaseDate.split("-")[0] >= values.startYear); }
-    // if (values.endYear) { searchResults = filmList.filter(film => film.releaseDate.split("-")[0] <= values.endYear); }
-    console.log("RESULTS ", searchResults[0]);
-  
+    console.log(values.title);
+    if (values.title !== "") { searchResults = 
+      filmList.filter(film => 
+        String(film.title).toLowerCase().includes(String(values.title).toLowerCase()) 
+      ); 
+    }
+    if (values.startYear !== "") { 
+      searchResults = 
+        searchResults.filter(film => film.releaseDate.split("-")[0] >= values.startYear); 
+    }
+    if (values.endYear !== "") { 
+      searchResults = 
+        searchResults.filter(film => film.releaseDate.split("-")[0] <= values.endYear); 
+    }
+    console.log(searchResults);
   }
 
   return(
