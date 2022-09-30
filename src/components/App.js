@@ -3,7 +3,7 @@ import Header from './Header';
 import Home from './Home/Home';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './../App.css';
-import './../index.css'
+import './../index.scss'
 import FilmControl from './Film/FilmControl';
 import FilmDetail from './Film/FilmDetail';
 import FilmSearch from './Film/FilmSearch';

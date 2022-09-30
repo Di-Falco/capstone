@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { collection, onSnapshot } from 'firebase/firestore';
 import db from './../../firebase.js';
-import Film from "./Film";
+import SearchResult from "./SearchResult";
 import { Container, Form, InputGroup, Button, Row, Col } from "react-bootstrap";
 
 function FilmSearch (props) {
 
   const [filmList, setFilmList] = useState([]);
   const [error, setError] = useState(null);
-  // const [searchResults, setSearchResults] = useState([]);
+  // let searchResults = [];
 
   useEffect(() => {
     const unSubscribe = onSnapshot(
@@ -38,6 +38,8 @@ function FilmSearch (props) {
   }); 
   const [submitted, setSubmitted] = useState(false);
 
+  const [searchResults, setSearchResults] = useState(filmList);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(values);
@@ -58,22 +60,22 @@ function FilmSearch (props) {
   }
 
   const search = (values) => {
-    let searchResults = [];
+    setSearchResults([...filmList]);
     console.log(values.title);
-    if (values.title !== "") { searchResults = 
-      filmList.filter(film => 
+    if (values.title !== "") { setSearchResults(searchResults => 
+      [...searchResults].filter(film => 
         String(film.title).toLowerCase().includes(String(values.title).toLowerCase()) 
-      ); 
+      )); 
     }
     if (values.startYear !== "") { 
-      searchResults = 
-        searchResults.filter(film => film.releaseDate.split("-")[0] >= values.startYear); 
+      setSearchResults (searchResults => 
+        [...searchResults].filter(film => film.releaseDate.split("-")[0] >= values.startYear)); 
     }
     if (values.endYear !== "") { 
-      searchResults = 
-        searchResults.filter(film => film.releaseDate.split("-")[0] <= values.endYear); 
+      setSearchResults(searchResults => 
+        [...searchResults].filter(film => film.releaseDate.split("-")[0] <= values.endYear)); 
     }
-    console.log(searchResults);
+    console.log(searchResults)
   }
 
   return(
@@ -109,7 +111,13 @@ function FilmSearch (props) {
           <Col sm={8}>
             <div className="searchResults">
               <h1>Results</h1>
-
+              {searchResults.map(film => 
+                <SearchResult 
+                  title={film.title} 
+                  year={film.releaseDate.split("-")[0]} 
+                  overview={film.overview} 
+                />
+              )}
             </div>
           </Col>
         </Row>
