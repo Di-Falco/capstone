@@ -1,23 +1,32 @@
 import React, { useState } from "react";
-import { useForm, FormProvider, useFormContext } from "react-hook-form";
 import Film from "./Film";
 import { Container, Form, InputGroup, Button, Row, Col } from "react-bootstrap";
-import { registerVersion } from "firebase/app";
 
 function FilmSearch (props) {
+  const [values, setValues] = useState({
+    title: "",
+    startYear: 0,
+    endYear: 3000
+  }); 
+  const [submitted, setSubmitted] = useState(false);
 
-  const methods = useForm();
-  const { register } = useFormContext(); 
-
-  const search = (data) => {
-    console.log(data);
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(values);
+    setSubmitted(true);
   }
 
-  document.addEventListener('DOMContentLoaded', function () {
-    const form = document.getElementById("searchForm");
-    console.log(form);
-    form.addEventListener('submit', search(), false);
-  }, false);
+  const handleTitleInput = (event) => {
+    setValues({...values, title: event.target.value});
+  }
+
+  const handleStartYearInput = (event) => {
+    setValues({...values, startYear: event.target.value});
+  }
+
+  const handleEndYearInput = (event) => {
+    setValues({...values, endYear: event.target.value});
+  }
 
   return(
     <React.Fragment>
@@ -25,32 +34,33 @@ function FilmSearch (props) {
         <Row>
           <Col sm={4}>
             <h1>Search Movies</h1>
-            <FormProvider {...methods}>
-            <Form id="searchForm" className="mt-2 mb-2" onSubmit={() => methods.handleSubmit(search)}>
+            <Form id="searchForm" className="mt-2 mb-2" onSubmit={handleSubmit}>
               <InputGroup className="mb-2">
                 <Form.Control
+                  onChange={handleTitleInput}
                   placeholder="search by title"
                   id="title"
-                  {...register("title")}
+                  value={values.title}
                 />
               </InputGroup>
-              {/* <InputGroup className="mb-2">
+              <InputGroup className="mb-2">
                 <Form.Control 
+                onChange={handleStartYearInput}
                   placeholder="from: 1980"
                   id="startYear" 
                 />
                 <Form.Control 
+                  onChange={handleEndYearInput}
                   placeholder="to:&ensp;2000"
                   id="endYear"
                 />
-              </InputGroup> */}
+              </InputGroup>
               <Button className="end" type="submit">Search</Button>
             </Form>
-            </FormProvider> 
           </Col>
           <Col sm={8}>
-            <h1></h1>
             <div className="searchResults">
+              <h1></h1>
 
             </div>
           </Col>
