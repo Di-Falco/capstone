@@ -35,7 +35,8 @@ function FilmSearch (props) {
     title: "",
     startYear: 0,
     endYear: 3000,
-    genres: []
+    genreOne: "",
+    genreTwo: ""
   }); 
   const [submitted, setSubmitted] = useState(false);
 
@@ -43,7 +44,6 @@ function FilmSearch (props) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(values);
     setSubmitted(true);
     search(values);
   }
@@ -60,44 +60,32 @@ function FilmSearch (props) {
     setValues({...values, endYear: event.target.value});
   }
 
-  const handleGenreInput = (event) => {
-    setValues({...values, genres: event.target.value})
+  const handleFirstGenreInput = (event) => {
+    setValues({...values, genreOne: event.target.value})
+  }
+
+  const handleSecondGenreInput = (event) => {
+    setValues({...values, genreTwo: event.target.value})
   }
 
   const search = (values) => {
     setSearchResults([...filmList]);
-    if (values.title !== "") { setSearchResults(searchResults => 
-      [...searchResults].filter(film => 
-        String(film.title).toLowerCase().includes(String(values.title).toLowerCase()) 
-      )); 
-    }
-    if (values.startYear !== "") { 
-      setSearchResults (searchResults => 
-        [...searchResults].filter(film => film.releaseDate.split("-")[0] >= values.startYear)); 
-    }
-    if (values.endYear !== "") { 
-      setSearchResults(searchResults => 
-        [...searchResults].filter(film => film.releaseDate.split("-")[0] <= values.endYear)); 
-    }
-    if (values.genres !== "Select a genre") {
-      console.log(values.genres);
-      setSearchResults(searchResults => {
-        [...searchResults].filter(film => {
-          let filmGenres = film.genres.map(a => a.name);
-          console.log(film.title, " ", filmGenres);
-          return filmGenres.includes(String(values.genres)) ? film : null;
-        });
-        console.log("SEARCH RESULTS: ", searchResults);
-        return searchResults;
-      });
-    }
+    setSearchResults(searchResults => 
+      [...filmList].filter(film => {
+        return (values.genreOne != '' ? film.genres.map(a => a.name).includes(String(values.genreOne)) : film.genres.length !== 0) &&
+        (values.genreTwo != '' ? film.genres.map(a => a.name).includes(String(values.genreTwo)) : film.genres.length !== 0) &&
+        String(film.title).toLowerCase().includes(String(values.title).toLowerCase()) &&
+        film.releaseDate.split("-")[0] >= values.startYear &&
+        film.releaseDate.split("-")[0] <= values.endYear
+      })
+    ); 
   }
 
   return(
     <React.Fragment>
       <Container className="main">
         <Row>
-          <Col sm={4}>
+          <Col sm={4} className="search-column">
             <h1>Search Movies</h1>
             <Form id="searchForm" className="mt-2 mb-2" onSubmit={handleSubmit}>
               <InputGroup className="mb-2">
@@ -117,28 +105,68 @@ function FilmSearch (props) {
                   placeholder="to:&ensp;2000"
                 />
               </InputGroup>
-              <InputGroup>
+              <InputGroup className="mb-2">
                 <Form.Select
-                  onChange={handleGenreInput} >
-                  <option>Select a genre</option>
+                  onChange={handleFirstGenreInput} >
+                  <option value=''>Select a genre</option>
                   <option value='Action'>Action</option>
                   <option value='Adventure'>Adventure</option>
                   <option value='Animation'>Animation</option>
+                  <option value='Comedy'>Comedy</option>
+                  <option value='Crime'>Crime</option>
+                  <option value='Drama'>Drama</option>
+                  <option value='Family'>Family</option>
+                  <option value='Fantasy'>Fantasy</option>
+                  <option value='History'>History</option>
+                  <option value='Horror'>Horror</option>
+                  <option value='Music'>Music</option>
+                  <option value='Mystery'>Mystery</option>
+                  <option value='Romance'>Romance</option>
+                  <option value='Science Fiction'>Science Fiction</option>
+                  <option value='Thriller'>Thriller</option>
+                  <option value='TV Movie'>TV Movie</option>
+                  <option value='War'>War</option>
+                  <option value='Western'>Western</option>
+                </Form.Select>
+              </InputGroup>
+              <InputGroup className="mb-2">
+                <Form.Select
+                  onChange={handleSecondGenreInput} >
+                  <option value=''>Select a genre</option>
+                  <option value='Action'>Action</option>
+                  <option value='Adventure'>Adventure</option>
+                  <option value='Animation'>Animation</option>
+                  <option value='Comedy'>Comedy</option>
+                  <option value='Crime'>Crime</option>
+                  <option value='Drama'>Drama</option>
+                  <option value='Family'>Family</option>
+                  <option value='Fantasy'>Fantasy</option>
+                  <option value='History'>History</option>
+                  <option value='Horror'>Horror</option>
+                  <option value='Music'>Music</option>
+                  <option value='Mystery'>Mystery</option>
+                  <option value='Romance'>Romance</option>
+                  <option value='Science Fiction'>Science Fiction</option>
+                  <option value='Thriller'>Thriller</option>
+                  <option value='TV Movie'>TV Movie</option>
+                  <option value='War'>War</option>
+                  <option value='Western'>Western</option>
                 </Form.Select>
               </InputGroup>
               <Button className="end" type="submit">Search</Button>
             </Form>
           </Col>
-          <Col sm={8}>
+          <Col sm={8} className="result-column">
             <div className="searchResults">
               <h1>Results</h1>
-              {searchResults.map(film => 
+              {(searchResults.length > 0 || !submitted) ? searchResults.map(film => 
                 <SearchResult 
                   title={film.title} 
                   year={film.releaseDate.split("-")[0]} 
                   overview={film.overview} 
+                  key={film.id}
                 />
-              )}
+              ) : <h2>No movies in our inventory match your search</h2>}
             </div>
           </Col>
         </Row>

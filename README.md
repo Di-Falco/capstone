@@ -128,3 +128,7 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 * 15:15 — 16:00 Add full overview display option to search results
 
 ### 10/1/2022 13:00 — 
+
+* 13:00 — 14:00 Add genre field to search
+* 14:00 - 15:00 Refactor search function and update mismatched styles
+* 15:00 - 15:30 Make search results scrollable, isn't that so cool?
