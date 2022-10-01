@@ -34,7 +34,8 @@ function FilmSearch (props) {
   const [values, setValues] = useState({
     title: "",
     startYear: 0,
-    endYear: 3000
+    endYear: 3000,
+    genres: []
   }); 
   const [submitted, setSubmitted] = useState(false);
 
@@ -59,9 +60,12 @@ function FilmSearch (props) {
     setValues({...values, endYear: event.target.value});
   }
 
+  const handleGenreInput = (event) => {
+    setValues({...values, genres: event.target.value})
+  }
+
   const search = (values) => {
     setSearchResults([...filmList]);
-    console.log(values.title);
     if (values.title !== "") { setSearchResults(searchResults => 
       [...searchResults].filter(film => 
         String(film.title).toLowerCase().includes(String(values.title).toLowerCase()) 
@@ -75,7 +79,18 @@ function FilmSearch (props) {
       setSearchResults(searchResults => 
         [...searchResults].filter(film => film.releaseDate.split("-")[0] <= values.endYear)); 
     }
-    console.log(searchResults)
+    if (values.genres !== "Select a genre") {
+      console.log(values.genres);
+      setSearchResults(searchResults => {
+        [...searchResults].filter(film => {
+          let filmGenres = film.genres.map(a => a.name);
+          console.log(film.title, " ", filmGenres);
+          return filmGenres.includes(String(values.genres)) ? film : null;
+        });
+        console.log("SEARCH RESULTS: ", searchResults);
+        return searchResults;
+      });
+    }
   }
 
   return(
@@ -89,21 +104,27 @@ function FilmSearch (props) {
                 <Form.Control
                   onChange={handleTitleInput}
                   placeholder="search by title"
-                  id="title"
                   value={values.title}
                 />
               </InputGroup>
               <InputGroup className="mb-2">
                 <Form.Control 
-                onChange={handleStartYearInput}
+                  onChange={handleStartYearInput}
                   placeholder="from: 1980"
-                  id="startYear" 
                 />
                 <Form.Control 
                   onChange={handleEndYearInput}
                   placeholder="to:&ensp;2000"
-                  id="endYear"
                 />
+              </InputGroup>
+              <InputGroup>
+                <Form.Select
+                  onChange={handleGenreInput} >
+                  <option>Select a genre</option>
+                  <option value='Action'>Action</option>
+                  <option value='Adventure'>Adventure</option>
+                  <option value='Animation'>Animation</option>
+                </Form.Select>
               </InputGroup>
               <Button className="end" type="submit">Search</Button>
             </Form>

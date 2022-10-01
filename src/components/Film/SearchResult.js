@@ -6,7 +6,6 @@ function SearchResult(props) {
     const parent = document.getElementById(title);
     const child1 = (parent.children)[1];
     const child2 = (parent.children)[2];
-    console.log(child1, child2);
     child1.classList.toggle("stowed");
     child2.classList.toggle("stowed");
     parent.classList.toggle("search-border");

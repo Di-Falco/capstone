@@ -118,7 +118,7 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 
 * 22:30 - 23:30 troubleshoot form submit issues? (unsuccessful)
 
-### 9/30/2022 11:00 —
+### 9/30/2022 11:00 — 16:00 (5:00)
 
 * 11:00 — 12:00 Read documentation, fix search form values error
 * 12:30 - 13:30 Work on search function with multiple variables
@@ -126,3 +126,5 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 * 14:15 — 15:00 Set up basic output of search results
 * 15:00 — 15:15 Refactor css for scss
 * 15:15 — 16:00 Add full overview display option to search results
+
+### 10/1/2022 13:00 — 
