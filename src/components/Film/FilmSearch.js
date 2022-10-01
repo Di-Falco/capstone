@@ -68,6 +68,20 @@ function FilmSearch (props) {
     setValues({...values, genreTwo: event.target.value})
   }
 
+  const compare = (a, b) => {
+    if (Number(a.id) < Number(b.id)) {
+      return -1;
+    }
+    if (Number(a.id) > Number(b.id)) {
+      return 1;
+    }
+    return 0;
+  }
+
+  const sortList = () => {
+    setSearchResults(searchResults => searchResults.sort( compare ));
+  }
+
   const search = (values) => {
     setSearchResults([...filmList]);
     setSearchResults(searchResults => 
@@ -79,6 +93,7 @@ function FilmSearch (props) {
         film.releaseDate.split("-")[0] <= values.endYear
       })
     ); 
+    sortList();
   }
 
   return(
@@ -108,7 +123,7 @@ function FilmSearch (props) {
               <InputGroup className="mb-2">
                 <Form.Select
                   onChange={handleFirstGenreInput} >
-                  <option value=''>Select a genre</option>
+                  <option selected id="placeholder" value=''>Select a genre</option>
                   <option value='Action'>Action</option>
                   <option value='Adventure'>Adventure</option>
                   <option value='Animation'>Animation</option>
@@ -132,7 +147,7 @@ function FilmSearch (props) {
               <InputGroup className="mb-2">
                 <Form.Select
                   onChange={handleSecondGenreInput} >
-                  <option value=''>Select a genre</option>
+                  <option selected id="placeholder" value=''>Select a genre</option>
                   <option value='Action'>Action</option>
                   <option value='Adventure'>Adventure</option>
                   <option value='Animation'>Animation</option>
@@ -164,6 +179,9 @@ function FilmSearch (props) {
                   title={film.title} 
                   year={film.releaseDate.split("-")[0]} 
                   overview={film.overview} 
+                  selectedFilm={film}
+                  filmList={filmList}
+                  id={film.id}
                   key={film.id}
                 />
               ) : <h2>No movies in our inventory match your search</h2>}

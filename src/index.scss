@@ -103,6 +103,7 @@ a {
 }
 input {
   border-radius: 0px !important;
+  color: #000 !important;
 }
 .btn, .btn-primary, button {
   background-color: #333 !important;
@@ -243,12 +244,16 @@ input {
 .form-control {
   border: 5px solid #333;
   background-color: #bbb;
-  color: #333;
+  color: #222;
   &::placeholder {
-    color: #333;
+    color: #777;
+    font-style: italic;
   }
   &:hover {
     border: 5px solid #ce9403
+  }
+  value {
+    color: #000 !important;
   }
 }
 
@@ -256,9 +261,9 @@ input {
   border: 5px solid #333;
   border-radius: 0;
   background-color: #bbb;
-  color: #333;
-  &::placeholder {
-    color: #333;
+  color: #222;
+  &#placeholder {
+    color: #777 !important;
   }
   &:hover {
     border: 5px solid #ce9403
@@ -280,6 +285,7 @@ input {
 
 .search-result {
   border: 5px solid black;
+  position: relative;
   padding: 0.5rem;
   h1 {
     font-size: 1.5rem;
@@ -306,4 +312,12 @@ hr {
 
 .stowed {
   display: none;
+}
+
+.details-button {
+  position: absolute;
+  bottom: 0.5rem;
+  right: 0.5rem;
+  float: right;
+  z-index: 1;
 }
