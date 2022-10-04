@@ -96,6 +96,19 @@ function FilmSearch (props) {
     sortList();
   }
 
+  // const compareStrings = (string1, string2) => {
+  //   string1.split("");
+  //   string2.split("");
+  //   let similarity = 0;
+  //   string1.forEach( function(char, i) {
+  //     if (char === string2[i])
+  //     similarity++;
+  //     if (string2.length === i)
+  //     return similarity/string1.length;
+  //   });
+  //   return similarity /= string1.length;
+  // }
+
   return(
     <React.Fragment>
       <Container className="main">

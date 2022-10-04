@@ -20,29 +20,29 @@ function FilmList(props) {
   pages = Math.floor(props.filmList.length/12) + 1 
   const page = [];
   page.push(
-    <Link to={{
+    <span><Link to={{
       pathname: `/movies/${ currentPage > 1 ? currentPage - 1: 1 }`
     }}>
       <Button className="start">Prev</Button>
-    </Link>
+    </Link>&emsp;</span>
   );
   if (currentPage > pages - 2) page.push(<Link><Button className="btn-group">...</Button></Link>);
   for (let i = (currentPage > 3 ? currentPage-3 : 1); i <= (currentPage <= pages-3 ? currentPage+3 : pages); i++) {
     page.push(
-      <Link to={{
+      <span> <Link to={{
         pathname: `/movies/${i}`
       }}>
-      <Button key={i} className="btn-group" active={i === currentPage}> {i} </Button>
-      </Link>
+      { (i === Number(currentPage)) ? <Button key={i} className="btn-group" id="currentPage"> {i} </Button> : <Button key={i} className="btn-group"> {i} </Button> }
+      </Link> </span>
     );
   }
   if (currentPage < 2) page.push(<Link><Button className="btn-group">...</Button></Link>);
   page.push(
-    <Link to={{
+    <span>&emsp;<Link to={{
       pathname: `/movies/${ currentPage > 1 ? currentPage + 1 : 1 }`
     }}>
       <Button className="end">Next</Button>
-    </Link>
+    </Link></span>
   );
 
   const arrayBlock = (filmList, index) => {
@@ -63,6 +63,7 @@ function FilmList(props) {
     {(row).map((film) => 
       <React.Fragment>
       <Col key={film.id}>
+        {console.log("FILM: ", film)}
       <Film
         whenFilmClicked = {props.onFilmSelection}
         title = {film.title}
@@ -71,6 +72,7 @@ function FilmList(props) {
         posterUrl = {film.posterUrl}
         backdrop={film.backdrop}
         overview = {film.overview}
+        format={film.format}
         id = {film.id}
         key = {film.id}
       />
@@ -81,8 +83,8 @@ function FilmList(props) {
     <br />
     </React.Fragment>
   ))}
-  {page}
-  <Button onClick={() => seedAll(props.filmList)}>Seed ALL!</Button>
+  {/* <Button onClick={() => seedAll(props.filmList)}>Seed ALL!</Button> */}
+  <div id="pagination">{page}</div>
   </Container>
   </React.Fragment>
   );

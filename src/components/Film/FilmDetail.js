@@ -15,6 +15,29 @@ function FilmDetail(props) {
     ({ film } = props);
   }
 
+  let formats = film.format;
+  console.log("PROPS: ", film.format);
+  console.log("FORMATS: ", formats);
+  if (formats.includes(',')) {formats = formats.split(',');} else {formats=[film.format]}
+  let formatIcons = [];
+  
+  for (let i=0; i<formats.length; i++) {
+    switch(formats[i]) {
+      case('VHS'):
+        formatIcons.push('|');
+        break;
+      case('DVD'):
+        formatIcons.push('V');
+        break;
+      case('BluRay'):
+        formatIcons.push('I');
+        break;
+      case('LaserDisc'):
+        formatIcons.push('û');
+        break;
+    }
+  }
+
   return (
     <React.Fragment>
       <div className="jumbotron detail">
@@ -28,11 +51,11 @@ function FilmDetail(props) {
       <h4>{film.tagline}</h4>
       <p>{film.overview}</p>
       <div>
-        
+        <h1 className='format-font'>{formatIcons.map((format) => format)}</h1>
       </div>
       </Col>
       <Col sm={4} className="justify-content-center">
-        <Button className="img-btn"><Image className="detailPoster" src={film.posterUrl}></Image></Button>
+        <div className="img-btn"><Image className="detailPoster" src={film.posterUrl}></Image></div>
       </Col>
       </Row>
       <Button onClick = { () => handleSeedingMovieData(film) }>Update Movie Info</Button>

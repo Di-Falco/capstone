@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import FilmList from './FilmList';
 import FilmDetail from './FilmDetail';
-import { collection, addDoc, doc, updateDoc, deleteDoc, onSnapshot } from 'firebase/firestore';
+import { collection, addDoc, doc, setDoc, updateDoc, deleteDoc, onSnapshot } from 'firebase/firestore';
 import { Button, Container, Form } from 'react-bootstrap';
 import db from './../../firebase.js';
 import { useNavigate, useParams } from "react-router-dom";
@@ -98,7 +98,7 @@ function FilmControl() {
     } else {
       movieToEdit.tagline = response.original_title;
     }
-    await updateDoc(movieRef, movieToEdit);
+    await setDoc(movieRef, movieToEdit);
   }
 
   let currentlyVisibleState = null;

@@ -6,7 +6,7 @@ function Header() {
     <React.Fragment>
       <Navbar>
         <Container>
-        <Navbar.Brand href="/"><h1>H1 MOVIE RENTAL</h1></Navbar.Brand>
+        <Navbar.Brand href="/"><h1>H1 VIDEO</h1></Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="me-auto">

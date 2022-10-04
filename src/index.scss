@@ -5,9 +5,9 @@ html {
 body {
   min-height: 100%;
   background-image: linear-gradient( 
-    #6e0000,
-    #4b0000,
-    #1d0000
+    #00006e,
+    #00004b,
+    #00001d
   );
   background-size: cover;
   background-position: bottom;
@@ -29,6 +29,16 @@ code {
   src: url(~/assets/fonts/HangarNine-eW1e.ttf);
 }
 
+@font-face {
+  font-family: FormatIcons;
+  src: url(~/assets/fonts/Digitalsymbols-56BG.ttf);
+}
+
+@font-face {
+  font-family: KindlyRewind;
+  src: url(~/assets/fonts/KindlyRewind-BOon.ttf);
+}
+
 img {
   filter: grayscale(90%);
   transition: filter 150ms;
@@ -42,7 +52,7 @@ h2, h3, h4, h5, h6, p {
   color: #ddd;
 }
 h1 {
-  font-family: HangerNine;
+  font-family: KindlyRewind;
   font-size: 64px;
   margin: 0 !important;
   color: #ddd;
@@ -124,9 +134,20 @@ input {
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
 }
-.btn.active {
+.btn:active {
   background-color: #333;
   border-color: #ce9403;
+}
+
+#pagination {
+  margin: 0 auto !important;
+  display: block !important;
+  width: 40vw;
+  padding: 0;
+}
+#currentPage {
+  background-color: #333 !important;
+  border-color: #ce9403 !important;
 }
 
 .btn:hover {
@@ -159,7 +180,7 @@ input {
 
 .card-title, .card-subtitle, .card-text { color: #ddd; }
 .card-title {
-  font-family: HangerNine;
+  font-family: KindlyRewind;
   font-size: 38px;
   text-align: center;
 }
@@ -193,6 +214,7 @@ input {
 
 .backdrop {
   width: 100%;
+  padding-bottom: 50px !important;
   mask-image: linear-gradient(rgb(0,0,0,1), transparent);
   margin: auto;
   display: block;
@@ -225,7 +247,7 @@ input {
   filter: grayscale(0%);
 }
 .img-btn {
-  border: none;
+  border: 10px double #777;
   background-color: #000;
   max-width:90%;
   max-height:fit-content;
@@ -320,4 +342,8 @@ hr {
   right: 0.5rem;
   float: right;
   z-index: 1;
+}
+
+.format-font {
+  font-family: FormatIcons;
 }
