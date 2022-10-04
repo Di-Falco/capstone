@@ -1,16 +1,18 @@
 import React from 'react';
-import { Container } from 'react-bootstrap';
+import { Container, Image } from 'react-bootstrap';
 
 function Home() {
   return(
     <React.Fragment>
       <Container className="main">
-      <h2>H2 Welcome to the video store rental store place</h2>
-      <h3>H3 Here is some information about our store</h3>
-      <h4>H4 small</h4>
-      <h5>H5 smaller</h5>
-      <h6>H6 smallest</h6>
-      <p>P paragraph text looks like this</p>
+        <Image className="CRT" src={require('./../../assets/images/CRT_Screen.png')}/>
+        <div className="CRT-screen">
+      <h2 className="format-font">†</h2>
+      <h6 id="top-left">H3 Here is some information about our store</h6>
+      <h6 id="top-right">H4 small</h6>
+      <h6 id="bottom-left">H5 smaller</h6>
+      <h6 id="bottom-right">H6 smallest</h6>
+      </div>
       </Container>
     </React.Fragment>
   );
