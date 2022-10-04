@@ -40,8 +40,8 @@ function App() {  const [filmList, setFilmList] = useState([]);
   return(
     <React.Fragment>
       <Router>
+        <div className="CRT-screen">
         <Header />
-        <Container>
         <Routes>
           <Route exact path="/" element={<Home/>} />
           <Route exact path="/movies/:currentPage" element={<FilmControl />} />
@@ -53,7 +53,13 @@ function App() {  const [filmList, setFilmList] = useState([]);
             element={
             <FilmDetail filmList={filmList}/> } />
         </Routes>
-        </Container>
+      <h3 id="top-left">CH0<br />PLAY<br />0:00:00</h3>
+      <h3 id="top-right">TAPE<br />•REC<br />0:00:00</h3>
+      <h3 id="bottom-left">TVÂ<br />SRC</h3>
+      <h3 id="bottom-right">LPÂ<br />DST</h3>
+        </div>
+
+        {/* <img className="CRT" src={require('./../assets/images/CRT_Screen.png')}/> */}
       </Router>
     </React.Fragment>
   );

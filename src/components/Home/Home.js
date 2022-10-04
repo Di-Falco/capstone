@@ -5,14 +5,15 @@ function Home() {
   return(
     <React.Fragment>
       <Container className="main">
-        <Image className="CRT" src={require('./../../assets/images/CRT_Screen.png')}/>
+        <h2 className="format-font">†</h2>
+        {/* <Image className="CRT" src={require('./../../assets/images/CRT_Screen.png')}/>
         <div className="CRT-screen">
       <h2 className="format-font">†</h2>
-      <h6 id="top-left">H3 Here is some information about our store</h6>
-      <h6 id="top-right">H4 small</h6>
-      <h6 id="bottom-left">H5 smaller</h6>
-      <h6 id="bottom-right">H6 smallest</h6>
-      </div>
+      <button><h3 id="top-left">CH0<br />PLAY<br />0:00:00</h3></button>
+      <button><h3 id="top-right">TAPE<br />•REC<br />0:00:00</h3></button>
+      <button><h3 id="bottom-left">TVÂ<br />SRC</h3></button>
+      <button><h3 id="bottom-right">LPÂ<br />DST</h3></button>
+      </div> */}
       </Container>
     </React.Fragment>
   );

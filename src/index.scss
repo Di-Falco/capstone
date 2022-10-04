@@ -1,9 +1,9 @@
 html {
-  min-height: 100vh;
+  max-height: 1vh;
 }
 
 body {
-  min-height: 100%;
+  max-height: 100px;
   background-image: linear-gradient( 
     #00006e,
     #00004b,
@@ -14,7 +14,7 @@ body {
   background-attachment: fixed;
   background-repeat: no-repeat;
   margin: 0 0 0 0;
-  font-family: sans-serif, "MBPictureHouseOneW01";
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -45,7 +45,7 @@ img {
 }
 
 h2, h3, h4, h5, h6, p {
-  font-family: "MBPictureHouseTwoW01-Bold", sans-serif;
+  font-family: KindlyRewind, sans-serif;
   font-weight: bold;
   margin: 0px;
   padding: 8px;
@@ -53,7 +53,7 @@ h2, h3, h4, h5, h6, p {
 }
 h1 {
   font-family: KindlyRewind;
-  font-size: 64px;
+  font-size: 32px;
   margin: 0 !important;
   color: #ddd;
 }
@@ -73,30 +73,35 @@ h6 {
   font-size: 28px;
 }
 
-.CRT {
-  filter: brightness(40%);
-  position: absolute;
-  top: 4rem;
-  left: 15vw;
-  width: 70vw;
-  z-index: 1000;
-}
+// .CRT {
+//   filter: brightness(25%);
+//   background: radial-gradient(rgb(0,0,0,0), rgb(200,200,200,0.6));
+//   position: absolute;
+//   top: -25%;
+//   left: -2vh;
+//   height: 200vh;
+//   width: 103%;
+//   margin: auto;
+//   display: block;
+//   z-index: 10;
+// }
 
 .CRT-screen {
-  position: absolute;
-  top: 5rem;
-  left: 16vw;
-  width: 68vw;
-  min-height: 50rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100vw;
+  height: 100%;
   background: #00006e;
   color: white;
-  padding-top: 7rem;
-  padding-left: 6rem;
-  padding-right: 6rem;
-  padding-bottom: 9rem;
+  // padding-top: 0vh;
+  // padding-left: 2vw;
+  // padding-right: 2vw;
+  // padding-bottom: 7vh;
   h3,h4,h5,h6,p {
     font-family: KindlyRewind;
     font-weight: 100;
+    font-size: 32px;
   }
   h2 {
     font-size: 720px;
@@ -106,52 +111,55 @@ h6 {
 }
 #top-left {
   position: absolute;
-  top: 7rem;
-  left: 6rem;
+  top: 16vh;
+  left: 2vw;
+  text-align: left;
 }
 #top-right {
   position: absolute;  
-  top: 7rem;
-  right: 6rem;
+  top: 16vh;
+  right: 2vw;
+  text-align: right;
 }
 #bottom-left {
   position: absolute;  
-  bottom: 9rem;
-  left: 6rem;
+  bottom: 5vh;
+  left: 2vw;
+  text-align: left;
 }
 #bottom-right {
   position: absolute;  
-  bottom: 9rem;
-  right: 6rem;
+  bottom: 5vh;
+  right: 2vw;
+  text-align: right;
 }
 
-/*CRT filter*/
-body::after { /*scanlines*/
+// CRT filter
+
+.CRT-screen::before {
   content:"";
   background:url("https://files.gamebanana.com/bitpit/scanline2_aafa8.png");
-  position: fixed;
-  width:68vw;
-  height: 60rem;
+  position: absolute;
+  width:100%;
+  height: 100%;
   max-height:60rem;
-  z-index: 300;
-  top:5rem;
-  left:16vw;
-  right:16vw;
+  z-index: 9;
+  top:0rem;
+  left: 0rem;
   background-size: 10%;
   pointer-events: none;
   opacity:40;
 }
 
-body::before { /*giant fucking beam thing*/
+.CRT-screen::after {
   content:"";
   background:rgba(255, 255, 255, 0.05);
-  position: fixed;
-  width:68vw;
+  position: absolute;
+  width:100%;
   height:20%;
-  z-index: 300;
-  top:5rem;
-  left:16vw;
-  right:16vw;
+  z-index: 9;
+  top:0rem;
+  left: 0rem;
   pointer-events: none;
   animation:bm_scanline 15s linear infinite;
 }
@@ -161,49 +169,36 @@ body::before { /*giant fucking beam thing*/
   100% {top:-30%;}
 }
 
-#MainContent::after { /*film grain*/
-  content:"";
-  background:url("https://files.gamebanana.com/bitpit/8ad7bd58e7556d95afa5528eb43113a9_w2.gif");
-  position: fixed;
-  width:100%;
-  height:100%;
-  z-index: 320;
-  top:0;
-  left:0;
-  right:0;
-  bottom:0;
-  background-size: 200px;
-  pointer-events: none;
-  opacity:0.13;
-}
-/*end CRT filter*/
-
 .container {
-  min-width: 90%;
-  width: 90%;
-  min-height: 100%;
-  height:fit-content;
-  margin-left: 5%;
-  margin-right: 5%;
+  width: 80%;
+  height: auto;
+  padding: 0 0 0 0;
+  margin: 0 10 0 10;
+  padding-left: 10% !important;
+  padding-right: 10% !important;
   .main {
+    position: static;
     width: 100%;
-    padding: 2%;
-    padding-top: 0;
     background-color: #000;
-    border-left: 5px solid #ce9403;
-    border-right: 5px solid #ce9403;
-    min-height: 65rem;
+    max-height: 1vh !important;
+    margin: 0 15px 0 15px !important;
+    padding: 0rem !important;
+    overflow-y: scroll;
   }
 }
 
 nav {
   background-color: #000;
   color: #ddd;
+  margin-left: -5% !important;
+  margin-right: -5% !important;
 }
 .nav-link {
   color: #ddd;
   font-family: KindlyRewind;
-  font-size: 38px;
+  font-size: 32px;
+  width: auto;
+  z-index: 11 !important;
 }
 .nav-link:hover,
 .nav-link::selection,
@@ -288,12 +283,13 @@ input {
 .card-title, .card-subtitle, .card-text { color: #ddd; }
 .card-title {
   font-family: KindlyRewind;
-  font-size: 38px;
+  font-size: 20px;
   text-align: center;
+  word-wrap: normal;
 }
 .card-subtitle {
   text-align: center;
-  font-size: 30px;
+  font-size: 18px;
 }
 .card-img {
   border-radius: 0px;
@@ -309,7 +305,7 @@ input {
   height: auto;
 }
 .jumbotron {
-  width: 90%;
+  width: 70%;
   margin: auto;
   display: block;
   position: relative;
@@ -453,5 +449,6 @@ hr {
 
 .format-font {
   font-family: FormatIcons;
+  text-align: center;
 }
 

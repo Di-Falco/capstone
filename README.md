@@ -139,4 +139,6 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 
 * 12:00 - 13:00 revert 2 hours of progress.
 * 12:45 - 13:45 fix broken redirect from film list to film detail
+* 13:45 - 14:45 restart work on home page
+* 15:00 - 16:30 reformat styles to work universally
 
