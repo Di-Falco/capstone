@@ -45,11 +45,11 @@ function App() {  const [filmList, setFilmList] = useState([]);
         <Routes>
           <Route exact path="/" element={<Home/>} />
           <Route exact path="/movies/:currentPage" element={<FilmControl />} />
-          {/* <Route exact path="/movies/?id=:id" element={<FilmDetail />} /> */}
-          <Route path="/movies/search" element={<FilmSearch />} />
+          <Route exact path="/details/:id" element={<FilmDetail filmList={filmList}/>} />
+          <Route exact path="/movies/search" element={<FilmSearch />} />
           <Route
             exact
-            path="/details/:id"
+            path="search/details/:id"
             element={
             <FilmDetail filmList={filmList}/> } />
         </Routes>

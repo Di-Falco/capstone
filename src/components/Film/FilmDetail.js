@@ -1,10 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Button, Image, Row, Col, Container } from "react-bootstrap";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 function FilmDetail(props) {
   const { id } = useParams();
+  const navigate = useNavigate();
   let film;
 
   console.log("ID: ", id);
@@ -63,7 +64,7 @@ function FilmDetail(props) {
         <h1 className='format-font'>{formatIcons.map((format) => format + "  ")}</h1>
       </Col>
       </Row>
-      {/* <Button onClick = { () => handleSeedingMovieData(film) }>Update Movie Info</Button> */}
+      <Button onClick = { () => navigate(-1) }>Back</Button>
       </Container>
     </React.Fragment>
   );
