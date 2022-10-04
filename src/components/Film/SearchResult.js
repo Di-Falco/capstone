@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, Row, Col } from "react-bootstrap"
 import FilmDetail from "./FilmDetail";
+import { Link } from "react-router-dom";
 
 function SearchResult(props) {
 
@@ -27,7 +28,7 @@ function SearchResult(props) {
             <p className="full-overview">&emsp;{props.overview}</p>
           </Col>
           <Col sm={2}>
-            <Button id={props.id} className="details-button" onClick={viewDetails}>Details</Button>
+            <Link to={`/details/${props.id}`}><Button id={props.id} className="details-button" onClick={viewDetails}>Details</Button></Link>
           </Col>
         </Row>
       </div>

@@ -8,7 +8,7 @@ function Film(props) {
   return(
     <React.Fragment>
     <Link to={{
-      pathname: `/movies/id=${props.id}`
+      pathname: `/details/${props.id}`
     }}>
     <Card className="filmCard" onClick = {() => props.whenFilmClicked(props.id)} style={loading ? { display:'none' } : {}}>
       <Card.Img src={props.posterUrl} onLoad={() => setLoading(false)}/>

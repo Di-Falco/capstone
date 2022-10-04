@@ -1,19 +1,23 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Button, Image, Row, Col, Container } from "react-bootstrap";
-import { useSearchParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 function FilmDetail(props) {
-  const [searchParams] = useSearchParams();
-  const id = searchParams.get("id");
+  const { id } = useParams();
   let film;
-  const { handleSeedingMovieData } = props;
+
+  console.log("ID: ", id);
+
+  console.log(props.filmList);
 
   if (id !== null) {
     film = props.filmList.find(film => film.id === id);
   } else {
     ({ film } = props);
   }
+
+  console.log("FILM: ",film);
 
   let formats = film.format;
   console.log("PROPS: ", film.format);
@@ -35,6 +39,8 @@ function FilmDetail(props) {
       case('LaserDisc'):
         formatIcons.push('û');
         break;
+      case('Betamax'):
+        formatIcons.push('\\');
     }
   }
 
@@ -50,15 +56,14 @@ function FilmDetail(props) {
       <h2>({film.releaseDate.split("-")[0]})</h2>
       <h4>{film.tagline}</h4>
       <p>{film.overview}</p>
-      <div>
-        <h1 className='format-font'>{formatIcons.map((format) => format)}</h1>
-      </div>
       </Col>
       <Col sm={4} className="justify-content-center">
         <div className="img-btn"><Image className="detailPoster" src={film.posterUrl}></Image></div>
+        <br />
+        <h1 className='format-font'>{formatIcons.map((format) => format + "  ")}</h1>
       </Col>
       </Row>
-      <Button onClick = { () => handleSeedingMovieData(film) }>Update Movie Info</Button>
+      {/* <Button onClick = { () => handleSeedingMovieData(film) }>Update Movie Info</Button> */}
       </Container>
     </React.Fragment>
   );
