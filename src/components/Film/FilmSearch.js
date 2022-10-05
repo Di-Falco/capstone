@@ -45,20 +45,22 @@ function FilmSearch (props) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setSubmitted(true);
     search(values);
   }
 
   const handleTitleInput = (event) => {
     setValues({...values, title: event.target.value});
+    search(values);
   }
 
   const handleStartYearInput = (event) => {
     setValues({...values, startYear: event.target.value});
+    search(values);
   }
 
   const handleEndYearInput = (event) => {
     setValues({...values, endYear: event.target.value});
+    search(values);
   }
 
   const handleFirstGenreInput = (value) => {
@@ -131,7 +133,7 @@ function FilmSearch (props) {
         <Row>
           <Col sm={4} className="search-column">
             <h1>Search Movies</h1>
-            <Form id="searchForm" className="mt-2 mb-2" onChange={handleSubmit}>
+            <Form id="searchForm" className="mt-2 mb-2" onSubmit={handleSubmit}>
               <InputGroup className="mb-2">
                 <Form.Control
                   onChange={handleTitleInput}
@@ -148,7 +150,7 @@ function FilmSearch (props) {
                   placeholder="2000"
                 />
               </InputGroup>
-                <button className="select" onClick={() => handleDisplay("select1")}>Select a genre</button>
+                <button className="select" onClick={() => handleDisplay("select1")}>{values.genreOne ? ">" + values.genreOne : "Select a genre"}</button>
                 <div className="custom-select" id="select1">
                   <div className="stowed" id="selectOptions1">
                   <button className="select-btn" onClick={() => handleFirstGenreInput('')}>--</button>
@@ -172,7 +174,7 @@ function FilmSearch (props) {
                   <button className="select-btn" onClick={() => handleFirstGenreInput('Western')}>Western</button>
                   </div>
                 </div>
-              <button className="select" onClick={() => handleDisplay("select2")}>Select a genre</button>
+              <button className="select" onClick={() => handleDisplay("select2")}>{values.genreTwo ? ">" + values.genreTwo + "" : "Select a genre"}</button>
                 <div className="custom-select" id="select2">
                   <div className="stowed" id="selectOptions1">
                   <button className="select-btn" onClick={() => handleSecondGenreInput('')}>--</button>
@@ -200,17 +202,7 @@ function FilmSearch (props) {
           </Col>
           <Col sm={8} className="result-column">
             <div className="searchResults">
-              {(searchResults.length > 0 || submitted) ? searchResults.map(film => 
-                <SearchResult 
-                  title={film.title} 
-                  year={film.releaseDate.split("-")[0]} 
-                  overview={film.overview} 
-                  selectedFilm={film}
-                  filmList={filmList}
-                  id={film.id}
-                  key={film.id}
-                />
-              ) : filmList.sort(compare).map(film => 
+              {searchResults.map(film => 
                 <SearchResult 
                   title={film.title} 
                   year={film.releaseDate.split("-")[0]} 

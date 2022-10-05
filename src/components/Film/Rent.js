@@ -36,7 +36,7 @@ function Rent (props) {
       <Row>
       <Col sm={7}>
       <Form onSubmit={handleSubmit}>
-        <button className="select" onClick={() => handleDisplay("select-format")}>{selectedFormat ? selectedFormat : "Select a Format"}</button>
+        <button className="select" onClick={() => handleDisplay("select-format")}>{selectedFormat ? ">" + selectedFormat : "Select a Format"}</button>
           <div className="custom-select" id="select-format"> 
             <div className="stowed" id="selectOptions1">
               {formats.map(format => 
@@ -55,7 +55,7 @@ function Rent (props) {
         <InputGroup className="mb-2">
           <Form.Control
             // onChange={handleTitleInput}
-            placeholder="Exp. Date"
+            placeholder="MM/YY"
             // value={values.title} 
           />
           <Form.Control
