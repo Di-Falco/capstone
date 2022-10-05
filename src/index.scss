@@ -3,7 +3,6 @@ html {
 }
 
 body {
-  max-height: 100px;
   background-image: linear-gradient( 
     #00006e,
     #00004b,
@@ -17,6 +16,7 @@ body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: #999 !important;
 }
 
 code {
@@ -39,6 +39,11 @@ code {
   src: url(~/assets/fonts/KindlyRewind-BOon.ttf);
 }
 
+@font-face {
+  font-family: MadouFutoMaru;
+  src: url(./assets/fonts/MadouFutoMaruGothic-d9Xo7.ttf);
+}
+
 img {
   filter: grayscale(70%);
   transition: filter 150ms;
@@ -49,13 +54,13 @@ h2, h3, h4, h5, h6, p {
   font-weight: bold;
   margin: 0px;
   padding: 8px;
-  color: #ddd;
+  color: #999 !important;
 }
 h1 {
   font-family: KindlyRewind;
   font-size: 32px;
   margin: 0 !important;
-  color: #ddd;
+  color: #999 !important;
 }
 h2 {
   font-size: 48px;
@@ -88,10 +93,10 @@ h6 {
 // }
 
 #main-content {
-  max-height: 90%;
+  max-height: 100%;
   overflow-y: scroll;
   padding-bottom: 5%;
-  margin-bottom: 10%;
+  // margin-bottom: 10%;
 }
 
 .CRT-screen {
@@ -101,11 +106,8 @@ h6 {
   min-width: 100vw;
   height: 100%;
   background: #00006e;
-  color: white;
-  // padding-top: 0vh;
-  // padding-left: 2vw;
-  // padding-right: 2vw;
-  // padding-bottom: 7vh;
+  color: #999;
+  padding-top: 3.5rem !important;
   h3,h4,h5,h6,p {
     font-family: KindlyRewind;
     font-weight: 100;
@@ -120,24 +122,28 @@ h6 {
   top: 16vh;
   left: 2vw;
   text-align: left;
+  color: #999 !important;
 }
 #top-right {
   position: absolute;  
   top: 16vh;
   right: 2vw;
   text-align: right;
+  color: #999;
 }
 #bottom-left {
   position: absolute;  
   bottom: 5vh;
   left: 2vw;
   text-align: left;
+  color: #999;
 }
 #bottom-right {
   position: absolute;  
   bottom: 5vh;
   right: 2vw;
   text-align: right;
+  color: #999;
 }
 
 // CRT filter
@@ -186,7 +192,6 @@ h6 {
     position: static;
     width: 100%;
     background-color: #000;
-    max-height: 1vh !important;
     margin: 0 15px 0 15px !important;
     padding: 0rem !important;
     overflow-y: scroll;
@@ -197,10 +202,13 @@ h6 {
     border: 5px solid #ce9403;
     border-top: none;
     margin: auto;
-    padding: 0rem !important;
+    padding: 0.25rem !important;
     padding-top: 2rem !important;
     overflow-y: scroll;
     z-index: 11;
+  }
+  &.list {
+    padding-top: 1rem;
   }
 }
 
@@ -215,36 +223,55 @@ h6 {
   }
   h2, h4 {
     text-align: center;
+    color: #999;
   }
   button {
     background-color: transparent !important;
     border-radius: 0 !important;
     border: none !important;
-    color: #fff !important;
+    color: #999 !important;
     &:hover {
-      background-color: #fff !important;
+      background-color: #999 !important;
       color: #00006e !important;
     }
   }
 }
 
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9;
+  width: 110%;
+}
+
 nav {
   background-color: #000;
-  color: #ddd;
+  color: #999;
   margin-left: -5% !important;
   margin-right: -5% !important;
+  h1 {  
+    padding: 0.25rem !important;
+    &:hover {
+      color: #000 !important;
+      background: #999 !important;
+    }
+  }
 }
 .nav-link {
-  color: #ddd;
+  color: #999;
   font-family: KindlyRewind;
   font-size: 32px;
+  margin-right: 1rem !important;
+  padding: 0.25rem !important;
   width: auto;
   z-index: 11 !important;
 }
 .nav-link:hover,
 .nav-link::selection,
 .nav-link:focus {
-  color: #aaa !important;
+  color: #000 !important;
+  background: #999 !important;
 }
 
 .dropdown-toggle::after {
@@ -263,16 +290,25 @@ a {
 input {
   border-radius: 0px !important;
   color: #000 !important;
+  font-family: MadouFutoMaru;
+  ::placeholder {
+    color: #000 !important;
+  }
 }
 .btn, .btn-primary, button {
-  background-color: #333 !important;
-  border: 10px double #bbb !important;
-  border-radius: 2px !important;
+  background-color: #000 !important;
+  color: #999 !important;
+  border: none !important;
+  border-radius: 0 !important;
   padding-top: 3px !important;
   padding-bottom: 3px !important;
   max-width: fit-content !important;
+  margin: 0.5rem !important;
+  font-family: KindlyRewind;
   &:hover {
     cursor:default;
+    background-color: #999;
+    color: #000;
   }
 }
 .btn-group {
@@ -292,19 +328,21 @@ input {
 }
 
 #pagination {
-  margin: 0 auto !important;
+  margin: auto !important;
   display: block !important;
-  width: 50vw;
-  padding: 0;
+  width: 58vw;
+  .btn-group {
+    margin: 0.25rem !important;
+  }
 }
 #currentPage {
-  background-color: #333 !important;
-  border-color: #ce9403 !important;
+  background-color: #000 !important;
+  border: 3px solid #999 !important;
 }
 
 .btn:hover {
-  background-color: #333 !important;
-  border: 10px double #ce9403 !important;
+  background-color: #999 !important;
+  color: #000 !important;
 }
 
 .card {
@@ -312,8 +350,8 @@ input {
   color: black;
   border: 2px solid #ce9403;
   border-radius: 0px;
-  -webkit-transition: transform 350ms linear;
-  transition: transform 350ms linear;
+  // -webkit-transition: transform 100ms linear;
+  // transition: transform 100ms linear;
   &:hover {
     filter: grayscale(90%);
     box-shadow: 10px 10px 10px;
@@ -322,7 +360,7 @@ input {
     cursor:pointer;
   }
   &:hover > .hidden {
-    transition: opacity 750ms;
+    // transition: opacity 750ms;
     opacity: 100%;
   }
   &:hover > .card-img {
@@ -330,7 +368,10 @@ input {
   }
 }
 
-.card-title, .card-subtitle, .card-text { color: #ddd; }
+.card-title, .card-subtitle, .card-text { 
+  font-family: KindlyRewind;
+  color: #ddd; 
+}
 .card-title {
   font-family: KindlyRewind;
   font-size: 20px;
@@ -362,7 +403,6 @@ input {
   background-color: #000;
   border-left: 5px solid #ce9403;
   border-right: 5px solid #ce9403;
-  transition: filter 2000ms linear;
 }
 
 .backdrop {
@@ -392,19 +432,19 @@ input {
 
 .hidden {
   will-change: opacity;
-  transition: opacity 750ms;
+  // transition: opacity 100ms;
   opacity: 0%;
 }
 
-.detail img {
-  filter: grayscale(0%);
+.detailPoster {
+  width: 420px !important;
 }
 .img-btn {
-  border: 10px double #777;
+  border: 5px ridge #999;
   background-color: #000;
   max-width:90%;
   max-height:fit-content;
-  padding: 0;
+  padding: 0.25rem;
   margin: auto;
   display: block;
   img {
@@ -412,12 +452,16 @@ input {
   }
 }
 
+#tagline {
+  font-family: MadouFutoMaru;
+}
+
 .form-control {
   border: 5px solid #333;
   background-color: #bbb;
   color: #222;
   &::placeholder {
-    color: #777;
+    color: #666;
     font-style: italic;
   }
   &:hover {
@@ -432,9 +476,10 @@ input {
   border: 5px solid #333;
   border-radius: 0;
   background-color: #bbb;
-  color: #222;
+  color: #666;
+  font-family: MadouFutoMaru;
   &#placeholder {
-    color: #777 !important;
+    color: #666 !important;
   }
   &:hover {
     border: 5px solid #ce9403
@@ -512,5 +557,6 @@ hr {
 
 #fbi-font {
   font-size: 620px;
+  color: #999;
 }
 

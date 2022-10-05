@@ -84,11 +84,11 @@ function FilmControl() {
     movieToEdit.genres = response.genres;
     movieToEdit.language = response.original_language;
     movieToEdit.overview = response.overview;
-    movieToEdit.posterUrl = "https://image.tmdb.org/t/p/w500" + response.poster_path;
+    movieToEdit.posterUrl = "https://image.tmdb.org/t/p/w154" + response.poster_path;
     if (response.backdrop_path !== null) {
-      movieToEdit.backdrop = "https://image.tmdb.org/t/p/w780" + response.backdrop_path;
+      movieToEdit.backdrop = "https://image.tmdb.org/t/p/w300" + response.backdrop_path;
     } else {
-      movieToEdit.backdrop = "https://image.tmdb.org/t/p/w780" + response.poster_path;
+      movieToEdit.backdrop = "https://image.tmdb.org/t/p/w342" + response.poster_path;
     }
     movieToEdit.rating = response.vote_average;
     movieToEdit.releaseDate = response.release_date;

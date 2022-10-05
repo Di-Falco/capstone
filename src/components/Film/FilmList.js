@@ -1,5 +1,6 @@
 import React from 'react';
 import Film from './Film';
+import Header from './../Header';
 import { Row, Col, Container, Button } from "react-bootstrap";
 import { useParams, Link } from "react-router-dom";
 
@@ -20,29 +21,29 @@ function FilmList(props) {
   pages = Math.floor(props.filmList.length/12) + 1 
   const page = [];
   page.push(
-    <span><Link to={{
+    <Link to={{
       pathname: `/movies/${ currentPage > 1 ? currentPage - 1: 1 }`
     }}>
       <Button className="start">Prev</Button>
-    </Link>&emsp;</span>
+    </Link>
   );
   if (currentPage > pages - 2) page.push(<Link><Button className="btn-group">...</Button></Link>);
   for (let i = (currentPage > 3 ? currentPage-3 : 1); i <= (currentPage <= pages-3 ? currentPage+3 : pages); i++) {
     page.push(
-      <span> <Link to={{
+      <Link to={{
         pathname: `/movies/${i}`
       }}>
       { (i === Number(currentPage)) ? <Button key={i} className="btn-group" id="currentPage"> {i} </Button> : <Button key={i} className="btn-group"> {i} </Button> }
-      </Link> </span>
+      </Link>
     );
   }
   if (currentPage < 2) page.push(<Link><Button className="btn-group">...</Button></Link>);
   page.push(
-    <span>&emsp;<Link to={{
+    <Link to={{
       pathname: `/movies/${ currentPage > 1 ? currentPage + 1 : 1 }`
     }}>
       <Button className="end">Next</Button>
-    </Link></span>
+    </Link>
   );
 
   const arrayBlock = (filmList, index) => {
@@ -56,7 +57,8 @@ function FilmList(props) {
   const y = currentPage*12;
   return (
     <React.Fragment>
-    <Container className="main">
+      <Header />
+    <Container className="main list">
     { arrayBlock(Object.values(props.filmList.slice(x,y)), row).map((row, index) => (
     <React.Fragment>
     <Row>
@@ -83,7 +85,7 @@ function FilmList(props) {
     <br />
     </React.Fragment>
   ))}
-  {/* <Button onClick={() => seedAll(props.filmList)}>Seed ALL!</Button> */}
+  <Button onClick={() => seedAll(props.filmList)}>Seed ALL!</Button>
   <div id="pagination">{page}</div>
   </Container>
   </React.Fragment>

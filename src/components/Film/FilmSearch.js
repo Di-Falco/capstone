@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { collection, onSnapshot } from 'firebase/firestore';
 import db from './../../firebase.js';
 import SearchResult from "./SearchResult";
+import Header from './../Header';
 import { Container, Form, InputGroup, Button, Row, Col } from "react-bootstrap";
 
 function FilmSearch (props) {
@@ -111,6 +112,7 @@ function FilmSearch (props) {
 
   return(
     <React.Fragment>
+      <Header />
       <Container className="main">
         <Row>
           <Col sm={4} className="search-column">

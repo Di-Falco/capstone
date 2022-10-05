@@ -4,6 +4,7 @@ import { Nav, Navbar, NavDropdown, Container } from 'react-bootstrap';
 function Header() {
   return(
     <React.Fragment>
+      <div className="header">
       <Navbar>
         <Container>
         <Navbar.Brand href="/"><h1>H1 VIDEO</h1></Navbar.Brand>
@@ -22,6 +23,7 @@ function Header() {
         </Navbar.Collapse>
         </Container>
         </Navbar>
+        </div>
     </React.Fragment>
   );
 }

@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Button, Image, Row, Col, Container } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
+import Header from './../Header';
 
 function FilmDetail(props) {
   const { id } = useParams();
@@ -47,6 +48,7 @@ function FilmDetail(props) {
 
   return (
     <React.Fragment>
+      <Header />
       <div className="jumbotron detail">
         <Image className="backdrop" src={`${film.backdrop}`} />
         <h3 className="bottom-left">{film.title}</h3>
@@ -55,7 +57,7 @@ function FilmDetail(props) {
       <Row>
       <Col sm={8}>
       <h4>({film.releaseDate.split("-")[0]})</h4>
-      <h4>{film.tagline}</h4>
+      <h4 id="tagline">{film.tagline}</h4>
       <p>{film.overview}</p>
       </Col>
       <Col sm={4} className="justify-content-center">
