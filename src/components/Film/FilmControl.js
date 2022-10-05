@@ -126,11 +126,11 @@ function FilmControl() {
     <React.Fragment>
       {currentlyVisibleState}
       <Container className="main">
-      {error ? null : 
+      {/* {error ? null : 
         <Form onSubmit={handleClick}>
           <Button className="main-button" type="submit">{buttonText}</Button>
         </Form>
-      }
+      } */}
       </Container>
     </React.Fragment>
   )

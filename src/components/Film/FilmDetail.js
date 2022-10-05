@@ -49,23 +49,23 @@ function FilmDetail(props) {
     <React.Fragment>
       <div className="jumbotron detail">
         <Image className="backdrop" src={`${film.backdrop}`} />
-        <h1 className="bottom-left">{film.title}</h1>
+        <h3 className="bottom-left">{film.title}</h3>
       </div>
-      <Container className="main detail">  
+      <div className="container details">  
       <Row>
       <Col sm={8}>
-      <h2>({film.releaseDate.split("-")[0]})</h2>
+      <h4>({film.releaseDate.split("-")[0]})</h4>
       <h4>{film.tagline}</h4>
       <p>{film.overview}</p>
       </Col>
       <Col sm={4} className="justify-content-center">
-        <div className="img-btn"><Image className="detailPoster" src={film.posterUrl}></Image></div>
+        <Image className="detailPoster img-btn" src={film.posterUrl} />
         <br />
         <h1 className='format-font'>{formatIcons.map((format) => format + "  ")}</h1>
       </Col>
       </Row>
       <Button onClick = { () => navigate(-1) }>Back</Button>
-      </Container>
+      </div>
     </React.Fragment>
   );
 }

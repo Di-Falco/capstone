@@ -126,11 +126,11 @@ function FilmSearch (props) {
               <InputGroup className="mb-2">
                 <Form.Control 
                   onChange={handleStartYearInput}
-                  placeholder="from: 1980"
+                  placeholder="1980"
                 />
                 <Form.Control 
                   onChange={handleEndYearInput}
-                  placeholder="to:&ensp;2000"
+                  placeholder="2000"
                 />
               </InputGroup>
               <InputGroup className="mb-2">

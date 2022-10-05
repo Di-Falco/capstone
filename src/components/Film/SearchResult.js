@@ -26,6 +26,7 @@ function SearchResult(props) {
         <Row className="stowed">
           <Col sm={10}>
             <p className="full-overview">&emsp;{props.overview}</p>
+          <br />
           </Col>
           <Col sm={2}>
             <Link to={`/details/${props.id}`}><Button id={props.id} className="details-button" onClick={viewDetails}>Details</Button></Link>
