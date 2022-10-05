@@ -204,8 +204,7 @@ function FilmSearch (props) {
           </Col>
           <Col sm={8} className="result-column">
             <div className="searchResults">
-              <h1>Results</h1>
-              {(searchResults.length > 0 || !submitted) ? searchResults.map(film => 
+              {(searchResults.length > 0 || submitted) ? searchResults.map(film => 
                 <SearchResult 
                   title={film.title} 
                   year={film.releaseDate.split("-")[0]} 
@@ -215,7 +214,17 @@ function FilmSearch (props) {
                   id={film.id}
                   key={film.id}
                 />
-              ) : <h2>No movies in our inventory match your search</h2>}
+              ) : filmList.sort(compare).map(film => 
+                <SearchResult 
+                  title={film.title} 
+                  year={film.releaseDate.split("-")[0]} 
+                  overview={film.overview} 
+                  selectedFilm={film}
+                  filmList={filmList}
+                  id={film.id}
+                  key={film.id}
+                />
+              )}
             </div>
           </Col>
         </Row>

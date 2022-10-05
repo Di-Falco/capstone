@@ -6,7 +6,7 @@
 
 A website inspired by moviemadness.org and dedicated to the lost era of the video rental store.
 
-The landing page will be styled using bootstrap and custom styles. Landing page display is tbd, but will use some universal components such as a header with a nav bar and a footer with mock store information. The site will have a database of movies in the inventory, including a details page for each movie with in-depth information and a poster image. Additional pages will include a list of upcoming screenings based on TMDB's trending movie data and a user login with some features included in the stretch goals
+The landing page will be custom styled. Landing page display is tbd, but will use some universal components such as a header with a nav bar or a footer with mock store information. The site will have a database of movies in the inventory, including a details page for each movie with in-depth information and a poster image. Additional pages will include a list of upcoming screenings based on TMDB's trending movie data and a user login with some features included in the stretch goals
 
 ### Technologies:
 
