@@ -114,14 +114,14 @@ h6 {
 }
 #bottom-left {
   position: absolute;  
-  bottom: 1rem;
+  bottom: 1.25rem;
   left: 1rem;
   text-align: left;
   color: #999;
 }
 #bottom-right {
   position: absolute;  
-  bottom: 1rem;
+  bottom: 1.25rem;
   right: 1rem;
   text-align: right;
   color: #999;
@@ -185,6 +185,7 @@ h6 {
     margin: auto;
     padding: 0.25rem !important;
     padding-top: 0.5rem !important;
+    padding-bottom: 2rem !important;
     overflow-y: scroll;
     z-index: 11;
     p {
@@ -196,7 +197,7 @@ h6 {
     padding-top: 1rem;
   }
   &.account, &.rent {
-    margin-top: 2.5rem !important;
+    margin-top: 1.5rem !important;
   }
 }
 
@@ -320,6 +321,7 @@ input {
 
 #pagination {
   margin: auto !important;
+  margin-bottom: 1rem !important;
   display: block !important;
   width: 58vw;
   .btn-group {
@@ -547,6 +549,7 @@ input {
   max-height: 90vh;
   overflow-y: scroll;
   padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 .search-column {
@@ -587,20 +590,20 @@ hr {
 
 .footer {
   display: block;
-  width: 200vw;
+  width: 400vw;
   height: 2rem;
-  position: absolute;
+  position: fixed;
   bottom: 0rem;
   left: 0;
   background: #000;
   color: #bbb;
-  padding-left: 15vw;
+  padding-left: -15vw;
   padding-right: 15vw;
   overflow-x: hidden;
-  animation: footer 20s linear infinite;
+  animation: footer 30s linear infinite;
 }
 
 @keyframes footer {
-  0% {left:0vw}
-  100% {left:-95vw}
+  0% {left:0%}
+  100% {left:-100%}
 }
