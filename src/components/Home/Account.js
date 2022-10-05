@@ -16,9 +16,11 @@ function Account() {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         setSignUpSuccess(`Registration successful: ${userCredential.user.email}`);
+        setSignOutSuccess(null);
       })
       .catch((error) => {
-        setSignUpSuccess(`Error: ${error.message}`)
+        setSignUpSuccess(`Error: ${error.message}`);
+        setSignOutSuccess(null);
       });
   }
 
@@ -29,19 +31,18 @@ function Account() {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         setSignInSuccess(`Welcome: ${userCredential.user.email}`);
+        setSignOutSuccess(null);
       })
       .catch((error) => {
         setSignInSuccess(`Error: ${error.message}`);
+        setSignOutSuccess(null);
       })
   }
 
   function doSignOut() {
     signOut(auth)
       .then(function(userCredential) {
-        setSignOutSuccess(`${userCredential.user.email} Signed out`);
-      })
-      .catch(function(error) {
-        setSignOutSuccess(`Error: ${error.message}`)
+        setSignOutSuccess(`user signed out`);
       });
   }
 
@@ -49,7 +50,8 @@ function Account() {
     <React.Fragment>
       <Header />
       <Container className="account">
-      <Row>
+      {(auth.currentUser) ? <h1>Signed in as {auth.currentUser.email}</h1> : null}
+      <Row className="mt-2">
       <Col sm={6}>
       <h1>Accout Set Up</h1>
       <p>{signUpSuccess}</p>
@@ -90,6 +92,7 @@ function Account() {
       </Col>
       </Row>
       <Button onClick={doSignOut}>Sign Out</Button>
+      <p>{signOutSuccess}</p>
       </Container>
     </React.Fragment>
   );

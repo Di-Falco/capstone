@@ -72,7 +72,6 @@ function FilmList(props) {
         releaseDate = {film.releaseDate}
         posterUrl = {film.posterUrl}
         backdrop={film.backdrop}
-        overview = {film.overview}
         format={film.format}
         available={film.available}
         id = {film.id}

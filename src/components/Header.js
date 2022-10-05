@@ -1,4 +1,5 @@
 import React from 'react';
+import { auth } from './../firebase.js';
 import { Nav, Navbar, NavDropdown, Container } from 'react-bootstrap';
 
 function Header() {
@@ -21,6 +22,7 @@ function Header() {
           </Nav.Item>
         </Nav>
         </Navbar.Collapse>
+        {(auth.currentUser) ? <p>{auth.currentUser.email}</p> : null}
         </Container>
         </Navbar>
         </div>

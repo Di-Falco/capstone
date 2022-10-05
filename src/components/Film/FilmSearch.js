@@ -131,7 +131,7 @@ function FilmSearch (props) {
         <Row>
           <Col sm={4} className="search-column">
             <h1>Search Movies</h1>
-            <Form id="searchForm" className="mt-2 mb-2" onSubmit={handleSubmit}>
+            <Form id="searchForm" className="mt-2 mb-2" onChange={handleSubmit}>
               <InputGroup className="mb-2">
                 <Form.Control
                   onChange={handleTitleInput}
@@ -196,7 +196,6 @@ function FilmSearch (props) {
                   <button className="select-btn" onClick={() => handleSecondGenreInput('Western')}>Western</button>
                   </div>
                 </div>
-              <Button className="end" type="submit">Search</Button>
             </Form>
           </Col>
           <Col sm={8} className="result-column">
