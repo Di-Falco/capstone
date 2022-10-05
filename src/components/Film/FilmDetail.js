@@ -18,16 +18,16 @@ function FilmDetail(props) {
         formatIcons.push('|');
         break;
       case('DVD'):
-        formatIcons.push('V');
+        formatIcons.push(' V ');
         break;
       case('BluRay'):
-        formatIcons.push('I');
+        formatIcons.push(' I ');
         break;
       case('LaserDisc'):
-        formatIcons.push('û');
+        formatIcons.push(' û ');
         break;
       case('Betamax'):
-        formatIcons.push('\\');
+        formatIcons.push(' \\ ');
     }
   }
 

@@ -52,7 +52,6 @@ function Account() {
     <React.Fragment>
       <Header />
       <Container className="account">
-      {(auth.currentUser) ? <h1>Signed in as {auth.currentUser.email}</h1> : null}
       <p>{signUpSuccess}</p>
       <p>{signInSuccess}</p>
       <p>{signOutSuccess}</p>

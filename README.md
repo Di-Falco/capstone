@@ -135,10 +135,16 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 * 15:30 - 16:00 Test search function with different inputs
 * 16:00 - 16:30 Start on redirect to details from search
 
-### 10/4/2022 13:00 - 
+### 10/4/2022 13:00 - 17:00, 20:00 - 21:15 (5:15)
 
 * 12:00 - 13:00 revert 2 hours of progress.
 * 12:45 - 13:45 fix broken redirect from film list to film detail
 * 13:45 - 14:45 restart work on home page
 * 15:00 - 16:30 reformat styles to work universally
+* 16:30 — 17:00 match colors across all components
+* 20:00 — 21:15 set up custom select menus for genres in search
+
+### 10/5/2022 08:00 - 
+
+* 
 

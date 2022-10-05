@@ -11,10 +11,8 @@ import FilmSearch from './Film/FilmSearch';
 import Account from './Home/Account';
 import Rent from './Film/Rent';
 import { BrowserRouter as Router, Routes, Route,  } from 'react-router-dom';
-import { Container } from 'react-bootstrap';
 
 function App() {  const [filmList, setFilmList] = useState([]);
-  const [selectedFilm, setSelectedFilm] = useState(null);
   const [error, setError] = useState(null);
 
   useEffect(() => {

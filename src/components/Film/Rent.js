@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { auth } from './../../firebase.js';
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { Container, Form, InputGroup, Button, Row, Col } from "react-bootstrap";
 import Header from './../Header';
 import Film from './Film';

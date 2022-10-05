@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import FilmList from './FilmList';
 import FilmDetail from './FilmDetail';
-import { collection, addDoc, doc, setDoc, updateDoc, deleteDoc, onSnapshot } from 'firebase/firestore';
-import { Button, Container, Form } from 'react-bootstrap';
+import { collection, doc, setDoc, onSnapshot } from 'firebase/firestore';
+import { Container } from 'react-bootstrap';
 import { db } from './../../firebase.js';
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 let redirectPage;
 
@@ -13,7 +13,6 @@ function FilmControl() {
   const [filmList, setFilmList] = useState([]);
   const [selectedFilm, setSelectedFilm] = useState(null);
   const [error, setError] = useState(null);
-  const navigate = useNavigate();
   let { currentPage } = useParams();
   (currentPage).includes("id") ? (redirectPage === undefined ? redirectPage = 1 : redirectPage = redirectPage) : (redirectPage = currentPage);
 
@@ -39,25 +38,19 @@ function FilmControl() {
   }, []);
 
  
-  const compare = (a, b) => {
-    if (Number(a.id) < Number(b.id)) {
-      return -1;
-    }
-    if (Number(a.id) > Number(b.id)) {
-      return 1;
-    }
-    return 0;
-  }
+  // const compare = (a, b) => {
+  //   if (Number(a.id) < Number(b.id)) {
+  //     return -1;
+  //   }
+  //   if (Number(a.id) > Number(b.id)) {
+  //     return 1;
+  //   }
+  //   return 0;
+  // }
 
-  const sortList = () => {
-    setFilmList(filmList.sort( compare ));
-  }
-
-  const handleClick = (event) => {
-    if (selectedFilm != null) {
-      navigate(`/movies/${redirectPage}`);
-    }
-  }
+  // const sortList = () => {
+  //   setFilmList(filmList.sort( compare ));
+  // }
 
   const handleChangingSelectedFilm = (id) => {
     const selection = filmList
@@ -102,7 +95,6 @@ function FilmControl() {
   }
 
   let currentlyVisibleState = null;
-  let buttonText = null;
 
   if (error) {
     currentlyVisibleState = <p>There was an error: {error}</p>
@@ -112,26 +104,19 @@ function FilmControl() {
       film = { selectedFilm } 
       filmList = { filmList } 
       handleSeedingMovieData = { handleSeedingMovieData } />
-    buttonText = "Return to Movie List";
   } else {
     currentlyVisibleState = 
     <FilmList 
       filmList = { filmList }
       onFilmSelection = { handleChangingSelectedFilm }
       handleSeedingMovieData = { handleSeedingMovieData } />
-    buttonText = "Placeholder";
   }
 
   return (
     <React.Fragment>
       {currentlyVisibleState}
-      <Container className="main">
-      {/* {error ? null : 
-        <Form onSubmit={handleClick}>
-          <Button className="main-button" type="submit">{buttonText}</Button>
-        </Form>
-      } */}
-      </Container>
+      {/* <Container className="main">
+      </Container> */}
     </React.Fragment>
   )
 }

@@ -460,6 +460,11 @@ input {
   font-style: italic;
 }
 
+.full-overview, .brief-overview {
+  font-family: MadouFutoMaru !important;
+  text-align: justify;
+}
+
 .form-control {
   border: 5px solid #333;
   background-color: #bbb;
@@ -522,6 +527,7 @@ input {
 
 .search-result {
   border: 5px solid black;
+  background: #00004b;
   position: relative;
   padding: 0.5rem;
   h1 {

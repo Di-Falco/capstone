@@ -3,13 +3,12 @@ import { collection, onSnapshot } from 'firebase/firestore';
 import { db } from './../../firebase.js';
 import SearchResult from "./SearchResult";
 import Header from './../Header';
-import { Container, Form, InputGroup, Button, Row, Col } from "react-bootstrap";
+import { Container, Form, InputGroup, Row, Col } from "react-bootstrap";
 
 function FilmSearch (props) {
 
   const [filmList, setFilmList] = useState([]);
   const [error, setError] = useState(null);
-  // let searchResults = [];
 
   useEffect(() => {
     const unSubscribe = onSnapshot(
@@ -39,7 +38,6 @@ function FilmSearch (props) {
     genreOne: "",
     genreTwo: ""
   }); 
-  const [submitted, setSubmitted] = useState(false);
 
   const [searchResults, setSearchResults] = useState(filmList);
 
@@ -89,8 +87,8 @@ function FilmSearch (props) {
     setSearchResults([...filmList]);
     setSearchResults(searchResults => 
       [...filmList].filter(film => {
-        return (values.genreOne != '' ? film.genres.map(a => a.name).includes(String(values.genreOne)) : film.genres.length !== 0) &&
-        (values.genreTwo != '' ? film.genres.map(a => a.name).includes(String(values.genreTwo)) : film.genres.length !== 0) &&
+        return (values.genreOne !== '' ? film.genres.map(a => a.name).includes(String(values.genreOne)) : film.genres.length !== 0) &&
+        (values.genreTwo !== '' ? film.genres.map(a => a.name).includes(String(values.genreTwo)) : film.genres.length !== 0) &&
         String(film.title).toLowerCase().includes(String(values.title).toLowerCase()) &&
         film.releaseDate.split("-")[0] >= values.startYear &&
         film.releaseDate.split("-")[0] <= values.endYear
@@ -122,6 +120,8 @@ function FilmSearch (props) {
         break;
       case("select2"):
         (document.getElementById("select1").children)[0].classList.add("stowed");
+        break;
+      default:
         break;
     }
   }
