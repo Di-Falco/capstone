@@ -101,28 +101,28 @@ h6 {
 #top-left {
   position: absolute;
   top: 4rem;
-  left: 1rem;
+  left: 0.5rem;
   text-align: left;
   color: #999 !important;
 }
 #top-right {
   position: absolute;  
   top: 4rem;
-  right: 1rem;
+  right: 0.5rem;
   text-align: right;
   color: #999;
 }
 #bottom-left {
   position: absolute;  
   bottom: 1.25rem;
-  left: 1rem;
+  left: 0.5rem;
   text-align: left;
   color: #999;
 }
 #bottom-right {
   position: absolute;  
   bottom: 1.25rem;
-  right: 1rem;
+  right: 0.5rem;
   text-align: right;
   color: #999;
 }
@@ -320,12 +320,14 @@ input {
 }
 
 #pagination {
-  margin: auto !important;
+  display: flex;
+  justify-content: space-around;
+  padding-left: 5rem;
+  padding-right: 5rem;
   margin-bottom: 1rem !important;
-  display: block !important;
-  width: 58vw;
-  .btn-group {
-    margin: 0.25rem !important;
+  width: auto;
+  &.btn-group, a, .btn, button {
+    margin: 0.1rem !important;
   }
 }
 #currentPage {
