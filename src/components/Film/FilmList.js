@@ -65,7 +65,6 @@ function FilmList(props) {
     {(row).map((film) => 
       <React.Fragment>
       <Col key={film.id}>
-        {console.log("FILM: ", film)}
       <Film
         whenFilmClicked = {props.onFilmSelection}
         title = {film.title}
@@ -75,6 +74,7 @@ function FilmList(props) {
         backdrop={film.backdrop}
         overview = {film.overview}
         format={film.format}
+        available={film.available}
         id = {film.id}
         key = {film.id}
       />

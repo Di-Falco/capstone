@@ -15,7 +15,10 @@ function Film(props) {
       <Card.ImgOverlay className="hidden">
         <Card.Title >{props.title}</Card.Title>
         <Card.Subtitle>({props.releaseDate.split("-")[0]})</Card.Subtitle>
-        {/* <Card.Text>{props.overview.length > 460 ? props.overview.slice(0, 460).concat("...") : props.overview}</Card.Text> */}
+        <br />
+        <Card.Subtitle>{(props.available === "TRUE") ? "Available" : "Unavailable"}</Card.Subtitle>
+        <br />
+        <Card.Subtitle className="card-overview">{(props.overview) ? props.overview : null}</Card.Subtitle>
       </Card.ImgOverlay>
     </Card>
     </Link>

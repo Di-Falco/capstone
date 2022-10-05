@@ -208,7 +208,7 @@ h6 {
   &.list {
     padding-top: 1rem;
   }
-  &.account {
+  &.account, &.rent {
     margin-top: 2.5rem !important;
   }
 }
@@ -352,7 +352,7 @@ input {
 .card {
   background-color: #212529;
   color: black;
-  border: 2px solid #ce9403;
+  border: 5px solid #ce9403;
   border-radius: 0px;
   // -webkit-transition: transform 100ms linear;
   // transition: transform 100ms linear;
@@ -360,7 +360,7 @@ input {
     filter: grayscale(90%);
     box-shadow: 10px 10px 10px;
     transform: scale(1.05);
-    border: 2px solid #ce9403 !important;
+    border: 5px solid #bbb !important;
     cursor:pointer;
   }
   &:hover > .hidden {
@@ -389,6 +389,10 @@ input {
 .card-img {
   border-radius: 0px;
   will-change: filter;
+}
+.card-overview {
+  max-height: 50%;
+  overflow-y: scroll;
 }
 
 .filmBox {

@@ -134,7 +134,6 @@ function FilmSearch (props) {
             <Form id="searchForm" className="mt-2 mb-2" onSubmit={handleSubmit}>
               <InputGroup className="mb-2">
                 <Form.Control
-                  className="caret-block"
                   onChange={handleTitleInput}
                   placeholder="search by title"
                   value={values.title} />

@@ -9,6 +9,7 @@ import FilmControl from './Film/FilmControl';
 import FilmDetail from './Film/FilmDetail';
 import FilmSearch from './Film/FilmSearch';
 import Account from './Home/Account';
+import Rent from './Film/Rent';
 import { BrowserRouter as Router, Routes, Route,  } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 
@@ -49,6 +50,7 @@ function App() {  const [filmList, setFilmList] = useState([]);
               <Route exact path="/movies/search" element={<FilmSearch />} />
               <Route exact path="search/details/:id" element={<FilmDetail filmList={filmList}/> } />
               <Route exact path="/account" element={<Account />} />
+              <Route exact path="/rent/:id" element={<Rent filmList={filmList}/>} />
             </Routes>
             <h3 id="top-left">CH13<br />PLAY<br />0:00:00</h3>
             <h3 id="top-right">TAPE<br />ÇREC<br />0:00:00</h3>

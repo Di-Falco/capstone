@@ -1,29 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Button, Image, Row, Col, Container } from "react-bootstrap";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, Link } from "react-router-dom";
 import Header from './../Header';
 
 function FilmDetail(props) {
   const { id } = useParams();
   const navigate = useNavigate();
-  let film;
-
-  console.log("ID: ", id);
-
-  console.log(props.filmList);
-
-  if (id !== null) {
-    film = props.filmList.find(film => film.id === id);
-  } else {
-    ({ film } = props);
-  }
-
-  console.log("FILM: ",film);
-
+  const film = props.filmList.find(film => film.id === id);
   let formats = film.format;
-  console.log("PROPS: ", film.format);
-  console.log("FORMATS: ", formats);
   if (formats.includes(',')) {formats = formats.split(',');} else {formats=[film.format]}
   let formatIcons = [];
   
@@ -46,6 +31,10 @@ function FilmDetail(props) {
     }
   }
 
+  const rent = () => {
+    
+  }
+
   return (
     <React.Fragment>
       <Header />
@@ -66,7 +55,10 @@ function FilmDetail(props) {
         <h1 className='format-font'>{formatIcons.map((format) => format + "  ")}</h1>
       </Col>
       </Row>
-      <Button onClick = { () => navigate(-1) }>Back</Button>
+      <Button onClick={() => navigate(-1)}>Back</Button>
+      <Link to={{
+        pathname: `/rent/${film.id}`
+      }}><Button>Rent</Button></Link>
       </div>
     </React.Fragment>
   );
