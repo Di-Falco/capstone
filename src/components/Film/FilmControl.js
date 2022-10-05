@@ -3,7 +3,7 @@ import FilmList from './FilmList';
 import FilmDetail from './FilmDetail';
 import { collection, addDoc, doc, setDoc, updateDoc, deleteDoc, onSnapshot } from 'firebase/firestore';
 import { Button, Container, Form } from 'react-bootstrap';
-import db from './../../firebase.js';
+import { db } from './../../firebase.js';
 import { useNavigate, useParams } from "react-router-dom";
 
 let redirectPage;

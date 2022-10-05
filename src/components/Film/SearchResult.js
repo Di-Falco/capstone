@@ -1,6 +1,5 @@
 import React from "react";
 import { Button, Row, Col } from "react-bootstrap"
-import FilmDetail from "./FilmDetail";
 import { Link } from "react-router-dom";
 
 function SearchResult(props) {

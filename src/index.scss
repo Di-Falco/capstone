@@ -208,6 +208,9 @@ h6 {
   &.list {
     padding-top: 1rem;
   }
+  &.account {
+    margin-top: 2.5rem !important;
+  }
 }
 
 .menu {
@@ -461,33 +464,23 @@ input {
   border: 5px solid #333;
   background-color: #bbb;
   color: #333;
+  caret-color: #000;
   &::placeholder {
     color: #666;
     font-style: italic;
   }
   &:hover {
     border: 5px solid #000;
-    background-color: #ddd;
+    background-color: #bbb;
   }
   value {
     color: #000 !important;
   }
+  &:focus {
+    border-color: #000 !important;
+    background-color: #bbb;
+  }
 }
-
-// .form-select {
-// //   border: 5px solid #333;
-// //   border-radius: 0;
-// //   background-color: #bbb;
-// //   color: #666;
-// //   font-family: MadouFutoMaru;
-// //   &#placeholder {
-// //     color: #666 !important;
-// //     font-style: normal !important;
-// //   }
-// //   &:hover {
-// //     border: 5px solid #ce9403
-// //   }
-// // }
 
 .select {
   &:hover {
