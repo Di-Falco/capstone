@@ -10,6 +10,7 @@ import FilmDetail from './Film/FilmDetail';
 import FilmSearch from './Film/FilmSearch';
 import Account from './Home/Account';
 import Rent from './Film/Rent';
+import Footer from './Footer';
 import { BrowserRouter as Router, Routes, Route,  } from 'react-router-dom';
 
 function App() {  const [filmList, setFilmList] = useState([]);
@@ -57,6 +58,7 @@ function App() {  const [filmList, setFilmList] = useState([]);
           </div>
         </div>
       </Router>
+      <Footer />
     </React.Fragment>
   );
 }

@@ -585,3 +585,22 @@ hr {
   filter: blur(0.35px);
 }
 
+.footer {
+  display: block;
+  width: 200vw;
+  height: 2rem;
+  position: absolute;
+  bottom: 0rem;
+  left: 0;
+  background: #000;
+  color: #bbb;
+  padding-left: 15vw;
+  padding-right: 15vw;
+  overflow-x: hidden;
+  animation: footer 20s linear infinite;
+}
+
+@keyframes footer {
+  0% {left:0vw}
+  100% {left:-95vw}
+}
