@@ -43,6 +43,8 @@ function Account() {
     signOut(auth)
       .then(function(userCredential) {
         setSignOutSuccess(`user signed out`);
+        setSignInSuccess(null);
+        setSignUpSuccess(null);
       });
   }
 
@@ -51,10 +53,12 @@ function Account() {
       <Header />
       <Container className="account">
       {(auth.currentUser) ? <h1>Signed in as {auth.currentUser.email}</h1> : null}
+      <p>{signUpSuccess}</p>
+      <p>{signInSuccess}</p>
+      <p>{signOutSuccess}</p>
       <Row className="mt-2">
       <Col sm={6}>
       <h1>Accout Set Up</h1>
-      <p>{signUpSuccess}</p>
       <Form onSubmit={doSignUp}>
         <InputGroup className="mb-2">
         <Form.Control 
@@ -73,7 +77,6 @@ function Account() {
       </Col>
       <Col sm={6}>
         <h1>Sign In</h1>
-        <p>{signInSuccess}</p>
         <Form onSubmit={doSignIn}>
           <InputGroup className="mb-2">
             <Form.Control
@@ -92,7 +95,6 @@ function Account() {
       </Col>
       </Row>
       <Button onClick={doSignOut}>Sign Out</Button>
-      <p>{signOutSuccess}</p>
       </Container>
     </React.Fragment>
   );

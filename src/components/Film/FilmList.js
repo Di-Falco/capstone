@@ -1,6 +1,7 @@
 import React from 'react';
 import Film from './Film';
 import Header from './../Header';
+import { auth } from './../../firebase.js';
 import { Row, Col, Container, Button } from "react-bootstrap";
 import { useParams, Link } from "react-router-dom";
 
@@ -74,6 +75,7 @@ function FilmList(props) {
         backdrop={film.backdrop}
         format={film.format}
         available={film.available}
+        rating={Math.floor(+(film.rating))}
         id = {film.id}
         key = {film.id}
       />
@@ -84,7 +86,7 @@ function FilmList(props) {
     <br />
     </React.Fragment>
   ))}
-  <Button onClick={() => seedAll(props.filmList)}>Seed ALL!</Button>
+  {(auth.currentUser && auth.currentUser.email === "aodifalco@gmail.com") ? <Button onClick={() => seedAll(props.filmList)}>Seed ALL!</Button> : null}
   <div id="pagination">{page}</div>
   <br />
   </Container>

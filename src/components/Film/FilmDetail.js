@@ -31,8 +31,12 @@ function FilmDetail(props) {
     }
   }
 
-  const rent = () => {
-    
+  const displayRating = (rating) => {
+    const starArray = ["["];
+    for (let i=0; i<rating/2; i++) {
+      starArray.push("");
+    }
+    starArray.push("]");
   }
 
   return (
@@ -40,14 +44,15 @@ function FilmDetail(props) {
       <Header />
       <div className="jumbotron detail">
         <Image className="backdrop" src={`${film.backdrop}`} />
-        <h3 className="bottom-left">{film.title}</h3>
+        <h3 className="bottom-left"><em>{film.title}</em></h3>
       </div>
       <div className="container details">  
       <Row>
       <Col sm={8}>
       <h4>({film.releaseDate.split("-")[0]})</h4>
+      <h4>{() => displayRating(film.rating)}</h4>
       <h4 id="tagline">{film.tagline}</h4>
-      <p>{film.overview}</p>
+      <p id="be-kind-rewind">{film.overview}</p>
       </Col>
       <Col sm={4} className="justify-content-center">
         <Image className="detailPoster img-btn" src={film.posterUrl} />

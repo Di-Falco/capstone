@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { auth } from './../../firebase.js';
 import { useNavigate, useParams } from "react-router-dom";
 import { Container, Form, InputGroup, Button, Row, Col } from "react-bootstrap";
@@ -9,6 +9,7 @@ function Rent (props) {
   const { id } = useParams();
   const film = props.filmList.find(film => film.id === id);
   let formats = film.format;
+  const [selectedFormat, setSelectedFormat] = useState(null);
   if (formats.includes(',')) {formats = formats.split(',');} else {formats=[film.format]}
 
   const handleDisplay = (title) => {
@@ -17,24 +18,29 @@ function Rent (props) {
     child1.classList.toggle("stowed");
   }
 
+  const handleFormatSelection = (event) => {
+    setSelectedFormat(event.target.value);
+    console.log(selectedFormat);
+    handleDisplay("select-format");
+  }
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(film);
   }
 
   return (
     <React.Fragment>
       <Header />
       <Container className="main rent">
-      <h1>Rent {film.title} ?</h1>
+      <h1>Rent <em>{film.title}</em> ?</h1>
       <Row>
       <Col sm={7}>
       <Form onSubmit={handleSubmit}>
-        <button className="select" onClick={() => handleDisplay("select-format")}>Select a Format</button>
-          <div className="custom-select" id="select-format">
+        <button className="select" onClick={() => handleDisplay("select-format")}>{selectedFormat ? selectedFormat : "Select a Format"}</button>
+          <div className="custom-select" id="select-format"> 
             <div className="stowed" id="selectOptions1">
               {formats.map(format => 
-                <button className="select-btn" >{format}</button>
+                <button onClick={handleFormatSelection} className="select-btn" value={format}>{format}</button>
               )}
             </div>
           </div>
@@ -61,7 +67,7 @@ function Rent (props) {
         {(auth.currentUser === null) ? <InputGroup><Form.Control placeholder="email"/></InputGroup> : null}
         <Button type="submit">Confirm Rental</Button>
       </Form>
-      <h1 className="mt-2">All rentals are due back within 7 days. There is no late fee. Be kind, rewind.</h1>
+      <h1 className="mt-2" id="be-kind-rewind">All rentals are due back within 7 days. There is no late fee. Be kind, rewind.</h1>
       </Col>
       <Col sm={5}>
       <Film
