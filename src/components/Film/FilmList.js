@@ -87,6 +87,7 @@ function FilmList(props) {
   ))}
   <Button onClick={() => seedAll(props.filmList)}>Seed ALL!</Button>
   <div id="pagination">{page}</div>
+  <br />
   </Container>
   </React.Fragment>
   );

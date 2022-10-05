@@ -17,6 +17,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #999 !important;
+  &:hover {
+    cursor: default;
+  }
 }
 
 code {
@@ -25,18 +28,13 @@ code {
 }
 
 @font-face {
-  font-family: HangerNine;
-  src: url(~/assets/fonts/HangarNine-eW1e.ttf);
-}
-
-@font-face {
   font-family: FormatIcons;
-  src: url(~/assets/fonts/Digitalsymbols-56BG.ttf);
+  src: url(./assets/fonts/Digitalsymbols-56BG.ttf);
 }
 
 @font-face {
   font-family: KindlyRewind;
-  src: url(~/assets/fonts/KindlyRewind-BOon.ttf);
+  src: url(./assets/fonts/KindlyRewind-BOon.ttf);
 }
 
 @font-face {
@@ -93,7 +91,7 @@ h6 {
 // }
 
 #main-content {
-  max-height: 100%;
+  max-height: 110%;
   overflow-y: scroll;
   padding-bottom: 5%;
   // margin-bottom: 10%;
@@ -280,7 +278,8 @@ nav {
 
 .dropdown-menu {
   border: 5px solid #666;
-  border-radius: 2px;
+  background-color: #bbb;
+  border-radius: 0;
   font-family: KindlyRewind;
 }
 
@@ -291,8 +290,9 @@ input {
   border-radius: 0px !important;
   color: #000 !important;
   font-family: MadouFutoMaru;
-  ::placeholder {
-    color: #000 !important;
+  &::placeholder {
+    color: #333 !important;
+    font-style: normal !important;
   }
 }
 .btn, .btn-primary, button {
@@ -459,30 +459,53 @@ input {
 .form-control {
   border: 5px solid #333;
   background-color: #bbb;
-  color: #222;
+  color: #333;
   &::placeholder {
     color: #666;
     font-style: italic;
   }
   &:hover {
-    border: 5px solid #ce9403
+    border: 5px solid #000;
+    background-color: #ddd;
   }
   value {
     color: #000 !important;
   }
 }
 
-.form-select, .form-select > option {
-  border: 5px solid #333;
-  border-radius: 0;
-  background-color: #bbb;
-  color: #666;
-  font-family: MadouFutoMaru;
-  &#placeholder {
-    color: #666 !important;
-  }
+// .form-select {
+// //   border: 5px solid #333;
+// //   border-radius: 0;
+// //   background-color: #bbb;
+// //   color: #666;
+// //   font-family: MadouFutoMaru;
+// //   &#placeholder {
+// //     color: #666 !important;
+// //     font-style: normal !important;
+// //   }
+// //   &:hover {
+// //     border: 5px solid #ce9403
+// //   }
+// // }
+
+.select {
   &:hover {
-    border: 5px solid #ce9403
+    color: #000 !important;
+    background-color: #bbb !important;
+  }
+}
+.custom-select {
+  width: 100%;
+  max-height: 20vh;
+  overflow-y: scroll;
+  font-family: MadouFutoMaru;
+}
+.select-btn {
+  margin: 0.1rem !important;
+  display: inline !important;
+  &:hover {
+    background-color: #bbb !important;
+    color: #000 !important;
   }
 }
 
@@ -495,7 +518,11 @@ input {
   background-color: #bbb;
 }
 
-.search-page:not(.search-result) {
+.search-page {
+  max-height: 80vh;
+}
+
+.search-page:not(.search-result):not(.custom-select) {
   position:fixed;
 }
 
@@ -511,13 +538,10 @@ input {
     margin-top: -0.5rem;
   }
   &:hover {
-    cursor:help
+    cursor: default;
   }
 }
 
-.full-overview:hover {
-  cursor: crosshair;
-}
 
 .result-column {
   max-height: 80vh;
@@ -535,7 +559,7 @@ hr {
 }
 
 .search-border {
-  border: 5px double #ce9403;
+  border: 10px double #ce9403;
 }
 
 .stowed {

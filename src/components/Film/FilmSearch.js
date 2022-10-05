@@ -61,12 +61,12 @@ function FilmSearch (props) {
     setValues({...values, endYear: event.target.value});
   }
 
-  const handleFirstGenreInput = (event) => {
-    setValues({...values, genreOne: event.target.value})
+  const handleFirstGenreInput = (value) => {
+    setValues({...values, genreOne: value})
   }
 
-  const handleSecondGenreInput = (event) => {
-    setValues({...values, genreTwo: event.target.value})
+  const handleSecondGenreInput = (value) => {
+    setValues({...values, genreTwo: value})
   }
 
   const compare = (a, b) => {
@@ -110,6 +110,22 @@ function FilmSearch (props) {
   //   return similarity /= string1.length;
   // }
 
+  const handleDisplay = (title) => {
+    const parent = document.getElementById(title);
+    const child1 = (parent.children)[0];
+    child1.classList.toggle("stowed");
+    switch (title) {
+      case("select1"):
+        (document.getElementById("select2").children)[0].classList.add("stowed");
+        break;
+      case("select2"):
+        (document.getElementById("select1").children)[0].classList.add("stowed");
+        break;
+    }
+  }
+
+  // ————————————————————————————
+
   return(
     <React.Fragment>
       <Header />
@@ -135,54 +151,54 @@ function FilmSearch (props) {
                   placeholder="2000"
                 />
               </InputGroup>
-              <InputGroup className="mb-2">
-                <Form.Select
-                  onChange={handleFirstGenreInput} >
-                  <option selected id="placeholder" value=''>Select a genre</option>
-                  <option value='Action'>Action</option>
-                  <option value='Adventure'>Adventure</option>
-                  <option value='Animation'>Animation</option>
-                  <option value='Comedy'>Comedy</option>
-                  <option value='Crime'>Crime</option>
-                  <option value='Drama'>Drama</option>
-                  <option value='Family'>Family</option>
-                  <option value='Fantasy'>Fantasy</option>
-                  <option value='History'>History</option>
-                  <option value='Horror'>Horror</option>
-                  <option value='Music'>Music</option>
-                  <option value='Mystery'>Mystery</option>
-                  <option value='Romance'>Romance</option>
-                  <option value='Science Fiction'>Science Fiction</option>
-                  <option value='Thriller'>Thriller</option>
-                  <option value='TV Movie'>TV Movie</option>
-                  <option value='War'>War</option>
-                  <option value='Western'>Western</option>
-                </Form.Select>
-              </InputGroup>
-              <InputGroup className="mb-2">
-                <Form.Select
-                  onChange={handleSecondGenreInput} >
-                  <option selected id="placeholder" value=''>Select a genre</option>
-                  <option value='Action'>Action</option>
-                  <option value='Adventure'>Adventure</option>
-                  <option value='Animation'>Animation</option>
-                  <option value='Comedy'>Comedy</option>
-                  <option value='Crime'>Crime</option>
-                  <option value='Drama'>Drama</option>
-                  <option value='Family'>Family</option>
-                  <option value='Fantasy'>Fantasy</option>
-                  <option value='History'>History</option>
-                  <option value='Horror'>Horror</option>
-                  <option value='Music'>Music</option>
-                  <option value='Mystery'>Mystery</option>
-                  <option value='Romance'>Romance</option>
-                  <option value='Science Fiction'>Science Fiction</option>
-                  <option value='Thriller'>Thriller</option>
-                  <option value='TV Movie'>TV Movie</option>
-                  <option value='War'>War</option>
-                  <option value='Western'>Western</option>
-                </Form.Select>
-              </InputGroup>
+                <button className="select" onClick={() => handleDisplay("select1")}>Select a genre</button>
+                <div className="custom-select" id="select1">
+                  <div className="stowed" id="selectOptions1">
+                  <button className="select-btn" onClick={() => handleFirstGenreInput('')}>--</button>
+                  <button className="select-btn" onClick={() => handleFirstGenreInput('Action')}>Action</button>
+                  <button className="select-btn" onClick={() => handleFirstGenreInput('Adventure')}>Adventure</button>
+                  <button className="select-btn" onClick={() => handleFirstGenreInput('Animation')}>Animation</button>
+                  <button className="select-btn" onClick={() => handleFirstGenreInput('Comedy')}>Comedy</button>
+                  <button className="select-btn" onClick={() => handleFirstGenreInput('Crime')}>Crime</button>
+                  <button className="select-btn" onClick={() => handleFirstGenreInput('Drama')}>Drama</button>
+                  <button className="select-btn" onClick={() => handleFirstGenreInput('Family')}>Family</button>
+                  <button className="select-btn" onClick={() => handleFirstGenreInput('Fantasy')}>Fantasy</button>
+                  <button className="select-btn" onClick={() => handleFirstGenreInput('History')}>History</button>
+                  <button className="select-btn" onClick={() => handleFirstGenreInput('Horror')}>Horror</button>
+                  <button className="select-btn" onClick={() => handleFirstGenreInput('Music')}>Music</button>
+                  <button className="select-btn" onClick={() => handleFirstGenreInput('Mystery')}>Mystery</button>
+                  <button className="select-btn" onClick={() => handleFirstGenreInput('Romance')}>Romance</button>
+                  <button className="select-btn" onClick={() => handleFirstGenreInput('Science Fiction')}>Science Fiction</button>
+                  <button className="select-btn" onClick={() => handleFirstGenreInput('Thriller')}>Thriller</button>
+                  <button className="select-btn" onClick={() => handleFirstGenreInput('TV Movie')}>TV Movie</button>
+                  <button className="select-btn" onClick={() => handleFirstGenreInput('War')}>War</button>
+                  <button className="select-btn" onClick={() => handleFirstGenreInput('Western')}>Western</button>
+                  </div>
+                </div>
+              <button className="select" onClick={() => handleDisplay("select2")}>Select a genre</button>
+                <div className="custom-select" id="select2">
+                  <div className="stowed" id="selectOptions1">
+                  <button className="select-btn" onClick={() => handleSecondGenreInput('')}>--</button>
+                  <button className="select-btn" onClick={() => handleSecondGenreInput('Action')}>Action</button>
+                  <button className="select-btn" onClick={() => handleSecondGenreInput('Adventure')}>Adventure</button>
+                  <button className="select-btn" onClick={() => handleSecondGenreInput('Animation')}>Animation</button>
+                  <button className="select-btn" onClick={() => handleSecondGenreInput('Comedy')}>Comedy</button>
+                  <button className="select-btn" onClick={() => handleSecondGenreInput('Crime')}>Crime</button>
+                  <button className="select-btn" onClick={() => handleSecondGenreInput('Drama')}>Drama</button>
+                  <button className="select-btn" onClick={() => handleSecondGenreInput('Family')}>Family</button>
+                  <button className="select-btn" onClick={() => handleSecondGenreInput('Fantasy')}>Fantasy</button>
+                  <button className="select-btn" onClick={() => handleSecondGenreInput('History')}>History</button>
+                  <button className="select-btn" onClick={() => handleSecondGenreInput('Horror')}>Horror</button>
+                  <button className="select-btn" onClick={() => handleSecondGenreInput('Music')}>Music</button>
+                  <button className="select-btn" onClick={() => handleSecondGenreInput('Mystery')}>Mystery</button>
+                  <button className="select-btn" onClick={() => handleSecondGenreInput('Romance')}>Romance</button>
+                  <button className="select-btn" onClick={() => handleSecondGenreInput('Science Fiction')}>Science Fiction</button>
+                  <button className="select-btn" onClick={() => handleSecondGenreInput('Thriller')}>Thriller</button>
+                  <button className="select-btn" onClick={() => handleSecondGenreInput('TV Movie')}>TV Movie</button>
+                  <button className="select-btn" onClick={() => handleSecondGenreInput('War')}>War</button>
+                  <button className="select-btn" onClick={() => handleSecondGenreInput('Western')}>Western</button>
+                  </div>
+                </div>
               <Button className="end" type="submit">Search</Button>
             </Form>
           </Col>
