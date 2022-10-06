@@ -608,9 +608,12 @@ hr {
   padding-right: 15vw;
   overflow-x: hidden;
   animation: footer 30s linear infinite;
+  &h4 {
+    font-weight: 100 !important;
+  }
 }
 
 @keyframes footer {
   0% {left:0%}
-  100% {left:-100%}
+  100% {left:-63.5%}
 }
