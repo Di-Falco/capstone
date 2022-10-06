@@ -13,8 +13,10 @@ import Rent from './Film/Rent';
 import Footer from './Footer';
 import { BrowserRouter as Router, Routes, Route,  } from 'react-router-dom';
 
-function App() {  const [filmList, setFilmList] = useState([]);
+function App() {  
+  const [filmList, setFilmList] = useState([]);
   const [error, setError] = useState(null);
+  const [timer, setTimer] = useState(0);
 
   useEffect(() => {
     const unSubscribe = onSnapshot(
@@ -35,6 +37,12 @@ function App() {  const [filmList, setFilmList] = useState([]);
     );
 
     return () => unSubscribe();
+  }, []);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setTimer((s) => s +1);
+    }, 1000)
   }, []);
 
   return(

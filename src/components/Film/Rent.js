@@ -34,7 +34,7 @@ function Rent (props) {
       <Container className="main rent">
       <h1>Rent <em>{film.title}</em> ?</h1>
       <Row>
-      <Col sm={7}>
+      <Col sm={8}>
       <Form onSubmit={handleSubmit}>
         <button className="select" onClick={() => handleDisplay("select-format")}>{selectedFormat ? ">" + selectedFormat : "Select a Format"}</button>
           <div className="custom-select" id="select-format"> 
@@ -70,7 +70,7 @@ function Rent (props) {
       {/* All rentals are due back within 7 days. There is no late fee. */}
       <h1 className="mt-2" id="be-kind-rewind">Be kind, rewind.</h1>
       </Col>
-      <Col sm={5}>
+      <Col sm={4}>
       <Film
         title = {film.title}
         releaseDate = {film.releaseDate}

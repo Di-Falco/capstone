@@ -31,13 +31,12 @@ function FilmDetail(props) {
     }
   }
 
-  const displayRating = (rating) => {
-    const starArray = ["["];
-    for (let i=0; i<rating/2; i++) {
-      starArray.push("");
-    }
-    starArray.push("]");
+  const starArray = [];
+  for (let i=1; i<=5; i++) {
+    i <= Math.round(+(film.rating))/2 ? starArray.push("★") : starArray.push("☆");
   }
+  starArray.push(` [ ${(Number(film.rating)).toFixed(1)} ]`);
+
 
   return (
     <React.Fragment>
@@ -50,9 +49,9 @@ function FilmDetail(props) {
       <Row>
       <Col sm={8}>
       <h4>({film.releaseDate.split("-")[0]})</h4>
-      <h4>{() => displayRating(film.rating)}</h4>
+      <h4 id="rating">{starArray}</h4>
       <h4 id="tagline">{film.tagline}</h4>
-      <p id="be-kind-rewind">{film.overview}</p>
+      <p id="be-kind-rewind">&emsp;{film.overview}</p>
       </Col>
       <Col sm={4} className="justify-content-center">
         <Image className="detailPoster img-btn" src={film.posterUrl} />

@@ -10,7 +10,7 @@ function FilmList(props) {
 
   useEffect(() => {
     setFilmList(props.filmList);
-  }, []);
+  });
 
   let { currentPage } = useParams();
   currentPage = Number(currentPage);
@@ -80,7 +80,7 @@ function FilmList(props) {
         backdrop={film.backdrop}
         format={film.format}
         available={film.available}
-        rating={Math.floor(+(film.rating))}
+        rating={film.rating}
         id = {film.id}
         key = {film.id}
       />

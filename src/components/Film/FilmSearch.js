@@ -36,7 +36,9 @@ function FilmSearch (props) {
     startYear: 0,
     endYear: 3000,
     genreOne: "",
-    genreTwo: ""
+    genreTwo: "",
+    minRating: 0,
+    maxRating: 10
   }); 
 
   const [searchResults, setSearchResults] = useState(filmList);
@@ -73,6 +75,14 @@ function FilmSearch (props) {
     setValues({...values, genreTwo: value})
   }
 
+  const handleMinRating = (event) => {
+    setValues({...values, minRating: Number(event.target.value)})
+  }
+
+  const handleMaxRating = (event) => {
+    setValues({...values, maxRating: Number(event.target.value)})
+  }  
+
   const compare = (a, b) => {
     if (Number(a.id) < Number(b.id)) {
       return -1;
@@ -95,7 +105,8 @@ function FilmSearch (props) {
         (values.genreTwo !== '' ? film.genres.map(a => a.name).includes(String(values.genreTwo)) : film.genres.length !== 0) &&
         String(film.title).toLowerCase().includes(String(values.title).toLowerCase()) &&
         film.releaseDate.split("-")[0] >= values.startYear &&
-        film.releaseDate.split("-")[0] <= values.endYear
+        film.releaseDate.split("-")[0] <= values.endYear &&
+        film.rating >= values.minRating
       })
     ); 
     sortList();
@@ -142,20 +153,32 @@ function FilmSearch (props) {
           <Col sm={4} className="search-column">
             <h1>Search Movies</h1>
             <Form id="searchForm" className="mt-2 mb-2" onSubmit={handleSubmit}>
-              <InputGroup className="mb-2">
+              <InputGroup>
                 <Form.Control
                   onChange={handleTitleInput}
                   placeholder="search by title"
                   value={values.title} />
               </InputGroup>
-              <InputGroup className="mb-2">
+              <small> YEAR </small>
+              <InputGroup>
                 <Form.Control 
                   onChange={handleStartYearInput}
-                  placeholder="1980"
+                  placeholder="min."
                 />
                 <Form.Control 
                   onChange={handleEndYearInput}
-                  placeholder="2000"
+                  placeholder="max."
+                />
+              </InputGroup>
+              <small> RATING </small>
+              <InputGroup className="mb-2">
+                <Form.Control 
+                  onChange={handleMinRating}
+                  placeholder="min."
+                />
+                <Form.Control 
+                  onChange={handleMaxRating}
+                  placeholder="max."
                 />
               </InputGroup>
                 <button className="select" onClick={() => handleDisplay("select1")}>{values.genreOne ? ">" + values.genreOne : "Select a genre"}</button>

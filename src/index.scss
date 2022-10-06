@@ -72,6 +72,10 @@ h5 {
 h6 {
   font-size: 28px;
 }
+small {
+  font-size: 28px;
+  font-family: MadouFutoMaru;
+}
 
 #main-content {
   max-height: 110%;
@@ -166,14 +170,12 @@ h6 {
   width: 80%;
   height: auto;
   padding: 0 0 0 0;
-  margin: 0 10 0 10;
-  padding-left: 10% !important;
-  padding-right: 10% !important;
+  padding-left: 5% !important;
+  padding-right: 5% !important;
   .main {
     position: static;
     min-width: 100%;
     background-color: #000;
-    margin: 0 15px 0 15px !important;
     padding: 0rem !important;
     overflow-y: scroll;
   }
@@ -464,6 +466,10 @@ input {
   img {
     max-width: 100%;
   }
+}
+
+#rating {
+  font-family: MadouFutoMaru !important;
 }
 
 #tagline {
