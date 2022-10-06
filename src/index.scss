@@ -38,6 +38,19 @@ code {
   src: url(./assets/fonts/MadouFutoMaruGothic-d9Xo7.ttf);
 }
 
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 0;
+  width: 0.5 rem !important;
+}
+
 img {
   filter: grayscale(70%);
   transition: filter 150ms;
@@ -402,6 +415,8 @@ input {
   font-family: MadouFutoMaru;
   font-size: 20px !important;
   text-align: center;
+  margin: 0;
+  margin-right: -0.5rem !important;
 }
 #be-kind-rewind {
   text-align: justify;

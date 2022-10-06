@@ -106,7 +106,8 @@ function FilmSearch (props) {
         String(film.title).toLowerCase().includes(String(values.title).toLowerCase()) &&
         film.releaseDate.split("-")[0] >= values.startYear &&
         film.releaseDate.split("-")[0] <= values.endYear &&
-        film.rating >= values.minRating
+        film.rating >= values.minRating &&
+        film.rating <= values.maxRating
       })
     ); 
     sortList();
