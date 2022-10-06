@@ -305,6 +305,7 @@ input {
 }
 .btn-group {
   border-radius: 0px;
+  height: 1.75rem;
 }
 .start {
   border-top-right-radius: 0px;
@@ -326,13 +327,17 @@ input {
   padding-right: 5rem;
   margin-bottom: 1rem !important;
   width: auto;
-  &.btn-group, a, .btn, button {
+  &.btn-group, &a, .btn, button {
     margin: 0.1rem !important;
   }
 }
 #currentPage {
   background-color: #000 !important;
   border: 3px solid #999 !important;
+  &:hover {
+    background-color: #000 !important;
+    color: #bbb !important;
+  }
 }
 
 .btn:hover {
