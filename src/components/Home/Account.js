@@ -40,9 +40,9 @@ function Account() {
   }
 
   function doSignOut() {
+    setSignOutSuccess((auth.currentUser === null ? "not signed in" : `user signed out`));
     signOut(auth)
       .then(function(userCredential) {
-        setSignOutSuccess(`user signed out`);
         setSignInSuccess(null);
         setSignUpSuccess(null);
       });
