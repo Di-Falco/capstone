@@ -33,7 +33,7 @@ function FilmDetail(props) {
 
   const starArray = [];
   for (let i=1; i<=5; i++) {
-    (i*2 <= Math.round(+(film.rating)) ? starArray.push("★") : (i*2 - 1 <= Math.round(+(film.rating)) ? starArray.push("½") : starArray.push("☆")));
+    (i*2 <= Math.round(+((film.rating).toFixed(1))) ? starArray.push("★") : (i*2 - 1 <= Math.round(+((film.rating).toFixed(1))) ? starArray.push("½") : starArray.push("☆")));
   }
   starArray.push(` [ ${(Number(film.rating)).toFixed(1)} ]`);
 
