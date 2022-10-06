@@ -68,19 +68,21 @@ function FilmSearch (props) {
   }
 
   const handleFirstGenreInput = (value) => {
-    setValues({...values, genreOne: value})
+    setValues({...values, genreOne: value});
+    handleDisplay("select1");
   }
 
   const handleSecondGenreInput = (value) => {
-    setValues({...values, genreTwo: value})
+    setValues({...values, genreTwo: value});
+    handleDisplay("select2")
   }
 
   const handleMinRating = (event) => {
-    setValues({...values, minRating: Number(event.target.value)})
+    setValues({...values, minRating: event.target.value !== "" ? Number(event.target.value) : 0})
   }
 
   const handleMaxRating = (event) => {
-    setValues({...values, maxRating: Number(event.target.value)})
+    setValues({...values, maxRating: event.target.value !== "" ? Number(event.target.value) : 10})
   }  
 
   const compare = (a, b) => {
