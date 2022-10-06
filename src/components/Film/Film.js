@@ -17,8 +17,7 @@ function Film(props) {
         <Card.Subtitle>({props.releaseDate.split("-")[0]})</Card.Subtitle>
         <br />
         <Card.Subtitle>{(props.available === "TRUE") ? "Available" : "Unavailable"}</Card.Subtitle>
-        <br />
-        <Card.Subtitle className="card-overview">{(props.overview) ? props.overview : null}</Card.Subtitle>
+        <Card.Subtitle className="card-overview mt-2">{(props.overview) ? props.overview : null}</Card.Subtitle>
       </Card.ImgOverlay>
     </Card>
     </Link>

@@ -208,6 +208,11 @@ small {
   margin-top: 5%;
   max-height: 80vh;
   display: block;
+  h1 {
+    font-size: 42px;
+    text-align: center;
+    margin-bottom: 1rem !important;
+  }
   h2 {
     margin-left: -9% !important;
     margin-right: -16% !important;
@@ -392,11 +397,11 @@ input {
   will-change: filter;
 }
 .card-overview {
-  max-height: 70%;
+  max-height: 65%;
   overflow-y: scroll;
   font-family: MadouFutoMaru;
   font-size: 20px !important;
-  text-align: justify;
+  text-align: center;
 }
 #be-kind-rewind {
   text-align: justify;
@@ -595,6 +600,7 @@ hr {
 .format-font {
   font-family: FormatIcons;
   text-align: center;
+  font-size: 40px;
 }
 
 #fbi-font {
