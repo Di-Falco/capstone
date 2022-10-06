@@ -12,11 +12,6 @@ function Home() {
         <h4><a href="/movies/1"><button className="menu-btn">BROWSE MOVIES</button></a>&emsp;<a href="/movies/search"><button className="menu-btn">SEARCH MOVIES</button></a></h4>
         <br />
         <h4>-------- Be Kind, Rewind --------</h4>
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
         <h2 className="format-font" id="fbi-font">†</h2>
         </div>
       </Container>

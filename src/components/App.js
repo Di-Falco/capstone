@@ -59,10 +59,10 @@ function App() {
               <Route exact path="/account" element={<Account />} />
               <Route exact path="/rent/:id" element={<Rent filmList={filmList}/>} />
             </Routes>
-            <h3 id="top-left">CH13<br />PLAY<br />0:00:00</h3>
-            <h3 id="top-right">TAPE<br />ÇREC<br />0:00:00</h3>
-            <h3 id="bottom-left">TVÂ<br />SRC</h3>
-            <h3 id="bottom-right">LPÂ<br />DST</h3>
+            <h3 id="top-left">CH13<br /><span id="play">►</span> PLAY<br />0:00:00</h3>
+            <h3 id="top-right">TAPE<br /><span id="rec">●</span> REC<br />0:00:00</h3>
+            <h3 id="bottom-left">TV <span id="play">►</span><br />SRC</h3>
+            <h3 id="bottom-right">LP <span id="play">►</span><br />DST</h3>
           </div>
         </div>
       </Router>
