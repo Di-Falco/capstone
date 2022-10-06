@@ -1,3 +1,9 @@
+@media all and (min-width: 2200px) and (max-width: 4000px) {
+#root {
+  zoom: 1.5;
+}
+}
+
 body {
   background-image: linear-gradient( 
     #00006e,
@@ -102,7 +108,7 @@ small {
   position: fixed;
   top: 0;
   left: 0;
-  min-width: 100vw;
+  min-width: 100%;
   height: 100%;
   background: #00006e;
   color: #999;
@@ -181,6 +187,7 @@ small {
 
 .container {
   width: 80%;
+  min-width: 60%;
   height: auto;
   padding: 0 0 0 0;
   padding-left: 5% !important;
@@ -193,7 +200,7 @@ small {
     overflow-y: scroll;
   }
   &.details {
-    width: 70%;
+    max-width: 70%;
     background-color: #000;
     border: 5px solid #ce9403;
     border-top: none;
@@ -345,12 +352,12 @@ input {
 #pagination {
   display: flex;
   justify-content: space-around;
-  padding-left: 5rem;
-  padding-right: 5rem;
+  padding-left: 20%;
+  padding-right: 20%;
   margin-bottom: 1rem !important;
-  width: auto;
   &.btn-group, &a, .btn, button {
     margin: 0.1rem !important;
+    width: 100px;
   }
 }
 #currentPage {
@@ -431,7 +438,7 @@ input {
   height: auto;
 }
 .jumbotron {
-  width: 70%;
+  max-width: 70%;
   margin: auto;
   display: block;
   position: relative;
@@ -655,5 +662,5 @@ hr {
 
 @keyframes footer {
   0% {left:0%}
-  100% {left:-63.5%}
+  100% {left:-63.5vw}
 }
