@@ -97,6 +97,10 @@ function FilmSearch (props) {
     sortList();
   }
 
+  useEffect(() => {
+    search(values);
+  }, [values])
+
   // const compareStrings = (string1, string2) => {
   //   string1.split("");
   //   string2.split("");

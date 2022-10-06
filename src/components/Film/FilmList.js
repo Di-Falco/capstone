@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Film from './Film';
 import Header from './../Header';
 import { auth } from './../../firebase.js';
@@ -6,6 +6,11 @@ import { Row, Col, Container, Button } from "react-bootstrap";
 import { useParams, Link } from "react-router-dom";
 
 function FilmList(props) {
+  const [filmList, setFilmList] = useState([]);
+
+  useEffect(() => {
+    setFilmList(props.filmList);
+  }, []);
 
   let { currentPage } = useParams();
   currentPage = Number(currentPage);
@@ -19,7 +24,7 @@ function FilmList(props) {
     });
   }
 
-  pages = Math.floor(props.filmList.length/12) + 1 
+  pages = Math.floor(filmList.length/12) + 1 
   const page = [];
   page.push(
     <Link to={{
@@ -60,7 +65,7 @@ function FilmList(props) {
     <React.Fragment>
       <Header />
     <Container className="main list">
-    { arrayBlock(Object.values(props.filmList.slice(x,y)), row).map((row, index) => (
+    { arrayBlock(Object.values(filmList.slice(x,y)), row).map((row, index) => (
     <React.Fragment>
     <Row>
     {(row).map((film) => 
@@ -86,7 +91,7 @@ function FilmList(props) {
     <br />
     </React.Fragment>
   ))}
-  {(auth.currentUser && auth.currentUser.email === "aodifalco@gmail.com") ? <Button onClick={() => seedAll(props.filmList)}>Seed ALL!</Button> : null}
+  {(auth.currentUser && auth.currentUser.email === "aodifalco@gmail.com") ? <Button onClick={() => seedAll(filmList)}>Seed ALL!</Button> : null}
   <div id="pagination">{page}</div>
   <br />
   </Container>

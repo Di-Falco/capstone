@@ -67,7 +67,8 @@ function Rent (props) {
         {(auth.currentUser === null) ? <InputGroup><Form.Control placeholder="email"/></InputGroup> : null}
         <Button type="submit">Confirm Rental</Button>
       </Form>
-      <h1 className="mt-2" id="be-kind-rewind">All rentals are due back within 7 days. There is no late fee. Be kind, rewind.</h1>
+      {/* All rentals are due back within 7 days. There is no late fee. */}
+      <h1 className="mt-2" id="be-kind-rewind">Be kind, rewind.</h1>
       </Col>
       <Col sm={5}>
       <Film

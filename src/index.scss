@@ -77,7 +77,7 @@ h6 {
   max-height: 110%;
   overflow-y: scroll;
   padding-bottom: 5%;
-  padding-top: 3.5rem !important;
+  padding-top: 2.5rem !important;
   // margin-bottom: 10%;
 }
 
@@ -100,14 +100,14 @@ h6 {
 }
 #top-left {
   position: absolute;
-  top: 4rem;
+  top: 2.5rem;
   left: 0.5rem;
   text-align: left;
   color: #999 !important;
 }
 #top-right {
   position: absolute;  
-  top: 4rem;
+  top: 2.5rem;
   right: 0.5rem;
   text-align: right;
   color: #999;
@@ -197,7 +197,7 @@ h6 {
     padding-top: 1rem;
   }
   &.account, &.rent {
-    margin-top: 1.5rem !important;
+    margin-top: 0.75rem !important;
   }
 }
 
@@ -233,6 +233,7 @@ h6 {
   left: 0;
   z-index: 9;
   width: 110%;
+  max-height: 2rem !important;
 }
 
 nav {
@@ -240,6 +241,7 @@ nav {
   color: #999;
   margin-left: -5% !important;
   margin-right: -5% !important;
+  max-height: 2.5rem !important;
   h1 {  
     padding: 0.25rem !important;
     &:hover {
@@ -560,7 +562,7 @@ input {
 }
 
 .search-column {
-  padding-top: 2rem;
+  padding-top: 1rem;
 }
 
 hr {
@@ -578,8 +580,8 @@ hr {
 
 .details-button {
   position: absolute;
-  bottom: 0.5rem;
-  right: 0.5rem;
+  bottom: 0.1rem;
+  right: 0.1rem;
   float: right;
   z-index: 1;
 }
