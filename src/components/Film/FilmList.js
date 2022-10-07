@@ -28,7 +28,7 @@ function FilmList(props) {
   const page = [];
   page.push(
     <Link to={{
-      pathname: `/movies/${ currentPage > 1 ? currentPage - 1: 1 }`
+      pathname: `/movies/${ currentPage > 1 ? currentPage-- : 1 }`
     }}>
       <Button className="start">Prev</Button>
     </Link>
@@ -46,7 +46,7 @@ function FilmList(props) {
   if (currentPage < 2) page.push(<Button className="btn-group">...</Button>);
   page.push(
     <Link to={{
-      pathname: `/movies/${ currentPage > 1 ? currentPage + 1 : 1 }`
+      pathname: `/movies/${ currentPage <= 37 ? currentPage++ : 38 }`
     }}>
       <Button className="end">Next</Button>
     </Link>
