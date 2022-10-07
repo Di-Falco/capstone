@@ -55,14 +55,14 @@ function FilmSearch (props) {
 
   const handleStartYearInput = (event) => {
     let startYear;
-    event.target.value === "" ? startYear = 0 : startYear = event.target.value;
+    event.target.value === undefined ? startYear = 0 : startYear = event.target.value;
     setValues({...values, startYear: startYear});
     search(values);
   }
 
   const handleEndYearInput = (event) => {
     let endYear;
-    event.target.value === "" ? endYear = 0 : endYear = event.target.value;
+    event.target.value === undefined ? endYear = 0 : endYear = event.target.value;
     setValues({...values, endYear: event.target.value});
     search(values);
   }

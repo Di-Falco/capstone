@@ -28,13 +28,13 @@ function FilmList(props) {
   const page = [];
   page.push(
     <Link to={{
-      pathname: `/movies/${ currentPage > 1 ? currentPage-- : 1 }`
+      pathname: `/movies/${ currentPage > 1 ? currentPage - 1: 1 }`
     }}>
       <Button className="start">Prev</Button>
     </Link>
   );
   if (currentPage > pages - 2) page.push(<Button className="btn-group">...</Button>);
-  for (let i = (currentPage > 2 ? currentPage-2 : 1); i <= (currentPage <= pages-2 ? currentPage+2 : pages); i++) {
+  for (let i = (currentPage > 3 ? currentPage-3 : 1); i <= (currentPage <= pages-3 ? currentPage + 3 : pages); i++) {
     page.push(
       <Link to={{
         pathname: `/movies/${i}`
@@ -46,7 +46,7 @@ function FilmList(props) {
   if (currentPage < 2) page.push(<Button className="btn-group">...</Button>);
   page.push(
     <Link to={{
-      pathname: `/movies/${ currentPage <= 37 ? currentPage++ : 38 }`
+      pathname: `/movies/${ currentPage < 38 ? currentPage + 1 : 38 }`
     }}>
       <Button className="end">Next</Button>
     </Link>
