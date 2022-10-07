@@ -18,13 +18,9 @@
   }
   #pagination {
     display: flex;
-    min-width: 100vw;
     position: absolute;
     bottom: 1vh;
-    left: 1vh;
-    padding-left: 5% !important;
-    padding-right: 5% !important;
-    min-width: 98%;
+    max-width: 70%;
     justify-content: space-around;
   }
   .footer {
@@ -35,6 +31,12 @@
   }
   #hidden-br {
     display: block !important;
+  }
+  nav {
+    padding: 0 !important;
+    .container {
+      padding: 0 !important;
+    }
   }
 }
 
