@@ -15,8 +15,6 @@ _A React webpage for my personal video rental store_
 [Setup/Installation Requirements](#setup-and-installation-requirements)
 
 [Known Bugs](#known-bugs) 
- 
-[License](#License)
 
 ### Technologies used
 
@@ -34,12 +32,15 @@ _The project is a database of my home video collection set up to emulate a movie
 ### Description 
 
 
-_The webpage is a React application set up with create-react-app. It uses a Firebase database to store a list of ~450 movies with a dozen or so fields like title, overview, poster url, and video formats. Most information is gathered from TMDB's API and then assigned to the database. Currently supports user authentication, but the only features requiring authorization are some tools meant to help me seed database information from the API_ 
+_The webpage is a React application set up with create-react-app. It uses a Firebase database to store a list of ~450 movies with a dozen or so fields like title, overview, poster url, and video formats. Most information is gathered from TMDB's API and then assigned to the database. Currently supports user authentication, but the only features requiring authorization are some tools meant to help me seed database information from the API. All movies are from my collection, the API is only used to seed data to the Firestore db and get images._ 
 
 _Ongoing goals:_
-* _Add purchase functionality_
+* _Add "purchase" functionality_
 * _Add user profile customization_
+* _Create seperate search for movies outside of the db_
+* _Add user interactions (ratings, likes / dislikes) to movie detail pages_
 * _Add functionality for admin users to add edit and delete movies from the site_
+* _Refactor nearly everything (stylesheet esp)_
 
 ### Setup and installation Requirements
 
@@ -57,6 +58,8 @@ _OR:_
 * In your terminal `$npm install`
 
 * Run the app `$npm run start`
+
+* Only the hosted site can access the movie db. Setup instructions for your own Firestore database in the works...
 
 </details>
 
