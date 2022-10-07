@@ -34,7 +34,7 @@ function FilmList(props) {
     </Link>
   );
   if (currentPage > pages - 2) page.push(<Button className="btn-group">...</Button>);
-  for (let i = (currentPage > 3 ? currentPage-3 : 1); i <= (currentPage <= pages-3 ? currentPage+3 : pages); i++) {
+  for (let i = (currentPage > 2 ? currentPage-2 : 1); i <= (currentPage <= pages-2 ? currentPage+2 : pages); i++) {
     page.push(
       <Link to={{
         pathname: `/movies/${i}`
