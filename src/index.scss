@@ -7,8 +7,6 @@
 @media all and (min-width: 0px) and (max-width: 960px) {
   #root {
     zoom: 0.5;
-    margin-bottom: 70vh;
-    min-height: 300vh !important;
   }
   #top-left, #top-right, #bottom-left, #bottom-right {
     display: none;
@@ -31,6 +29,12 @@
   }
   .footer {
     display: none !important;
+  }
+  .container{
+    padding-bottom: 20% !important;
+  }
+  #hidden-br {
+    display: block !important;
   }
 }
 
@@ -132,7 +136,6 @@ small {
   overflow-y: scroll;
   padding-bottom: 5%;
   padding-top: 2.5rem !important;
-  // margin-bottom: 10%;
 }
 
 .CRT-screen {
@@ -671,6 +674,10 @@ hr {
 #rec {
   font-family: MadouFutoMaru;
   font-size: 24px;
+}
+
+#hidden-br {
+  display: none;
 }
 
 .footer {

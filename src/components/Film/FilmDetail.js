@@ -64,6 +64,7 @@ function FilmDetail(props) {
         pathname: `/rent/${film.id}`
       }}><Button>Rent</Button></Link>
       </div>
+      <br id="hidden-br"/>
     </React.Fragment>
   );
 }
