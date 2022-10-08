@@ -39,12 +39,6 @@ function App() {
     return () => unSubscribe();
   }, []);
 
-  useEffect(() => {
-    setTimeout(() => {
-      setTimer((s) => s +1);
-    }, 1000)
-  }, []);
-
   return(
     <React.Fragment>
       <Router>
