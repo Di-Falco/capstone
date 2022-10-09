@@ -7,29 +7,29 @@ import { Container, Form, InputGroup, Row, Col } from "react-bootstrap";
 
 function FilmSearch (props) {
 
-  const [filmList, setFilmList] = useState([]);
+  // const [filmList, setFilmList] = useState(props.filmList);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    const unSubscribe = onSnapshot(
-      collection(db, "movies"),
-      (collectionSnapshot) => {
-        const films = [];
-        collectionSnapshot.forEach((doc) => {
-          films.push({
-            ...doc.data(),
-            id: doc.id
-          });
-        });
-        setFilmList(films);
-      },
-      (error) => {
-        setError(error.message);
-      }
-    );
+  // useEffect(() => {
+  //   const unSubscribe = onSnapshot(
+  //     collection(db, "movies"),
+  //     (collectionSnapshot) => {
+  //       const films = [];
+  //       collectionSnapshot.forEach((doc) => {
+  //         films.push({
+  //           ...doc.data(),
+  //           id: doc.id
+  //         });
+  //       });
+  //       setFilmList(films);
+  //     },
+  //     (error) => {
+  //       setError(error.message);
+  //     }
+  //   );
 
-    return () => unSubscribe();
-  }, []);
+  //   return () => unSubscribe();
+  // }, []);
 
   const [values, setValues] = useState({
     title: "",
@@ -41,7 +41,7 @@ function FilmSearch (props) {
     maxRating: 10
   }); 
 
-  const [searchResults, setSearchResults] = useState(filmList);
+  const [searchResults, setSearchResults] = useState([]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -100,9 +100,9 @@ function FilmSearch (props) {
   }
 
   const search = (values) => {
-    setSearchResults([...filmList]);
+    setSearchResults([...props.filmList]);
     setSearchResults(searchResults => 
-      [...filmList].filter(film => {
+      [...props.filmList].filter(film => {
         return (values.genre !== '' ? film.genres.map(a => a.name).includes(String(values.genre)) : film.genres.length !== 0) &&
         (values.format !== '' ? film.format.includes(String(values.format)) : film.format.length !== 0) &&
         String(film.title).toLowerCase().includes(String(values.title).toLowerCase()) &&
@@ -229,7 +229,7 @@ function FilmSearch (props) {
                   year={film.releaseDate.split("-")[0]} 
                   overview={film.overview} 
                   selectedFilm={film}
-                  filmList={filmList}
+                  filmList={props.filmList}
                   id={film.id}
                   key={film.id}
                 />

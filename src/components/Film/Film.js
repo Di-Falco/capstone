@@ -13,9 +13,8 @@ function Film(props) {
     <Card className="filmCard" onClick = {() => props.whenFilmClicked(props.id)} style={loading ? { display:'none' } : {}}>
       <Card.Img src={props.posterUrl} onLoad={() => setLoading(false)}/>
       <Card.ImgOverlay className="hidden">
-        <Card.Title >{props.title}</Card.Title>
-        <Card.Subtitle>({props.releaseDate.split("-")[0]})</Card.Subtitle>
-        <br />
+        <Card.Title>{props.title}</Card.Title>
+        <Card.Subtitle className="mb-2">({props.releaseDate.split("-")[0]})</Card.Subtitle>
         <Card.Subtitle>{(props.available === "TRUE") ? "Available" : "Unavailable"}</Card.Subtitle>
         <Card.Subtitle className="card-overview mt-2">{(props.overview) ? props.overview : null}</Card.Subtitle>
       </Card.ImgOverlay>

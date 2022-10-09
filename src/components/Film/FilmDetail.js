@@ -43,7 +43,7 @@ function FilmDetail(props) {
       <Header />
       <div className="jumbotron details">
         <Image className="backdrop" src={`${film.backdrop}`} />
-        <h3 className="bottom-left"><em>{film.title}</em></h3>
+        <h3 className="bottom-left" id="title"><em>{film.title}</em></h3>
       </div>
       <div className="container details">  
       <Row>

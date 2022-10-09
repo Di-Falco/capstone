@@ -15,8 +15,8 @@ function SearchResult(props) {
 
   return (
     <React.Fragment>
-      <div id={props.title} className="search-result" onClick={() => handleDisplay(props.title)}>
-        <h1>{props.title} — {props.year}</h1>
+      <div id={String(props.id)} className="search-result" onClick={() => handleDisplay(props.id)}>
+        <h1 id="title">{props.title} — {props.year}</h1>
         <p className="brief-overview">&emsp;{props.overview.slice(0, 90).concat('...')}</p>
         <Row className="stowed">
           <Col sm={10}>
@@ -24,7 +24,7 @@ function SearchResult(props) {
           <br />
           </Col>
           <Col sm={2}>
-            { props.filmList.map(a => a.tmdbId).includes(props.tmdbId) ? <Link to={`/details/${props.id}`}><Button id={props.id} className="details-button">Details</Button></Link> : <Button className="details-button">Select</Button> }
+            { props.filmList.map(a => Number(a.id)).includes(Number(props.id)) ? <Link to={`/details/${props.id}`}><Button id={props.id} className="details-button">Details</Button></Link> : <Button className="details-button" onClick={() => props.handleSelectingFilm(props.id)}>Select</Button> }
           </Col>
         </Row>
       </div>

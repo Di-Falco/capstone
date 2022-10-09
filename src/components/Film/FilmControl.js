@@ -58,9 +58,9 @@ function FilmControl() {
     setSelectedFilm(selection);
   }
 
-  const searchTmdb = async (tmdbId) => {
+  const searchTmdb = async (id) => {
     try {
-      const response = await fetch(`https://api.themoviedb.org/3/movie/${tmdbId}?api_key=7549b759940c60c10f1c789e68a231e9&language=en-US`);
+      const response = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=7549b759940c60c10f1c789e68a231e9&language=en-US`);
       if(!response.ok) {
         throw Error(response.statusText);
       }
@@ -73,7 +73,7 @@ function FilmControl() {
 
   const handleSeedingMovieData = async (movieToEdit) => {
     const movieRef = doc(db, "movies", movieToEdit.id);
-    const response = await searchTmdb(movieToEdit.tmdbId);
+    const response = await searchTmdb(movieToEdit.id);
     movieToEdit.genres = response.genres;
     movieToEdit.language = response.original_language;
     movieToEdit.overview = response.overview;

@@ -438,8 +438,8 @@ input {
   color: #ddd; 
 }
 .card-title {
-  font-family: KindlyRewind;
-  font-size: 20px;
+  font-family: MadouFutoMaru;
+  font-size: 24px;
   text-align: center;
   word-wrap: normal;
   font-style: italic;
@@ -453,7 +453,7 @@ input {
   will-change: filter;
 }
 .card-overview {
-  max-height: 65%;
+  max-height: 60%;
   overflow-y: scroll;
   font-family: MadouFutoMaru;
   font-size: 20px !important;
@@ -531,6 +531,14 @@ input {
   }
 }
 
+#title {
+  font-family: MadouFutoMaru !important;
+  font-weight: 700;
+  em {
+    font-size: 56px !important;
+  }
+}
+
 #rating {
   font-family: MadouFutoMaru !important;
 }
@@ -568,6 +576,7 @@ input {
 }
 
 .select {
+  max-width: 100% !important;
   &:hover {
     color: #000 !important;
     background-color: #bbb !important;
@@ -575,6 +584,8 @@ input {
 }
 .custom-select {
   width: 100%;
+  max-width: 100% !important;
+  word-wrap: break-word;
   max-height: 20vh;
   overflow-y: scroll;
   font-family: MadouFutoMaru;
