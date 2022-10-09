@@ -3,10 +3,11 @@ import { Container, Row, Col, Form, InputGroup } from "react-bootstrap";
 import Header from './../Header';
 import SearchResult from './../Film/SearchResult';
 
-function AddFilm () {
+function AddFilm (props) {
   const [searchResults, setSearchResults] = useState([]);
   const [title, setTitle] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const id = props.filmList.length + 1;
 
   const handleTitleInput = (event) => {
     setTitle(event.target.value);
@@ -61,7 +62,10 @@ function AddFilm () {
                 year={film.release_date ? film.release_date.split("-")[0] : "XXXX"} 
                 overview={film.overview} 
                 selectedFilm={film}
-                id={film.id}
+                filmList={props.filmList}
+                tmdbId={film.id}
+                id={props.filmList.map(a => a.tmdbId).includes(film.id) ? props.filmList.find(b => b.tmdbId === film.id).id : id}
+                // id={10}
                 key={film.id}
               />);
             })

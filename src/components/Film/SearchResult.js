@@ -24,7 +24,7 @@ function SearchResult(props) {
           <br />
           </Col>
           <Col sm={2}>
-            <Link to={`/details/${props.id}`}><Button id={props.id} className="details-button">Details</Button></Link>
+            { props.filmList.map(a => a.tmdbId).includes(props.tmdbId) ? <Link to={`/details/${props.id}`}><Button id={props.id} className="details-button">Details</Button></Link> : <Button className="details-button">Select</Button> }
           </Col>
         </Row>
       </div>
