@@ -433,6 +433,9 @@ input {
   }
 }
 
+.film-card-col {
+  max-width: 33%;
+}
 .card-title, .card-subtitle, .card-text { 
   font-family: KindlyRewind;
   color: #ddd; 
@@ -461,6 +464,7 @@ input {
   margin: 0;
   margin-right: -0.5rem !important;
 }
+
 #be-kind-rewind {
   text-align: justify;
 }

@@ -94,7 +94,7 @@ function AddFilm (props) {
 
   const handleSelectingFilm = async (id) => {
     if ( formats.length === 0 ) { 
-      console.log("no formats"); 
+      $("#status").html(`error: no formats`);
     } else {
       setFormats(formats);
       const stringifiedFormats = formats.join();
@@ -115,6 +115,7 @@ function AddFilm (props) {
         format: stringifiedFormats,
       }
       await setDoc(doc(db, "movies", String(response.id)), movieToAdd);
+      $("#status").html(`added TMDB #${response.id}`);
     }
   }
 
@@ -124,6 +125,7 @@ function AddFilm (props) {
       <Container className="main">
         <Row>
           <Col sm={5} className="search-column" onSubmit={handleSubmit}>
+            <h1 id="status">Add Film</h1>
             <h1>Search TMDB</h1>
             <Form id="searchForm" className="mt-2 mb-2">
               <InputGroup>
