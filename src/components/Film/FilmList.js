@@ -91,7 +91,7 @@ function FilmList(props) {
     <br />
     </React.Fragment>
   ))}
-  {(auth.currentUser && auth.currentUser.email === "aodifalco@gmail.com") ? <Button onClick={() => seedAll(filmList)}>Seed ALL!</Button> : null}
+  { (auth.currentUser && auth.currentUser.email === "aodifalco@gmail.com") ? <Button onClick={() => seedAll(filmList)}>Seed ALL!</Button> : null }
   <div id="pagination">{page}</div>
   <br />
   </Container>

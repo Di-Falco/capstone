@@ -10,13 +10,13 @@ import FilmDetail from './Film/FilmDetail';
 import FilmSearch from './Film/FilmSearch';
 import Account from './Home/Account';
 import Rent from './Film/Rent';
+import AddFilm from './Admin/AddFilm';
 import Footer from './Footer';
 import { BrowserRouter as Router, Routes, Route,  } from 'react-router-dom';
 
 function App() {  
   const [filmList, setFilmList] = useState([]);
   const [error, setError] = useState(null);
-  const [timer, setTimer] = useState(0);
 
   useEffect(() => {
     const unSubscribe = onSnapshot(
@@ -52,6 +52,7 @@ function App() {
               <Route exact path="search/details/:id" element={<FilmDetail filmList={filmList}/> } />
               <Route exact path="/account" element={<Account />} />
               <Route exact path="/rent/:id" element={<Rent filmList={filmList}/>} />
+              <Route exact path="/admin/add" element={<AddFilm filmList={filmList}/>} />
             </Routes>
             <h3 id="top-left">CH13<br /><span id="play">►</span> PLAY<br />0:00:00</h3>
             <h3 id="top-right">TAPE<br /><span id="rec">●</span> REC<br />0:00:00</h3>

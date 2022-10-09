@@ -20,6 +20,13 @@ function Header() {
           <Nav.Item>
             <Nav.Link href="/account">{">Account"}</Nav.Link>
           </Nav.Item>
+          { 
+            (auth.currentUser && auth.currentUser.email === "aodifalco@gmail.com") ? 
+            <NavDropdown title=">Inventory" id="basic-nav-dropdown">
+              <NavDropdown.Item href="/admin/add">Add Movie</NavDropdown.Item>
+            </NavDropdown> : 
+            null
+          }
         </Nav>
         </Navbar.Collapse>
         {(auth.currentUser) ? <p>{auth.currentUser.email}</p> : null}

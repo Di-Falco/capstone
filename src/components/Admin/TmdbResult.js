@@ -2,7 +2,8 @@ import React from "react";
 import { Button, Row, Col } from "react-bootstrap"
 import { Link } from "react-router-dom";
 
-function SearchResult(props) {
+function TmdbResult(props) {
+  const { film } = props;
 
   const handleDisplay = (title) => {
     const parent = document.getElementById(title);
@@ -15,16 +16,16 @@ function SearchResult(props) {
 
   return (
     <React.Fragment>
-      <div id={props.title} className="search-result" onClick={() => handleDisplay(props.title)}>
-        <h1>{props.title} — {props.year}</h1>
-        <p className="brief-overview">&emsp;{props.overview.slice(0, 90).concat('...')}</p>
+      <div id={film.title} className="search-result" onClick={() => handleDisplay(film.title)}>
+        <h1>{film.title} — {film.year}</h1>
+        <p className="brief-overview">&emsp;{film.overview.slice(0, 90).concat('...')}</p>
         <Row className="stowed">
           <Col sm={10}>
-            <p className="full-overview">&emsp;{props.overview}</p>
+            <p className="full-overview">&emsp;{film.overview}</p>
           <br />
           </Col>
           <Col sm={2}>
-            <Link to={`/details/${props.id}`}><Button id={props.id} className="details-button">Details</Button></Link>
+            <Link to={`/details/${film.id}`}><Button id={film.id} className="details-button">Details</Button></Link>
           </Col>
         </Row>
       </div>
@@ -33,4 +34,4 @@ function SearchResult(props) {
   );
 }
 
-export default SearchResult;
+export default TmdbResult;
