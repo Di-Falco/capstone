@@ -4,6 +4,8 @@
 
 _A React webpage for my personal video rental store_ 
 
+#### View the project at <a href='https://movie-db-bd74b.web.app/'>this link</a>
+
 ### Table of Contents
 
 [Technologies Used](#technologies-used)  

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import FilmList from './FilmList';
 import FilmDetail from './FilmDetail';
 import { collection, doc, setDoc, onSnapshot } from 'firebase/firestore';
-import { Container } from 'react-bootstrap';
 import { db } from './../../firebase.js';
 import { useParams } from "react-router-dom";
 

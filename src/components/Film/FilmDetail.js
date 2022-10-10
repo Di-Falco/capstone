@@ -1,7 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Button, Image, Row, Col, Container } from "react-bootstrap";
+import { Button, Image, Row, Col } from "react-bootstrap";
 import { useNavigate, useParams, Link } from "react-router-dom";
+import { auth } from './../../firebase.js';
 import Header from './../Header';
 
 function FilmDetail(props) {
@@ -28,6 +29,9 @@ function FilmDetail(props) {
         break;
       case('Betamax'):
         formatIcons.push(' \\ ');
+        break;
+      default:
+        break;
     }
   }
 
@@ -37,6 +41,9 @@ function FilmDetail(props) {
   }
   starArray.push(` [ ${(Number(film.rating)).toFixed(1)} ]`);
 
+  const seed = async (id) => {
+    console.log("I'm trying!");
+  }
 
   return (
     <React.Fragment>
@@ -63,6 +70,9 @@ function FilmDetail(props) {
       <Link to={{
         pathname: `/rent/${film.id}`
       }}><Button>Rent</Button></Link>
+      { (auth.currentUser && auth.currentUser.email === "aodifalco@gmail.com") ? <Link to={{ pathname: `/admin/edit/${film.id}` }}><Button>Edit</Button></Link> : null }
+      { (auth.currentUser && auth.currentUser.email === "aodifalco@gmail.com") ? <Link to={{ pathname: `/admin/delete/${film.id}` }}><Button>Delete</Button></Link> : null }
+      { (auth.currentUser && auth.currentUser.email === "aodifalco@gmail.com") ? <Button onClick={() => seed(film.id)}>sODA!</Button> : null }
       </div>
       <br id="hidden-br"/>
     </React.Fragment>

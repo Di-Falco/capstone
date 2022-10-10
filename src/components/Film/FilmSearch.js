@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { collection, onSnapshot } from 'firebase/firestore';
-import { db } from './../../firebase.js';
 import SearchResult from "./SearchResult";
 import Header from './../Header';
 import { Container, Form, InputGroup, Row, Col } from "react-bootstrap";
@@ -8,7 +6,7 @@ import { Container, Form, InputGroup, Row, Col } from "react-bootstrap";
 function FilmSearch (props) {
 
   // const [filmList, setFilmList] = useState(props.filmList);
-  const [error, setError] = useState(null);
+  // const [error, setError] = useState(null);
 
   // useEffect(() => {
   //   const unSubscribe = onSnapshot(
@@ -63,7 +61,7 @@ function FilmSearch (props) {
   const handleEndYearInput = (event) => {
     let endYear;
     event.target.value === undefined ? endYear = 0 : endYear = event.target.value;
-    setValues({...values, endYear: event.target.value});
+    setValues({...values, endYear: endYear});
     search(values);
   }
 
