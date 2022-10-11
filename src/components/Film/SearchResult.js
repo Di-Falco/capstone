@@ -24,7 +24,7 @@ function SearchResult(props) {
           <br />
           </Col>
           <Col sm={2}>
-            { props.filmList.map(a => Number(a.id)).includes(Number(props.id)) ? <Link to={`/details/${props.id}`}><Button id={props.id} className="details-button">Details</Button></Link> : <Button className="details-button" onClick={() => props.handleSelectingFilm(props.id)}>Select</Button> }
+            { props.filmList.map(a => Number(a.id)).includes(Number(props.id)) && !props.editing ? <Link to={`/details/${props.id}`}><Button id={props.id} className="details-button">Details</Button></Link> : <Button className="details-button" onClick={() => props.handleSelectingFilm(props.id)}>Select #{props.id}</Button> }
           </Col>
         </Row>
       </div>

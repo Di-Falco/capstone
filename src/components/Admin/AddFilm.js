@@ -4,7 +4,7 @@ import { db } from './../../firebase.js';
 import { Container, Row, Col, Form, InputGroup } from "react-bootstrap";
 import Header from './../Header';
 import SearchResult from './../Film/SearchResult';
-import $ from 'jquery'
+import $ from 'jquery';
 
 function AddFilm (props) {
   const [searchResults, setSearchResults] = useState([]);
@@ -55,7 +55,6 @@ function AddFilm (props) {
     child1.classList.toggle("stowed");
   }
 
-  // slated for deletion
   const handleSubmit = async (event) => {
     event.preventDefault();
   }
