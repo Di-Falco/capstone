@@ -700,23 +700,26 @@ hr {
 
 .footer {
   display: block;
-  width: 400vw;
+  width: 100%;
   height: 2rem;
   position: fixed;
   bottom: 0rem;
   left: 0;
   background: #000;
   color: #bbb;
-  padding-left: -15vw;
-  padding-right: 15vw;
+  padding: 0;
   overflow-x: hidden;
-  animation: footer 30s linear infinite;
   &h4 {
     font-weight: 100 !important;
   }
 }
 
-@keyframes footer {
-  0% {left:0%}
-  100% {left:-63.5vw}
+#footer-left {
+  float: left;
+  display: inline;
+}
+
+#footer-right {
+  float: right;
+  display: inline;
 }

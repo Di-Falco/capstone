@@ -1,22 +1,24 @@
 import React, { useState, useEffect } from 'react';
-import { collection, doc, setDoc, onSnapshot } from 'firebase/firestore';
+import { doc, setDoc } from 'firebase/firestore';
 import { db } from './../../firebase.js';
+import { useParams, Link } from "react-router-dom";
 import Header from './../Header';
-import SearchResult from '../Film/SearchResult';
+// import SearchResult from '../Film/SearchResult';
 import { Container, Row, Col, Form, InputGroup, Button } from 'react-bootstrap';
 import $ from 'jquery';
+import Film from '../Film/Film.js';
 
 function EditFilm (props) {
-  const [searchResults, setSearchResults] = useState([]);
-  const [submitted, setSubmitted] = useState(false);
+  const { id } = useParams();
+  const film = props.filmList.find(film => film.id === id);
   const [title, setTitle] = useState("");
-  const [id, setId] = useState(0);
+  const [filmId, setId] = useState(id);
   const [formats, setFormats] = useState([]);
   let newArray = [];
 
-  useEffect(() => {
-    searchTmdb(title);
-  }, [title]);
+  // useEffect(() => {
+  //   searchTmdb(title);
+  // }, [title]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -28,13 +30,9 @@ function EditFilm (props) {
     child1.classList.toggle("stowed");
   }
 
-  const handleTitleInput = (event) => {
-    setTitle(event.target.value);
-  }
-
-  const handleIdInput = (event) => {
-    setId(event.target.value);
-  }
+  // const handleTitleInput = (event) => {
+  //   setTitle(event.target.value);
+  // }
 
   const handleFormatInput = (value) => {
     console.log(formats);
@@ -61,24 +59,25 @@ function EditFilm (props) {
     }
   }
 
-  const searchTmdb = async (title) => {
-    try {
-      const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=7549b759940c60c10f1c789e68a231e9&language=&query=${title}&page=1&include_adult=false`);
-      if(!response.ok) {
-        throw Error(response.statusText);
-      }
-      const jsonResponse = await response.json();
-      jsonResponse.results ? setSearchResults(jsonResponse.results) : setSearchResults(searchResults);
-      jsonResponse.results ? setSubmitted(true) : setSubmitted(false);
-      return jsonResponse;
-    } catch(error) {
-      return error.message;
-    }
-  } 
+  // const searchTmdb = async (title) => {
+  //   try {
+  //     const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=7549b759940c60c10f1c789e68a231e9&language=&query=${title}&page=1&include_adult=false`);
+  //     if(!response.ok) {
+  //       throw Error(response.statusText);
+  //     }
+  //     const jsonResponse = await response.json();
+  //     jsonResponse.results ? setSearchResults(jsonResponse.results) : setSearchResults(searchResults);
+  //     jsonResponse.results ? setSubmitted(true) : setSubmitted(false);
+  //     return jsonResponse;
+  //   } catch(error) {
+  //     return error.message;
+  //   }
+  // } 
 
-  const handleSelectingFilm = (film) => {
-    setId(film.id);
-  }
+  // const handleSelectingFilm = (film) => {
+  //   setId(film.id);
+  //   $(`#${film.id}`).classList.remove("stowed");
+  // }
 
   const handleEditingFilm = async (id) => {
     if ( formats.length === 0 ) { 
@@ -112,8 +111,8 @@ function EditFilm (props) {
       <Header />
       <Container className="main">
         <Row>
-          <Col sm={5} className="search-column" onSubmit={handleSubmit}>
-          <h1>Search TMDB</h1>
+          <Col sm={7} className="search-column" onSubmit={handleSubmit}>
+          {/* <h1>Search TMDB</h1>
             <Form id="searchForm" className="mt-2 mb-2">
               <InputGroup>
                 <Form.Control 
@@ -121,19 +120,20 @@ function EditFilm (props) {
                   placeholder="title"
                 />
               </InputGroup>
-            </Form>
-            <h1>Input TMDB ID</h1>
+            </Form> */}
+            <h1>TMDB ID</h1>
             <Form id="searchForm" className="mt-2 mb-2">
-              <InputGroup>
+              <InputGroup disabled>
                 <Form.Control 
-                  onChange={handleIdInput}
-                  placeholder="TMDB ID"
+                  placeholder={`tmdb id ${id}`}
+                  value={id}
+                  disabled
                 />
               </InputGroup>
             </Form>
             <h1>Select Formats</h1>
             <Form id="searchForm" className="mt-2 mb-2">           
-              <button className="select" onClick={() => handleDisplay("select2")}>{"Select a Format"}</button>
+              <button className="select" onClick={() => handleDisplay("select2")}>{film.format.split(",").join(" / ")}</button>
               <div className="custom-select" id="select2">
                 <div className="stowed" id="selectOptions1">
                 <button className="select-btn" id="DVD" onClick={() => handleFormatInput('DVD')}>DVD</button>
@@ -144,10 +144,32 @@ function EditFilm (props) {
                 </div>
               </div>
             </Form>
+            <Link to={{
+              pathname: `/admin/delete/${film.id}`
+            }}>
+              <Button>Delete Film</Button>
+            </Link>
+            <br />
             <Button onClick={() => handleEditingFilm(id)}>Submit Edit</Button>
+            <div id="status"></div>
           </Col>
-          <Col sm={7} className="result-column">
-            { submitted ? 
+          <Col sm={5} className="result-column">
+            { film ? 
+              <Film
+                title = {film.title}
+                tagline = {film.tagline}
+                overview = {film.overview}
+                releaseDate = {film.releaseDate+"-0000"}
+                posterUrl = {film.posterUrl}
+                backdrop={film.backdrop}
+                format={film.format}
+                available={film.available}
+                rating={film.rating}
+                id = {film.id}
+                key = {film.id}
+              /> 
+              : null }
+            {/* { submitted ? 
               (searchResults).map(film => {
               return (<SearchResult 
                 editing={true}
@@ -161,7 +183,7 @@ function EditFilm (props) {
                 key={film.id}
               />);
             })
-            : null}
+            : null} */}
           </Col>
         </Row>
       </Container>

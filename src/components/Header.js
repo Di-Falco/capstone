@@ -24,6 +24,7 @@ function Header() {
             (auth.currentUser && auth.currentUser.email === "aodifalco@gmail.com") ? 
             <NavDropdown title=">Inventory" id="basic-nav-dropdown">
               <NavDropdown.Item href="/admin/add">Add Movie</NavDropdown.Item>
+              <NavDropdown.Item href="/movies/search">Search Movies</NavDropdown.Item>
             </NavDropdown> : 
             null
           }

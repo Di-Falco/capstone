@@ -12,6 +12,7 @@ import Account from './Home/Account';
 import Rent from './Film/Rent';
 import AddFilm from './Admin/AddFilm';
 import EditFilm from './Admin/EditFilm';
+import DeleteFilm from './Admin/DeleteFilm';
 import Footer from './Footer';
 import { BrowserRouter as Router, Routes, Route,  } from 'react-router-dom';
 
@@ -55,6 +56,7 @@ function App() {
               <Route exact path="/rent/:id" element={<Rent filmList={filmList}/>} />
               <Route exact path="/admin/add" element={<AddFilm filmList={filmList}/>} />
               <Route exact path="/admin/edit/:id" element={<EditFilm filmList={filmList}/>} />
+              <Route exact path="/admin/delete/:id" element={<DeleteFilm filmList={filmList}/>} />
             </Routes>
             <h3 id="top-left">CH13<br /><span id="play">►</span> PLAY<br />0:00:00</h3>
             <h3 id="top-right">TAPE<br /><span id="rec">●</span> REC<br />0:00:00</h3>
