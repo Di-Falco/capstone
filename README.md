@@ -41,7 +41,7 @@ _Ongoing goals:_
 * _Add user profile customization_
 * _Create seperate search for movies outside of the db_
 * _Add user interactions (ratings, likes / dislikes) to movie detail pages_
-* _Add functionality for admin users to add edit and delete movies from the site_
+* _DONE: Add functionality for admin users to add edit and delete movies from the site_
 * _Refactor nearly everything (stylesheet esp)_
 
 ### Setup and installation Requirements
