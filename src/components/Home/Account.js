@@ -57,7 +57,7 @@ function Account() {
       <p>{signOutSuccess}</p>
       <Row className="mt-2">
       <Col sm={6}>
-      <h1>Accout Set Up</h1>
+      <h1>Account Set Up</h1>
       <Form onSubmit={doSignUp}>
         <InputGroup className="mb-2">
         <Form.Control 
